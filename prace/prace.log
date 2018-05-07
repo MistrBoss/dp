@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.7)  7 MAY 2018 19:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.7)  7 MAY 2018 23:37
 entering extended mode
 **./prace.tex
 (prace.tex
@@ -593,7 +593,7 @@ LaTeX Font Info:    Try loading font information for OT1+phv on input line 73.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
-<graphics/logo/fai_logo_cz.png, id=225, 325.68428pt x 76.49358pt>
+<graphics/logo/fai_logo_cz.png, id=233, 325.68428pt x 76.49358pt>
 File: graphics/logo/fai_logo_cz.png Graphic file (type png)
 <use graphics/logo/fai_logo_cz.png>
 Package pdftex.def Info: graphics/logo/fai_logo_cz.png  used on input line 73.
@@ -811,73 +811,126 @@ Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textring' on input line 222.
 
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 233.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 233.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 233.
+
 [19]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 245.
+(hyperref)                removing `\textasciicaron' on input line 260.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 304.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 304.
 
 [20
 
 ]
-<graphics/one-similarity-thread.png, id=391, 694.09312pt x 60.97781pt>
+<graphics/one-similarity-thread.png, id=403, 694.09312pt x 60.97781pt>
 File: graphics/one-similarity-thread.png Graphic file (type png)
 <use graphics/one-similarity-thread.png>
 Package pdftex.def Info: graphics/one-similarity-thread.png  used on input line
- 302.
+ 332.
 (pdftex.def)             Requested size: 441.01772pt x 38.74559pt.
-<graphics/one-similarity-thread-with-gpu-paralelization.png, id=394, 425.33907p
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 337.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 337.
+
+[21 <./graphics/one-similarity-thread.png>]
+<graphics/one-similarity-thread-with-gpu-paralelization.png, id=412, 425.33907p
 t x 191.21437pt>
 File: graphics/one-similarity-thread-with-gpu-paralelization.png Graphic file (
 type png)
 <use graphics/one-similarity-thread-with-gpu-paralelization.png>
 Package pdftex.def Info: graphics/one-similarity-thread-with-gpu-paralelization
-.png  used on input line 337.
+.png  used on input line 367.
 (pdftex.def)             Requested size: 441.01772pt x 198.2747pt.
- [21 <./graphics/one-similarity-thread.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 342.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hfill' on input line 342.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 342.
+(hyperref)                removing `\textasciicaron' on input line 371.
 
-[22 <./graphics/one-similarity-thread-with-gpu-paralelization.png>] [23
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 371.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 371.
+
+[22 <./graphics/one-similarity-thread-with-gpu-paralelization.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 403.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hfill' on input line 403.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 403.
+
+[23] [24
 
 ]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 345.
+(hyperref)                removing `\textring' on input line 406.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 347.
+(hyperref)                removing `\textring' on input line 408.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 349.
+(hyperref)                removing `\textring' on input line 410.
 
-[24
+[25
 
 
-] [25
+] [26
 
 ]
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 354.
+(hyperref)                removing `\textasciicaron' on input line 415.
 
-) [26
+) [27
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 104.
@@ -885,7 +938,7 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 104.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-(tex/zkratky.tex [27
+(tex/zkratky.tex [28
 
 ]
 
@@ -893,7 +946,7 @@ Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textring' on input line 5.
 
-) [28
+) [29
 
 ]
 
@@ -905,13 +958,13 @@ Package hyperref Warning: Composite letter `\textring+u'
 \tf@lof=\write7
 \openout7 = `prace.lof'.
 
- [29
+ [30
 
 ] (prace.lot)
 \tf@lot=\write8
 \openout8 = `prace.lot'.
 
- [30
+ [31
 
 
 ] (tex/prilohy.tex
@@ -929,7 +982,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--6
 
  []
 
-[31
+[32
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{section.1}) 
 has been already used, duplicate ignored
@@ -938,7 +991,7 @@ has been already used, duplicate ignored
 l.7 \priloha{Název přílohy}
                               )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
- [32
+ [33
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
@@ -946,14 +999,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `prace.out' has not changed.
-(rerunfilecheck)             Checksum: C4FA1B1B7B330057E8ABBCD386505BEC;4145.
+(rerunfilecheck)             Checksum: 74B2BF3DA1097711F96EDC80203FFD01;4408.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
  ) 
 Here is how much of TeX's memory you used:
- 11764 strings out of 493305
- 171350 string characters out of 3138863
+ 11771 strings out of 493305
+ 171460 string characters out of 3138863
  291901 words of memory out of 3000000
- 14997 multiletter control sequences out of 15000+200000
+ 14999 multiletter control sequences out of 15000+200000
  22066 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,1025b,521s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -971,9 +1024,9 @@ our\jknappen\ec\dpi600\ecrm1200.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on prace.pdf (32 pages, 314520 bytes).
+Output written on prace.pdf (33 pages, 320658 bytes).
 PDF statistics:
- 912 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 476 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 933 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
+ 492 words of extra memory for PDF output out of 10000 (max. 10000000)
 

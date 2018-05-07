@@ -206,7 +206,7 @@ Základní myšlenka je osadit do produkčního serveru pracovní grafickou kart
 Základní myšlenka je využít HW osobních PC, kterých je v každé větší firmě požehnaně a neprovádět výpočet na jednom stroji, na každém dostupném stroji.
 
 \n{2}{Zhodnocení variant}
-Zhodnocení vychází z benchmarkingu, který byl vyhodnocen jako pomocná analýza.
+Zhodnocení vychází z benchmarkingu, který byl vyhodnocen jako pomocná analýza. Jako nejvýhodnější varianta pro realizaci vychází PC farma. Jako záložní řešení, lze využít produkční server s výpočtem na CPU. Pokud bude zvolena vhodný programovací jazyk, bude výsledné řešení přenositelné.
 
 \n{3}{Výpočet koeficientů na CPU}
 \begin{itemize}
@@ -230,6 +230,21 @@ Zhodnocení vychází z benchmarkingu, který byl vyhodnocen jako pomocná anal�
 	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 300\%.}
 \end{itemize}
 
+\n{3}{Výpočet koeficientů na PC farmě}
+Výsledek jednoho kancelářského PC je zanedbatelný a nemůže se rovnat předchozím variantám. Vezmeme-li v úvahu, že těchto strojů je k dispozici 16 hodin denně více než 300 kusů, začíná to již vypadat v číslech jinak.
+
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Za 2,5 hodiny spočítá týdenní přírůstek (za předpokladu 300 aktivních PC).}
+	\item {Za část ze zbylé doby týdenního cyklu dále vypočítá 100\% z celkového objemu sto milionu koeficientů.}
+	\item {Pro plné vypočítání všech koeficientů potřebuje celkem 16 hodin, což je v tomto případě 1 den.}
+	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 700\%.}
+\end{itemize}
+
+Samozřejmě s tímto nestandardním krokem je spojená také revize infrastruktury, především kvalita a šířka pásma sítě, centrální správa PC aj, které je nutné v tuto chvíli zanedbat.
+
 \n{1}{Benchmarking}
 Jednotlivé kandidáty pro realizaci klientské části (rozvedené v GAP analýze) podrobíme výkonnostním a srovnávacím testům.
 Základní předpoklady:
@@ -245,6 +260,8 @@ Základní předpoklady:
 \n{2}{Testovací prostředí}
 
 \n{3}{Použitý HW}
+
+\n{4}{Simulace produkčního serveru}
 Při volbě HW k testování byla zvolena pracovní stanice Lenovo, která je svoji sestavou velmi blízko produkčnímu serveru. Vzhledem k tomu, že disponuje starší generací CPU, bylo do ní osazeno i odpovídají GPU, aby bylo možné výsledky aproximovat na reální produkční HW.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -256,6 +273,19 @@ Při volbě HW k testování byla zvolena pracovní stanice Lenovo, která je sv
     \item {RAM 32 GB DDR3 (1066)}
     \item {GPU NVIDIA GeForce GTX 460}
     \item {HDD SAS 10.000 ot}
+\end{itemize}
+
+\n{4}{Simulace klasického PC}
+Alternativní varianta řešení je využít v rozumné míře osobní PC. Cílový konzument řešení disponuje několika více než 300 ks kancelářských PC. Jako testovací vzorek byl vybrán zástupce drtivé většiny těchto PC.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Dell optiplex 780}
+	\item {Operační systém Windows 7 pro 32 bit}
+	\item {CPU Intel Core 2 Duo E7500 2,93 GHz}
+	\item {RAM 4 GB DDR3}
+	\item {HDD SATA 250 GB}
 \end{itemize}
 
 \n{3}{Použitý SW}
@@ -271,7 +301,7 @@ Byly realizovány dva testovací scénáře.
 	\item {Výpočet na CPU s využitím GPU pro paralelizaci vybraných procesů.}
 \end{itemize}
 
-\n{3}{CPU}
+\n{3}{Výpočet koeficientů na CPU}
 Výpočet na CPU byl spuštěn v pěti vláknech. Z počátku vypadal průběh velmi slibně. Bohužel při delším testu se výpočet začal značně propadat. Později se ukázalo, že hlavním důvodem je odložené uvolňování RAM. Jinými slovy dokud byla další volná RAM, výpočet jel velmi rychle. S potřebou uvolnit RAM se výpočet řádově snížil.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -304,7 +334,7 @@ Na obrázku níže (Obr. \ref{fig:one-similarity-thread}) je výstup z profilov�
 Celková zátěž alokovaného HW nebyla příliš slavná. Nepodařilo se efektivně využít CPU, které dosahovalo průměrné zátěže 30\% zejména kvůli neustálé realokaci operační paměti, na kterou čekalo zkrátka vše.
 Úvodní myšlenka využít hrubou sílu produkčního HW se ukázala jako velmi špatná.
 
-\n{3}{CPU + GPU}
+\n{3}{Výpočet koeficientů na CPU s paralelizací na GPU}
 Výpočet byl spuštěn v jednom vlákně na CPU. Vhodné operace pro GPU jsou delegovány pro paralelní zpracování.
 Nejprve bylo na GPU paralelizován pouze úvodní scaling obrázků. To nemělo příliš valný dopad na výsledky. Následně byly paralelizovány na GPU také prováděné transformace obrázků. Právě tento krok měl zásadní vliv na zrychlení celé operace.
 Je zde opět patrný lehký propad krátkodobého testu oproti dlouhodobému.
@@ -337,6 +367,37 @@ Na obrázku níže (Obr. \ref{fig:one-similarity-thread-with-gpu-paralelization}
 \obr {Vizualizace procesu výpočtu koeficientů na CPU s paralelizací na GPU}{fig:one-similarity-thread-with-gpu-paralelization}{1.0}{graphics/one-similarity-thread-with-gpu-paralelization.png}
 
 Zátěž na CPU dosahuje v průměru 5\%. Naopak GPU dosahuje zátěže cca 75\%. Otázkou zůstává, jak dlouho je schopná GPU pracovat pod tímto permanentním zatížením.
+
+\n{3}{Výpočet koeficientů na PC farmě}
+Výpočet byl spuštěn v jednom pracovním vlákně s omezenou možností alokace RAM na 1GB. Jedná se v podstatě o alternativu výpočtu obou koeficientů čistě na CPU. Stejně tak tomu odpovídal i celkový průběh zpracování, který téměř stejný, pouze s nižší dotací vypočítaných dvojic koeficientů.
+Lze tedy přejít rovnou na výsledky, jelikož samotné zpracování nic nového nepřineslo.
+
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Krátkodobý test}
+	\begin{itemize}
+		\setlength{\parskip}{0pt}
+		\setlength{\itemsep}{0pt}
+		\setstretch{1.05}
+		\item {doba: 5 minut}
+		\item {počet opakování testu: 10}
+		\item {průměrně za sekundu: 10 výpočtů obou koeficientů}
+	\end{itemize}
+	\item {Dlouhodobý test}
+	\begin{itemize}
+		\setlength{\parskip}{0pt}
+		\setlength{\itemsep}{0pt}
+		\setstretch{1.05}
+		\item {doba: 6 hodin}
+		\item {počet opakování testu: 10}
+		\item {průměrně za sekundu: 6 výpočtů obou koeficientů}
+	\end{itemize}
+	\item {Propad o 40\%}
+\end{itemize}
+
+Zátěž na CPU je konstantní. Jedno jádro ze dvou jede permanentně na 100\%. Celková zátěž CPU tedy 50\%. Vzhledem k tomu, že stoj již netrpěl na realokaci paměti, je v případě PC úzkým hrdlem opravdu CPU. Ostatní sledované metriky (vytížení HDD, síťový provoz, pracovní teplota) se příliš nevychýlili z normálu.
 
 % ============================================================================ %
 \cast{Projektová část}
