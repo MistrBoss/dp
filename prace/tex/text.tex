@@ -12,6 +12,22 @@ Formátování druhého odstavce. Text text text text text text text text text t
 % ============================================================================ %
 \cast{Teoretická část}
 
+\n{1}{Použité analytické metody}
+
+\n{2}{Diferenční analýza}
+Diferenční analýzu (někdy též Gap analýza) navrhl Igor Ansoff. Skládá se z následujících kroků:
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item{Popis stávajícího stavu}
+	\item{Stanovení cílů (popis cílového stavu)}
+	\item{Určení rozdílu (mezery) mezi stávajícím a cílovým stavem}
+	\item{Návrh variant dosažení cílového stavu (alternativní strategie)}
+	\item{Zhodnocení variant a výběr nevhodnější z nich}
+	\item{V případě potřeby se celý postup opakuje, dokud není dosaženo cílového stavu}
+\end{itemize}
+
 \n{1}{Klasifikace řešených oblastí}
 TODO: navodit téma + uvézt základní škálu
 
@@ -136,14 +152,64 @@ Diskutovány zejména technické možnosti. Kde a jak lze vůbec porovnání fot
 \n{2}{Profesní kruh}
 V kruhu s provozovatelem byly kladeny nejvyšší nároky na flexibilitu a propustnost celého řešení.
 
+\n{1}{Diferenční analýza (GAP analýza)}
 
+\n{2}{Popis současného stavu}
+Je požadováno porovnání rastrových bitmap za účelem identifikace vzájemně podobných fotografií. Řešení je hledáno pro produkční provoz. Konzumentem cílového řešení je webový portál dovolena.cz, který má přibližně dva miliony fotografií. Průměrný počet přístupů k některé fotografii je přibližně 100 přístupů za sekundu. Jedná se především o hotely a jejich okolí. Webový portál slouží spíše jako datový konsolidátor. Nabídka portálu značně ovlivňuje cílové portfolio fotografií. Podle testovacích měření se za jeden týden obmění cca 10\% fotografií z celkového množství. Jako testovací vzorek byl vybrán jeden nejmenovaný hotel a jeho 139 fotografií. Zákazník webového portálu vidí všechny fotografie v nesetříděné galerii. Některé fotografie jsou unikátní, ale většina si je velmi podobná. U některý dokonce nejsou lidským okem patrné rozdíly.
+
+\n{2}{Popis cílového stavu}
+Konsolidované fotografie prezentované klientovi budou v maximální možné míře obsahovat unikátní fotografie. Vzájemně si podobné fotografie budou odfiltrovány a zůstane pouze jedna a to fotografie s nejvyšším indexem zastupitelnosti. Klient nebude čekat na zpracování podobnosti obrázků. Buď budou zpracované, pak klient uvidí jen unikáty, nebo ne a pak uvidí vše v původním stavu. V takovém případě se poměrově zvýší priorita na výpočet podobnosti fotek tohoto hotelu vůči ostatním ve frontě na výpočet. Cílové řešení musí být schopno operovat řádově s jednotkami milionů fotografií s týdenní fluktuací 15\%.
+
+\n{3}{Nefunkční požadavky}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Bezúdržbový systém}
+	\item {Nevyžadující v průběhu času další financování}
+	\item {Minimální vstupní investice}
+	\item {Maximální kompatibility s aktuálním HW}
+\end{itemize}
+
+\n{2}{Rozdíly}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Nově vznikne nástroj pro určení koeficientu podobnosti dvou fotografií.}
+	\item {Nově vznikne nástroj pro určení koeficientu zastupitelnosti vzájemně si podobných fotografií.}
+	\item {Fotografie jednoho hotelu budou oindexovány a vnitřně škálovány do skupin pomocí koeficientů výše.}
+	\item {Dojde k navýšení celkového počtu fotografií.}
+	\item {Zvýší se také fluktuace fotografií (na očekávaných 15\%).}
+\end{itemize}
+
+\n{2}{Návrh variant k dosažení cíle}
+Pilířem celého řešení bude backendová strana cílového konzumenta. Limity a také jednotlivé možnosti pro realizaci jsou velmi omezeny nutností integrovat do současného řešení. Nejen z těchto důvodů má serverová strana spíše podpůrný charakter v projektu jako celku. Její význam je spíše v propojení všech jednotlivých komponent. Dojde tedy k modifikaci existujícího produkčního server-side prostředí. Nově zde poběží služba, která bude
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {poskytovat zadání na určení koeficientů podobnosti a zastupitelnosti,}
+	\item {poskytovat metadata nezbytná pro distribuci výpočtu,}
+	\item {konzumovat výsledek distribuované operace,}
+	\item {kompletovat zpracovaná data do cache vhodné pro silný organický provoz.}
+\end{itemize}
+Naopak klientská strana je naprosto autonomní. Pro realizaci lze použít jak libovolnou platformu, tak libovolné technologie. Jediným technickým limitem je schopnost standardizovaným způsobem komunikovat se serverovou stranou.
+
+\n{3}{Výpočet koeficientů na CPU}
+Základní myšlenka je využít nejdostupnější produkční HW a na zavedeném serveru spustit novou službu. Hlavní výhodou je dostupnost produkčního HW ve vlastním datacentru cílového konzumenta. Podstatnou nevýhodou fakt, že pro určení koeficientů výše není CPU ideální platforma.
+
+\n{3}{Výpočet koeficientů na GPU}
+Základní myšlenka je osadit do produkčního serveru pracovní grafickou kartu a počítat podobnost fotografií na GPU.
+
+\n{3}{Výpočet koeficientů na PC farmě}
+Základní myšlenka je využít HW osobních PC, kterých je v každé větší firmě požehnaně a neprovádět výpočet na jednom stroji, na každém dostupném stroji.
 
 \n{1}{Benchmarking}
-
+Jednotlivé kandidáty pro realizaci klientské části (rozvedené v GAP analýze) podrobíme výkonnostním a srovnávacím testům.
 
 % ============================================================================ %
 \cast{Projektová část}
-
 \n{1}{Distribuovaná služba}
 
 \n{2}{Fronta nezpracovaných obrázků}
