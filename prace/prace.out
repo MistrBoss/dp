@@ -33,15 +33,21 @@
 \BOOKMARK [3][-]{subsubsection.5.4.2}{V\375pocet koeficientu na GPU}{subsection.5.4}% 33
 \BOOKMARK [3][-]{subsubsection.5.4.3}{V\375pocet koeficientu na PC farme}{subsection.5.4}% 34
 \BOOKMARK [1][-]{section.6}{Benchmarking}{}% 35
-\BOOKMARK [1][-]{part.3}{[0.85cm]III Projektov\341 c\341st}{}% 36
-\BOOKMARK [1][-]{section.7}{Distribuovan\341 slu\236ba}{}% 37
-\BOOKMARK [2][-]{subsection.7.1}{Fronta nezpracovan\375ch obr\341zku}{section.7}% 38
-\BOOKMARK [2][-]{subsection.7.2}{Servlet pro sta\236en\355 obr\341zku}{section.7}% 39
-\BOOKMARK [2][-]{subsection.7.3}{Odesl\341n\355 v\375sledku}{section.7}% 40
-\BOOKMARK [1][-]{section.8}{Klient}{}% 41
-\BOOKMARK [1][-]{section*.9}{Z\341ver}{}% 42
-\BOOKMARK [1][-]{section*.9}{Seznam pou\236it\351 literatury}{}% 43
-\BOOKMARK [1][-]{section*.11}{Seznam pou\236it\375ch symbolu a zkratek}{}% 44
-\BOOKMARK [1][-]{section*.11}{Seznam obr\341zku}{}% 45
-\BOOKMARK [1][-]{section*.11}{Seznam tabulek}{}% 46
-\BOOKMARK [1][-]{section*.11}{SEZNAM PR\315LOH}{}% 47
+\BOOKMARK [2][-]{subsection.6.1}{Testovac\355 prostred\355}{section.6}% 36
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Pou\236it\375 HW}{subsection.6.1}% 37
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Pou\236it\375 SW}{subsection.6.1}% 38
+\BOOKMARK [2][-]{subsection.6.2}{V\375sledky testov\341n\355}{section.6}% 39
+\BOOKMARK [3][-]{subsubsection.6.2.1}{CPU}{subsection.6.2}% 40
+\BOOKMARK [3][-]{subsubsection.6.2.2}{CPU + GPU}{subsection.6.2}% 41
+\BOOKMARK [1][-]{part.3}{[0.85cm]III Projektov\341 c\341st}{}% 42
+\BOOKMARK [1][-]{section.7}{Distribuovan\341 slu\236ba}{}% 43
+\BOOKMARK [2][-]{subsection.7.1}{Fronta nezpracovan\375ch obr\341zku}{section.7}% 44
+\BOOKMARK [2][-]{subsection.7.2}{Servlet pro sta\236en\355 obr\341zku}{section.7}% 45
+\BOOKMARK [2][-]{subsection.7.3}{Odesl\341n\355 v\375sledku}{section.7}% 46
+\BOOKMARK [1][-]{section.8}{Klient}{}% 47
+\BOOKMARK [1][-]{section*.9}{Z\341ver}{}% 48
+\BOOKMARK [1][-]{section*.9}{Seznam pou\236it\351 literatury}{}% 49
+\BOOKMARK [1][-]{section*.11}{Seznam pou\236it\375ch symbolu a zkratek}{}% 50
+\BOOKMARK [1][-]{section*.11}{Seznam obr\341zku}{}% 51
+\BOOKMARK [1][-]{section*.11}{Seznam tabulek}{}% 52
+\BOOKMARK [1][-]{section*.11}{SEZNAM PR\315LOH}{}% 53

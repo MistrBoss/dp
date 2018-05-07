@@ -207,6 +207,77 @@ Základní myšlenka je využít HW osobních PC, kterých je v každé větší
 
 \n{1}{Benchmarking}
 Jednotlivé kandidáty pro realizaci klientské části (rozvedené v GAP analýze) podrobíme výkonnostním a srovnávacím testům.
+Základní předpoklady:
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Řádově je celkem potřeba jednorázově odbavit 100 000 000 výpočtů obou koeficientů.}
+	\item {Na týdenní bázi následně odbavovat denní přírůstky (řádově 15 000 000 výpočtů obou koeficientů).}
+	\item {Na denní bázi je to tedy něco přes 2 000 000 výpočtů obou koeficientů.}
+\end{itemize}
+
+\n{2}{Testovací prostředí}
+
+\n{3}{Použitý HW}
+Při volbě HW k testování byla zvolena pracovní stanice Lenovo, která je svoji sestavou velmi blízko produkčnímu serveru. Vzhledem k tomu, že disponuje starší generací CPU, bylo do ní osazeno i odpovídají GPU, aby bylo možné výsledky aproximovat na reální produkční HW.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Lenovo ThinkStation D20}
+	\item {Operační systém Windows 10 pro 64 bit}
+    \item {CPU Intel(R) Xeon(R) X5670 @ 2.93 GHz (2×cpu, 6×core, 12×thread)}
+    \item {RAM 32 GB DDR3 (1066)}
+    \item {GPU NVIDIA GeForce GTX 460}
+    \item {HDD SAS 10.000 ot}
+\end{itemize}
+
+\n{3}{Použitý SW}
+V úvodní fázi projektu probíhal vývoj i testování algoritmů v Mathlabu.
+
+\n{2}{Výsledky testování}
+Byly realizovány dva testovací scénáře.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Výpočet čistě na CPU s maximálním využitím HW.}
+	\item {Výpočet na CPU s využitím GPU pro paralelizaci vybraných procesů.}
+\end{itemize}
+
+\n{3}{CPU}
+Výpočet na CPU byl spuštěn v pěti vláknech. Z počátku vypadal průběh velmi slibně. Bohužel při delším testu se výpočet začal značně propadat. Později se ukázalo, že hlavním důvodem je odložené uvolňování RAM. Jinými slovy dokud byla další volná RAM, výpočet jel velmi rychle. S potřebou uvolnit RAM se výpočet řádově snížil.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Krátkodobý pěti minutový test zvládl v průměru z 10 měření 205 výpočtů obou koeficientů za sekundu.}
+	\item {Dlouhodobý šesti hodinový test zvládl v průměru z 10 měření 31 výpočtů obou koeficientů za sekundu.}
+\end{itemize}
+
+Na obrázku níže (Obr. \ref{fig:one-similarity-thread}) je výstup z profilování výpočtu na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
+\obr{Vizualizace procesu výpočtu koeficientů na CPU}{fig:one-similarity-thread}{1.0}{graphics/one-similarity-thread.png}
+
+Celková zátěž alokovaného HW nebyla příliš slavná. Nepodařilo se efektivně využít CPU, které dosahovalo průměrné zátěže 30\% zejména kvůli neustálé realokaci operační paměti, na kterou čekalo zkrátka vše.
+Úvodní myšlenka využít hrubou sílu produkčního HW se ukázala jako velmi špatná.
+
+\n{3}{CPU + GPU}
+Výpočet byl spuštěn v jednom vlákně na CPU. Vhodné operace pro GPU jsou delegovány pro paralelní zpracování.
+Nejprve bylo na GPU paralelizován pouze úvodní scaling obrázků. To nemělo příliš valný dopad na výsledky. Následně byly paralelizovány na GPU také prováděné transformace obrázků. Právě tento krok měl zásadní vliv na zrychlení celé operace.
+Je zde opět patrný lehký propad krátkodobého testu oproti dlouhodobému.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Krátkodobý pětiminutový test dosáhl v průměru z deseti měření 617 výpočtů za sekundu.}
+	\item {Dlouhodobý šestihodinový test dosáhl v průměru z deseti měření 559 výpočtů za sekundu.}
+\end{itemize}
+
+Na obrázku níže (Obr. \ref{fig:one-similarity-thread-with-gpu-paralelization}) je výstup z profilování výpočtu na CPU s využitím GPU pro paralelizací dlouhotrvajících operací na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
+\obr {Vizualizace procesu výpočtu koeficientů na CPU s paralelizací na GPU}{fig:one-similarity-thread-with-gpu-paralelization}{1.0}{graphics/one-similarity-thread-with-gpu-paralelization.png}
+
+Zátěž na CPU dosahuje v průměru 5\%. Naopak GPU dosahuje zátěže cca 75\%. Otázkou zůstává, jak dlouho je schopná GPU pracovat pod tímto permanentním zatížením.
 
 % ============================================================================ %
 \cast{Projektová část}
