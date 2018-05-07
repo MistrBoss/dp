@@ -199,11 +199,36 @@ Naopak klientská strana je naprosto autonomní. Pro realizaci lze použít jak 
 \n{3}{Výpočet koeficientů na CPU}
 Základní myšlenka je využít nejdostupnější produkční HW a na zavedeném serveru spustit novou službu. Hlavní výhodou je dostupnost produkčního HW ve vlastním datacentru cílového konzumenta. Podstatnou nevýhodou fakt, že pro určení koeficientů výše není CPU ideální platforma.
 
-\n{3}{Výpočet koeficientů na GPU}
+\n{3}{Výpočet koeficientů na CPU s paralelizací na GPU}
 Základní myšlenka je osadit do produkčního serveru pracovní grafickou kartu a počítat podobnost fotografií na GPU.
 
 \n{3}{Výpočet koeficientů na PC farmě}
 Základní myšlenka je využít HW osobních PC, kterých je v každé větší firmě požehnaně a neprovádět výpočet na jednom stroji, na každém dostupném stroji.
+
+\n{2}{Zhodnocení variant}
+Zhodnocení vychází z benchmarkingu, který byl vyhodnocen jako pomocná analýza.
+
+\n{3}{Výpočet koeficientů na CPU}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Za necelých 6 dní spočítá týdenní přírůstek.}
+	\item {Za zbylou dobu z týdenního cyklu dále vypočítá přibližně 3,7\% z celkového objemu sto milionu koeficientů.}
+	\item {Pro plné vypočítání všech koeficientů potřebuje dalších cca 27 týdnů.}
+	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 18\%.}
+\end{itemize}
+
+\n{3}{Výpočet koeficientů na CPU s paralelizací na GPU}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Za necelých 8 hodin spočítá týdenní přírůstek.}
+	\item {Za část ze zbylé doby týdenního cyklu dále vypočítá 100\% z celkového objemu sto milionu koeficientů.}
+	\item {Pro plné vypočítání všech koeficientů potřebuje celkem 2 dny.}
+	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 300\%.}
+\end{itemize}
 
 \n{1}{Benchmarking}
 Jednotlivé kandidáty pro realizaci klientské části (rozvedené v GAP analýze) podrobíme výkonnostním a srovnávacím testům.
