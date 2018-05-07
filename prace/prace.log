@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.7)  7 MAY 2018 16:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.7)  7 MAY 2018 16:58
 entering extended mode
 **./prace.tex
 (prace.tex
@@ -803,7 +803,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 File: graphics/one-similarity-thread.png Graphic file (type png)
 <use graphics/one-similarity-thread.png>
 Package pdftex.def Info: graphics/one-similarity-thread.png  used on input line
- 260.
+ 277.
 (pdftex.def)             Requested size: 441.01772pt x 38.74559pt.
 <graphics/one-similarity-thread-with-gpu-paralelization.png, id=375, 425.33907p
 t x 191.21437pt>
@@ -811,43 +811,39 @@ File: graphics/one-similarity-thread-with-gpu-paralelization.png Graphic file (
 type png)
 <use graphics/one-similarity-thread-with-gpu-paralelization.png>
 Package pdftex.def Info: graphics/one-similarity-thread-with-gpu-paralelization
-.png  used on input line 278.
+.png  used on input line 312.
 (pdftex.def)             Requested size: 441.01772pt x 198.2747pt.
+ [20 <./graphics/one-similarity-thread.png>]
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 317.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 283.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hfill' on input line 283.
+(hyperref)                removing `\hfill' on input line 317.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 283.
+(hyperref)                removing `\textasciicaron' on input line 317.
 
-[20 <./graphics/one-similarity-thread.png>] [21 <./graphics/one-similarity-thre
-ad-with-gpu-paralelization.png>] [22
+[21 <./graphics/one-similarity-thread-with-gpu-paralelization.png>] [22
 
 ]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 286.
+(hyperref)                removing `\textring' on input line 320.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 288.
+(hyperref)                removing `\textring' on input line 322.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 290.
+(hyperref)                removing `\textring' on input line 324.
 
 [23
 
@@ -858,7 +854,7 @@ Package hyperref Warning: Composite letter `\textring+u'
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 295.
+(hyperref)                removing `\textasciicaron' on input line 329.
 
 ) [25
 
@@ -954,7 +950,7 @@ our\jknappen\ec\dpi600\ecrm1200.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on prace.pdf (31 pages, 310547 bytes).
+Output written on prace.pdf (31 pages, 310667 bytes).
 PDF statistics:
  891 PDF objects out of 1000 (max. 8388607)
  95 named destinations out of 1000 (max. 500000)

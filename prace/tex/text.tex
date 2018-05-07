@@ -252,8 +252,25 @@ Výpočet na CPU byl spuštěn v pěti vláknech. Z počátku vypadal průběh v
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Krátkodobý pěti minutový test zvládl v průměru z 10 měření 205 výpočtů obou koeficientů za sekundu.}
-	\item {Dlouhodobý šesti hodinový test zvládl v průměru z 10 měření 31 výpočtů obou koeficientů za sekundu.}
+	\item {Krátkodobý test}
+		\begin{itemize}
+			\setlength{\parskip}{0pt}
+			\setlength{\itemsep}{0pt}
+			\setstretch{1.05}
+			\item {doba: 5 minut}
+			\item {počet opakování testu: 10}
+			\item {průměrně za sekundu: 205 výpočtů obou koeficientů}
+		\end{itemize}
+	\item {Dlouhodobý test}
+		\begin{itemize}
+			\setlength{\parskip}{0pt}
+			\setlength{\itemsep}{0pt}
+			\setstretch{1.05}
+			\item {doba: 6 hodin}
+			\item {počet opakování testu: 10}
+			\item {průměrně za sekundu: 31 výpočtů obou koeficientů}
+		\end{itemize}
+	\item {Propad o 85\%}
 \end{itemize}
 
 Na obrázku níže (Obr. \ref{fig:one-similarity-thread}) je výstup z profilování výpočtu na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
@@ -270,8 +287,25 @@ Je zde opět patrný lehký propad krátkodobého testu oproti dlouhodobému.
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Krátkodobý pětiminutový test dosáhl v průměru z deseti měření 617 výpočtů za sekundu.}
-	\item {Dlouhodobý šestihodinový test dosáhl v průměru z deseti měření 559 výpočtů za sekundu.}
+	\item {Krátkodobý test}
+		\begin{itemize}
+			\setlength{\parskip}{0pt}
+			\setlength{\itemsep}{0pt}
+			\setstretch{1.05}
+			\item {doba: 5 minut}
+			\item {počet opakování testu: 10}
+			\item {průměrně za sekundu: 617 výpočtů obou koeficientů}
+		\end{itemize}
+	\item {Dlouhodobý test}
+		\begin{itemize}
+			\setlength{\parskip}{0pt}
+			\setlength{\itemsep}{0pt}
+			\setstretch{1.05}
+			\item {doba: 6 hodin}
+			\item {počet opakování testu: 10}
+			\item {průměrně za sekundu: 559 výpočtů obou koeficientů}
+		\end{itemize}
+	\item {Propad o 10\%}
 \end{itemize}
 
 Na obrázku níže (Obr. \ref{fig:one-similarity-thread-with-gpu-paralelization}) je výstup z profilování výpočtu na CPU s využitím GPU pro paralelizací dlouhotrvajících operací na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
