@@ -3,8 +3,8 @@
 \contentsline {section}{\makebox [0.85cm]{I\hfill } Teoretick\IeC {\'a} \IeC {\v c}\IeC {\'a}st}{9}{part.1}
 \contentsline {section}{\numberline {1}Koeficient podobnosti dvou fotografi\IeC {\'\i }}{11}{section.1}
 \contentsline {subsection}{\numberline {1.1}Zm\IeC {\v e}na velikosti fotografie}{11}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}P\IeC {\v r}evod fotografie do sv\IeC {\v e}tlostn\IeC {\'\i } matice}{12}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}P\IeC {\v r}evod fotografie do vlnov\IeC {\'e}ho spektra}{13}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.2}P\IeC {\v r}evod na sv\IeC {\v e}tlostn\IeC {\'\i } matici}{12}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}P\IeC {\v r}evod do vlnov\IeC {\'e}ho spektra}{13}{subsection.1.3}
 \contentsline {subsection}{\numberline {1.4}K\IeC {\v r}\IeC {\'\i }\IeC {\v z}ov\IeC {\'a} korelace (Cross correlation method)}{13}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}P\IeC {\v r}evod zp\IeC {\v e}t z vlnov\IeC {\'e}ho spektra}{13}{subsection.1.5}
 \contentsline {section}{\numberline {2}Pou\IeC {\v z}it\IeC {\'e} analytick\IeC {\'e} metody}{14}{section.2}

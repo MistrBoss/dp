@@ -14,14 +14,14 @@ Formátování druhého odstavce. Text text text text text text text text text t
 
 \n{1}{Koeficient podobnosti dvou fotografií}
 Základní ukazatelem, který bude v této práci řešen je koeficient podobnosti (dále jen KoP). KoP leží na intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na základě testovacích pokusů stanoven na $ <0,007, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5 \cite{md5}.
-Výpočet KoP provedeme v šestli krocích, z čehož jsou čtyři kroky přípravné (optimalizační) a pouze dva kroky reálně ovlivňují výsledný KoP.
+Výpočet KoP provedeme v šesti krocích, z čehož jsou čtyři kroky přípravné (optimalizační) a pouze dva kroky reálně ovlivňují výsledný KoP.
 \begin{enumerate}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
 	\item {Změna velikosti fotografie}
-	\item {Převod fotografie do světlostní matice}
-	\item {Převod fotografie do vlnového spektra}
+	\item {Převod na světlostní matici}
+	\item {Převod do vlnového spektra}
 	\item {Křížová korelace (Cross correlation method)}
 	\item {Převod zpět z vlnového spektra}
 	\item {Výpočet KoP z výsledné matice}
@@ -51,7 +51,7 @@ Takto připravené fotografie nejsou při dalším zpracování komutativní, po
 
 Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedena ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
 
-\n{2}{Převod fotografie do světlostní matice}
+\n{2}{Převod na světlostní matici}
 Světlostní matice je fotografie co by rastrová bitmapa převedená do dvourozměrné matice (někdy též šedotónový obraz; v anglicky psaných textech k nalezení pod názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu \cite{brightness-matrix}. Každý bod původní fotografie - pixel \cite{pixel} (dále jen px) je z RGB \cite{rgb} hodnot převeden na hodnotu intenzity jasové funkce.
 
 Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu $ <0,255> $.
@@ -66,7 +66,18 @@ Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu
 
 Výsledná hodnota intenzity jasové funkce px se spočítá jako střední hodnota z hodnot jednotlivých složek px (R, G a B). Jak napovídá interval možných hodnot, jeden px převedený na prvek světlostní matice zabírá v operační paměti 1 Byte (1 Byte = 8 bit => osmibitová barevná hloubka => 256 stupňů šedi). Na jedenu plnou referenční fotografii je tedy potřeba 75 KB.
 
-\n{2}{Převod fotografie do vlnového spektra}
+\n{2}{Převod do vlnového spektra}
+Převodem do vlnového spektra dosáhneme zajímavé výkonností optimalizace \cite{FFT}. Kdybychom tento krok z celého procesu výpočtu KoP vynechali (stejně jako následně nezbytný převod zpět z vlnového spektra), museli bychom udělat křížovou korelaci v normálním spektru. Tzn. $ O(n^4) $ operací, kde $ n $ je velikost strany čtvercové matice.
+
+Pokud ale nejprve provedeme dopřednou Fourierovu transformaci (DFT) pro převod do vlnového spektra, a až následně křížovou korelaci, ušetříme jeden řád hodnosti počtu operací. Budeme potřebovat $ O(n^3 * logn) $ operací. To je za předpokladu matice reprezentující 200 × 200 px fotografii rozdíl dvou řádů operací.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item{Klasické spektrum: $ 200^4 = 1.6 * 10^9 $ operací}
+	\item{Vlnové spektrum: $ 200^3 * log 200 = 6.1 * 10^7 $ operací}
+\end{itemize}
+
 \n{2}{Křížová korelace (Cross correlation method)}
 \n{2}{Převod zpět z vlnového spektra}
 
@@ -80,7 +91,7 @@ Křížová korelace ve vlnovém spektru
 
 Úspora převodem 
 v normálním spektru křížová korelace je operací O(n\^4); n je jedna strana obrazové matice (čtvercové)
-ve vlnovém spektru křížová korelace je operací O(n\^3*logn)
+ve vlnovém spektru křížová korelace je operací 
 
 Úspora je oproti původním 
 
