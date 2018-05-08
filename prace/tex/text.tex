@@ -12,6 +12,68 @@ Formátování druhého odstavce. Text text text text text text text text text t
 % ============================================================================ %
 \cast{Teoretická část}
 
+\n{1}{Koeficient podobnosti dvou fotografií}
+Základní ukazatelem, který bude v této práci řešen je koeficient podobnosti (dále jen KoP). KoP leží na intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na základě testovacích pokusů stanoven na $ <0,007, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5 \cite{md5}.
+Výpočet KoP provedeme v šestli krocích, z čehož jsou čtyři kroky přípravné (optimalizační) a pouze dva kroky reálně ovlivňují výsledný KoP.
+\begin{enumerate}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Změna velikosti fotografie}
+	\item {Převod fotografie do normalizované matice}
+	\item {Převod fotografie do vlnového spektra}
+	\item {Křížová korelace (Cross correlation method)}
+	\item {Převod zpět z vlnového spektra}
+	\item {Výpočet KoP z výsledné matice}
+\end{enumerate}
+Body 1 - 3 slouží jako přípravné a aplikují se na obě fotografie (vzorová a referenční). Do bodu 4 tedy vstupují dvě matice (pro každou fotografii jedna). Výstupem 4. bodu je již jen jedna matice, která je v bodě 6 vyhodnocena do výsledného KoP.
+
+\n{2}{Změna velikosti fotografie}
+Jedná se o nezbytný přípravný krok, jehož cílem sjednotit u obou fotografií počet bodů a tím pádem také počet prvků v maticích, které vzniknou v následujícím kroku výpočtu KoP.
+Jako referenční velikost byla stanovena
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item Šířka: 320 px,
+	\item Výška: 240 px,
+\end{itemize}
+které vyšli jako nejvhodnější kompromis mezi relevancí výsledku a HW časem nutným k jeho zpracování.
+
+Změna velikosti vzorové fotografie na $ [320 × ?] $ nebo $ [? × 240] $ se provádí v závislosti delší straně. Kratší strana je dopočítána podle původního poměru stran. Výsledný rozměr není doplněn nulami na plnou referenční velikost $ [320 × 240] $. Vzorová fotografie tedy určuje velikost, na kterou musíme upravit referenční fotografii. Pokud má referenční fotografie jiný poměr stran, bude doplněna nulami, aby nevznikaly prázdná místa.
+
+Takto připravené fotografie nejsou při dalším zpracování komutativní, pokud mají vzájemně jiný poměr stran. V důsledku to znamená, že se musí porovnat fotografie v obou směrech (jak vzorová vůči referenční, tak referenční vůči vzorové). Můžete si to ukázat na příkladu (Obr. \ref{fig:static-scaling}) a (Obr. \ref{fig:dynamic-scaling}).
+
+
+\obr{Statický scaling obrázků (je komutativní)}{fig:static-scaling}{1.0}{graphics/static-scaling.png}
+
+\obr{Dynamický scaling obrázků (není komutativní)}{fig:dynamic-scaling}{1.0}{graphics/dynamic-scaling.png}
+
+Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedena ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
+
+\n{2}{Převod fotografie do normalizované matice}
+\n{2}{Převod fotografie do vlnového spektra}
+\n{2}{Křížová korelace (Cross correlation method)}
+\n{2}{Převod zpět z vlnového spektra}
+
+FFTW
+používá matlab i java
+
+
+Světlostní matice
+Šedotónový obraz je jako dvojrozměrná diskrétní veličina v počítači reprezentován maticí řádu 2. Řádky a sloupce matice určují samotnou obrazovou rovinu, prvky matice pak jasové hodnoty v příslušném obrazovém bodě (pixel). Pokud jde o šedotónový obraz (někdy nesprávně označován jako černobílý), jsou jednotlivé prvky matice tvořeny skalárem udávající hodnotu intenzity jasové funkce. Takový šedotónový obraz je zpravidla uložen v paměti počítače v osmibitové barevné hloubce tj. se 256 stupni šedi. Na každý obrazový bod je tedy zapotřebí 1 Byte paměti. Reprezentaci matice dat při zpracování diskrétního šedotónového obrazu o rozměru 8x8 pixelů ukazuje následující obrázek.
+
+Křížová korelace ve vlnovém spektru
+- FT převede do vlnového spektra
+- pak proběhne křížová korelace
+- IFT pak převede zpět z vlnového spektra
+
+Úspora převodem 
+v normálním spektru křížová korelace je operací O(n\^4); n je jedna strana obrazové matice (čtvercové)
+ve vlnovém spektru křížová korelace je operací O(n\^3*logn)
+
+Úspora je oproti původním 
+
 \n{1}{Použité analytické metody}
 
 \n{2}{Diferenční analýza}
@@ -114,13 +176,6 @@ Test “rozmazanosti” fotky, konvoluce s vhodným (nutné testování) jádrem
 \n{4}{Rozlišení fotografie}
 Pouze klasická velikost fotky (větší ⇔ lepší).
 
-\n{1}{Další nadpis}
-Tato sekce obsahuje ukázku vložení obrázku (Obr. \ref{fig:logo}).
-
-% Obrázek lze vkládat pomocí následujícího zjednodušeného stylu, nebo klasickým LaTex způsobem
-% Pozor! Obrázek nesmí obsahovat alfa kanál (průhlednost). Jde to proti standardu PDF/A.
-\obr{Popisek obrázku}{fig:logo}{0.5}{graphics/logo/fai_logo_cz.png}
-
 
 \n{2}{Podnadpis}
 Tato sekce obsahuje ukázku vložení tabulky (Tab. \ref{tab:priklad}).
@@ -131,11 +186,6 @@ Tato sekce obsahuje ukázku vložení tabulky (Tab. \ref{tab:priklad}).
    & 1 & 2 & 3 & 4 & 5 & Cena [Kč] \\ \hline
   \emph{F} & (jedna) & (dva) & (tři) & (čtyři) & (pět) & 300 \\ \hline
 }
-
-\n{3}{Podpodnadpis}
-
-\n{3}{Podpodnadpis}
-Citace knihy. \cite{chmel}
 
 
 % ============================================================================ %
@@ -289,7 +339,202 @@ Alternativní varianta řešení je využít v rozumné míře osobní PC. Cílo
 \end{itemize}
 
 \n{3}{Použitý SW}
-V úvodní fázi projektu probíhal vývoj i testování algoritmů v Mathlabu.
+V úvodní fázi projektu probíhal vývoj i testování algoritmů v Mathlabu. Mathlab vnitřně používá pro zpracování knihovnu FFTW \cite{fftw}. Právě tato khihovna má dostupnou nativní implementaci v CMake \cite{cmake}. Dále má pro spoustu programovacích jazyků připravený wrapper.
+
+\n{4}{CPU}
+\begin{verbatim}
+	close all; clc; clear;
+	
+	method = 'nearest';
+	
+	type = 'single';
+	
+	n = 35; %podle počtu obrázků...
+	
+	%obrázky
+	im_gpu = cell(1, n);
+	
+	h = zeros(1, n, type);
+	w = zeros(1, n, type);
+	
+	s0 = 'hotel_images\aa';
+	
+	%nahrávání obrázků
+	tic
+	for i = 1:n
+	    if i < 10
+	        s = [s0,'0',int2str(i),'.tif'];
+	    else
+	        s = [s0,int2str(i),'.tif'];
+	    end;
+	
+	    im = single(imread(s)); %nahrání obrázku a převod
+	
+	    [n1,n2,n3] = size(im);
+	    h(i) = n1;
+	    w(i) = n2;
+	    im_gpu{i} = im; %nahrání obrázku
+	end;
+	disp('Nahrávání všech obrázků:');
+	toc
+	
+	%převádění obrázků na jasové matice
+	for i=1:n
+	    im_gpu{i} = sum(im_gpu{i}, 3) ./ 3; %převod na jasovou matici
+	end;
+	disp('Převod všech obrázků na jasovou matici:');
+	toc
+	
+	log_cpu = zeros(n, n, type);
+	
+	for i=1:n
+	    %ft prvního obrázku
+	    ft1 = fft2(im_gpu{i});
+	    ft1Norm = ft1 ./ abs(ft1);
+	
+	    for j=1:n
+	        if i==j
+	        continue;
+	        end;
+	
+	        scale = min(h(i)/h(j), w(i)/w(j));
+	        h2 = round(scale * h(j));
+	        h2 = min(h2, h(i));
+	        w2 = round(scale * w(j));
+	        w2 = min(w2, w(i));
+	
+	        im2Sc = imresize(im_gpu{j}, [h2, w2], method);
+	
+	        %doplnění druhého obrázku nulami na jednotnou velikost
+	        im2 = zeros(h(i), w(i), type);
+	        im2(1:h2, 1:w2) = im2Sc;
+	
+	        %ft druhého obrázku
+	        ft2 = fft2(im2);
+	        ft2Norm = ft2 ./ abs(ft2);
+	
+	        %křížová korelace ve vlnovém spektru
+	        ccW = ft1Norm .* conj(ft2Norm);
+	
+	        %převod do obyčejného souřadnicového systému
+	        ccC = real(ifft2(ccW));
+	
+	        %hledání maximálního korelačního koeficientu
+	        ccCMax = max(ccC);
+	        ccCMax = max(ccCMax);
+	        log_cpu(i,j) = ccCMax;
+	        disp(['obr1: ',int2str(i),';  obr2: ',int2str(j)]);
+	    end;
+	end;
+	disp(['Cyklus ',int2str(n),' obrázků:']);
+	time = toc
+	
+	clearvars -except log_cpu;
+\end{verbatim}
+maximální koeficient ccCMax
+
+\n{4}{GPU}
+\begin{verbatim}
+	%method = '_nearest';
+	%method = '_biquadr';
+	method = '_bicubic';
+	
+	type = 'single'; %změnit zde a na ř. 32
+	
+	n = 35;
+	
+	path = 'kernels\ImgScale\ImgScale\kernel_';
+	kernel = parallel.gpu.CUDAKernel([path, type, method, '.ptx'], [path, type, method, '.cu']);
+	
+	%obrázky
+	im_gpu = cell(1,n);
+	
+	h = zeros(1, n, type);
+	w = zeros(1, n, type);
+	
+	s0 = 'hotel_images\aa';
+	
+	%nahrávání obrázků na grafiku
+	tic
+	for i = 1:n
+		if i < 10
+			s = [s0,'0',int2str(i),'.tif'];
+		else
+			s = [s0,int2str(i),'.tif'];
+	end
+	
+	im = single(imread(s)); %nahrání obrázku a převod
+	
+	[n1,n2,n3] = size(im);
+	h(i) = n1;
+	w(i) = n2;
+	im_gpu{i} = gpuArray(im); %nahrání obrázku na grafiku
+	end
+	disp('Nahrávání všech obrázků do paměti grafiky:');
+	toc
+	
+	%převádění obrázků na jasové matice
+	for i=1:n
+		im_gpu{i} = sum(im_gpu{i}, 3) ./ 3; %převod na jasovou matici
+	end;
+	disp('Převod všech obrázků na jasovou matici:');
+	toc
+	
+	log = zeros(n, n, type, 'gpuArray');
+	
+	%cyklus
+	for i=1:n
+		%ft prvního obrázku
+		ft1 = fft2(im_gpu{i});
+		ft1Norm = ft1 ./ abs(ft1);
+	
+		for j=1:n
+			if i==j
+			continue;
+		end;
+	
+		scale = (min(h(i)/h(j), w(i)/w(j)));
+		h2 = round(scale * h(j));
+		h2 = min(h2, h(i));
+		w2 = round(scale * w(j));
+		w2 = min(w2, w(i));
+		scale_h = h(j)/h2;
+		scale_w = w(j)/w2;
+	
+		%im2Sc = imresize(im_gpu{j}, scale);
+	
+		im2Sc = zeros(h2, w2, type, 'gpuArray');
+		kernel.GridSize = w2;
+		kernel.ThreadBlockSize = h2;
+		im2Sc = feval(kernel, im2Sc, im_gpu{j}, int32(h(j)), int32(w(j)), scale_h, scale_w);
+	
+		%doplnění druhého obrázku nulami na jednotnou velikost
+		im2 = zeros(h(i), w(i), type, 'gpuArray');
+		im2(1:h2, 1:w2) = im2Sc;
+	
+		%ft druhého obrázku
+		ft2 = fft2(im2);
+		ft2Norm = ft2 ./ abs(ft2);
+	
+		%křížová korelace ve frekvenčním spektru
+		ccW = ft1Norm .* conj(ft2Norm);
+	
+		%převod do obyčejného souřadnicového systému
+		ccC = real(ifft2(ccW));
+	
+		%hledání maximálního korelačního koeficientu
+		ccCMax = max(ccC);
+		ccCMax = max(ccCMax);
+		log(i,j) = ccCMax;
+		disp(['obr1: ',int2str(i),';  obr2: ',int2str(j)]);
+	end
+end
+		disp(['Cyklus ',int2str(n),' obrázků:']);
+	log_gpu = gather(log);
+	toc
+	
+	clearvars -except log_gpu;
+\end{verbatim}
 
 \n{2}{Výsledky testování}
 Byly realizovány dva testovací scénáře.
@@ -417,3 +662,4 @@ Text závěru
 
 
 % ============================================================================ %
+f

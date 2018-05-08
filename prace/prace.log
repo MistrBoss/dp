@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.7)  7 MAY 2018 23:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.2)  8 MAY 2018 19:09
 entering extended mode
 **./prace.tex
 (prace.tex
@@ -33,13 +33,13 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\utf8x.def
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\utf8x.def
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 ))
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\ucs.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\ucs.sty
 Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
 
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-global.def
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-global.def
 File: uni-global.def 2013/05/13 UCS: Unicode global data
 )
 \uc@secondtry=\count87
@@ -137,7 +137,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyhdr\fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
 s
 \f@nch@headwidth=\skip46
@@ -149,7 +149,8 @@ s
 \f@nch@O@erf=\skip52
 \f@nch@O@olf=\skip53
 \f@nch@O@orf=\skip54
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\tocloft\tocloft.sty
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\tocloft\tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 51.
 \cftparskip=\skip55
@@ -186,31 +187,35 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cfttabindent=\skip84
 \cfttabnumwidth=\skip85
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\textcase\textcase.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\textcase\textcase.sty
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ccaption\ccaption.st
-y
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ccaption\ccaption.sty
 Package: ccaption 2011/08/07 v3.2c Extended captioning and new floats
 \@contcwidth=\skip86
 \@contindw=\skip87
 \abovelegendskip=\skip88
 \belowlegendskip=\skip89
 \c@newflo@tctr=\count102
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\sectsty\sectsty.sty
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\sectsty\sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\examplep\examplep.st
-y
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\examplep\examplep.sty
 Package: examplep 2010/02/03 v0.04 Verbatim and typeset TeX code
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\examplep\verbfwr.sty
+
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\examplep\verbfwr.sty
 Package: verbfwr 2003/09/25 v0.02 Verbatim file write
 \verbfwr@writefile=\write3
-)) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+))
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -330,16 +335,17 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip90
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\chngcntr\chngcntr.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\chngcntr\chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.st
-y
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count113
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen118
@@ -373,16 +379,17 @@ ontpre {\@contnfont #1\@contdelim }\@conttempa {\@contcstyle \@conttfont #2\par
  } \fi \fi \@contpost \if@contcw \par } \fi \vskip \belowcaptionskip .
 \c@ContinuedFloat=\count114
 Package caption Info: hyperref package is loaded.
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\xmpincl\xmpincl.sty
+) (C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\xmpincl\xmpincl.sty
 Package: xmpincl 2008/05/10 v2.2 Include XMP data in pdflatex
-) (C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\hyperxmp\hyperxmp.st
-y
+)
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\hyperxmp\hyperxmp.sty
 Package: hyperxmp 2017/11/26 v3.4 Store hyperref metadata in XMP format
+
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\stringenc.sty"
 Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
 )
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ifmtarg\ifmtarg.sty
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ifmtarg\ifmtarg.sty
 Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 ))<<graphics/sRGBIEC1966-2.1.icm>>)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
@@ -394,11 +401,11 @@ File: switch.def 2018/02/14 3.18 Babel switching mechanism
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-czech\czech.ldf
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-czech\czech.ldf
 Language: czech 2008/07/06 v3.1a Czech support from the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
@@ -414,10 +421,10 @@ Package babel Info: Making " an active character on input line 172.
 \cs@wordlen=\count117
 Package babel Info: Making - an active character on input line 226.
 ))
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-1.def
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-1.def
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-0.def
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
 
@@ -512,10 +519,10 @@ LaTeX Font Info:    ... okay on input line 71.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
 LaTeX Font Info:    ... okay on input line 71.
 
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\ucsencs.def
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count118
 \scratchdimen=\dimen126
@@ -593,15 +600,15 @@ LaTeX Font Info:    Try loading font information for OT1+phv on input line 73.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
-<graphics/logo/fai_logo_cz.png, id=233, 325.68428pt x 76.49358pt>
+<graphics/logo/fai_logo_cz.png, id=245, 325.68428pt x 76.49358pt>
 File: graphics/logo/fai_logo_cz.png Graphic file (type png)
 <use graphics/logo/fai_logo_cz.png>
 Package pdftex.def Info: graphics/logo/fai_logo_cz.png  used on input line 73.
 (pdftex.def)             Requested size: 256.0748pt x 60.14912pt.
  [1
 
-{C:/Users/Dobroslav/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./graph
-ics/logo/fai_logo_cz.png>] [2
+{C:/Users/dobro/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./graphics/
+logo/fai_logo_cz.png>] [2
 
 ] [3
 
@@ -613,12 +620,12 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
 
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-32.def
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)
-[4
+) [4
 
-] [5
+]
+[5
 
 
 ] [6
@@ -650,9 +657,25 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 ]
 
-Package hyperref Warning: Composite letter `\textasciicaron+c'
+Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 17.
+(hyperref)                removing `\textasciicaron' on input line 31.
+
+<graphics/static-scaling.png, id=363, 838.13126pt x 327.2225pt>
+File: graphics/static-scaling.png Graphic file (type png)
+<use graphics/static-scaling.png>
+Package pdftex.def Info: graphics/static-scaling.png  used on input line 48.
+(pdftex.def)             Requested size: 441.01772pt x 172.17883pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<graphics/dynamic-scaling.png, id=365, 838.13126pt x 326.21875pt>
+File: graphics/dynamic-scaling.png Graphic file (type png)
+<use graphics/dynamic-scaling.png>
+Package pdftex.def Info: graphics/dynamic-scaling.png  used on input line 50.
+(pdftex.def)             Requested size: 441.01772pt x 171.65068pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [11
 
@@ -661,284 +684,322 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 31.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 34.
+(hyperref)                removing `\textasciicaron' on input line 54.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 37.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 64.
+(hyperref)                removing `\textasciicaron' on input line 55.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 67.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 84.
-
-[12
-
-]
-
-Package hyperref Warning: Composite letter `\textasciicaron+r'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 87.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 100.
+(hyperref)                removing `\textasciicaron' on input line 56.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 103.
-
-(C:\Users\Dobroslav\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-33.def
-File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
-)
-[13]
-File: graphics/logo/fai_logo_cz.png Graphic file (type png)
-<use graphics/logo/fai_logo_cz.png>
-Package pdftex.def Info: graphics/logo/fai_logo_cz.png  used on input line 122.
-
-(pdftex.def)             Requested size: 220.50885pt x 51.79199pt.
+(hyperref)                removing `\textasciicaron' on input line 57.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 144.
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 57.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hfill' on input line 144.
-
+[12 <./graphics/static-scaling.png> <./graphics/dynamic-scaling.png>] [13]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 144.
+(hyperref)                removing `\textasciicaron' on input line 79.
 
 [14
 
-] [15
-
-] [16
-
-
 ]
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 155.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 157.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 163.
-
-[17
-
-]
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 199.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 199.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 202.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 202.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 205.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 205.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 205.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 211.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 211.
-
-[18]
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 222.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 222.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 233.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 233.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 233.
-
-[19]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 260.
+(hyperref)                removing `\textasciicaron' on input line 93.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 96.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 99.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 126.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 129.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 146.
+
+[15
+
+]
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 149.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 162.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 165.
+
+(C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-33.def
+File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 194.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hfill' on input line 194.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 304.
+(hyperref)                removing `\textasciicaron' on input line 194.
+
+[16] [17] [18
+
+] [19
 
 
-Package hyperref Warning: Composite letter `\textring+u'
+]
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 304.
+(hyperref)                removing `\textasciicaron' on input line 205.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 207.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 213.
 
 [20
 
 ]
-<graphics/one-similarity-thread.png, id=403, 694.09312pt x 60.97781pt>
-File: graphics/one-similarity-thread.png Graphic file (type png)
-<use graphics/one-similarity-thread.png>
-Package pdftex.def Info: graphics/one-similarity-thread.png  used on input line
- 332.
-(pdftex.def)             Requested size: 441.01772pt x 38.74559pt.
-
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 337.
+(hyperref)                removing `\textasciicaron' on input line 249.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 337.
+(hyperref)                removing `\textring' on input line 249.
 
-[21 <./graphics/one-similarity-thread.png>]
-<graphics/one-similarity-thread-with-gpu-paralelization.png, id=412, 425.33907p
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 252.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 252.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 255.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 255.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 255.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 261.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 261.
+
+[21]
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 272.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 272.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 283.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 283.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 283.
+
+[22]
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 310.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 345.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [23
+
+] [24]
+Overfull \hbox (126.94359pt too wide) in paragraph at lines 537--537
+[]\T1/cmtt/m/n/12 kernel = parallel.gpu.CUDAKernel([path, type, method, '.ptx']
+, [path, type, method, '.cu']);[] 
+ []
+
+[25]
+Overfull \hbox (77.55565pt too wide) in paragraph at lines 537--537
+[]\T1/cmtt/m/n/12 im2Sc = feval(kernel, im2Sc, im_gpu{j}, int32(h(j)), int32(w(
+j)), scale_h, scale_w);[] 
+ []
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 549.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 549.
+
+<graphics/one-similarity-thread.png, id=460, 694.09312pt x 60.97781pt>
+File: graphics/one-similarity-thread.png Graphic file (type png)
+<use graphics/one-similarity-thread.png>
+Package pdftex.def Info: graphics/one-similarity-thread.png  used on input line
+ 577.
+(pdftex.def)             Requested size: 441.01772pt x 38.74559pt.
+[26]
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 582.
+
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 582.
+
+<graphics/one-similarity-thread-with-gpu-paralelization.png, id=466, 425.33907p
 t x 191.21437pt>
 File: graphics/one-similarity-thread-with-gpu-paralelization.png Graphic file (
 type png)
 <use graphics/one-similarity-thread-with-gpu-paralelization.png>
 Package pdftex.def Info: graphics/one-similarity-thread-with-gpu-paralelization
-.png  used on input line 367.
+.png  used on input line 612.
 (pdftex.def)             Requested size: 441.01772pt x 198.2747pt.
 
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 371.
-
-
-Package hyperref Warning: Composite letter `\textring+u'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 371.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+e'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 371.
-
-[22 <./graphics/one-similarity-thread-with-gpu-paralelization.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 403.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hfill' on input line 403.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 403.
+(hyperref)                removing `\textasciicaron' on input line 616.
 
-[23] [24
+
+Package hyperref Warning: Composite letter `\textring+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textring' on input line 616.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+e'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 616.
+
+[27 <./graphics/one-similarity-thread.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 648.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hfill' on input line 648.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 648.
+
+[28 <./graphics/one-similarity-thread-with-gpu-paralelization.png>] [29
 
 ]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 406.
+(hyperref)                removing `\textring' on input line 651.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 408.
+(hyperref)                removing `\textring' on input line 653.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 410.
+(hyperref)                removing `\textring' on input line 655.
 
-[25
+[30
 
 
-] [26
+] [31
 
 ]
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 415.
+(hyperref)                removing `\textasciicaron' on input line 660.
 
-) [27
+) [32
 
-]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 104.
-
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-(tex/zkratky.tex [28
+] (tex/zkratky.tex [33
 
 ]
 
@@ -946,25 +1007,25 @@ Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textring' on input line 5.
 
-) [29
+) [34
 
 ]
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 119.
+(hyperref)                removing `\textring' on input line 123.
 
 (prace.lof)
 \tf@lof=\write7
 \openout7 = `prace.lof'.
 
- [30
+ [35
 
 ] (prace.lot)
 \tf@lot=\write8
 \openout8 = `prace.lot'.
 
- [31
+ [36
 
 
 ] (tex/prilohy.tex
@@ -982,7 +1043,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--6
 
  []
 
-[32
+[37
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{section.1}) 
 has been already used, duplicate ignored
@@ -990,43 +1051,44 @@ has been already used, duplicate ignored
                    \relax 
 l.7 \priloha{Název přílohy}
                               )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
- [33
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+ [38
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
  (prace.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
 Package rerunfilecheck Info: File `prace.out' has not changed.
-(rerunfilecheck)             Checksum: 74B2BF3DA1097711F96EDC80203FFD01;4408.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
+(rerunfilecheck)             Checksum: 4986089BFACD1648DBAFB34065C88B63;4736.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  ) 
 Here is how much of TeX's memory you used:
- 11771 strings out of 493305
- 171460 string characters out of 3138863
- 291901 words of memory out of 3000000
- 14999 multiletter control sequences out of 15000+200000
+ 11810 strings out of 493305
+ 171694 string characters out of 3138875
+ 293099 words of memory out of 3000000
+ 15016 multiletter control sequences out of 15000+200000
  22066 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,1025b,521s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Dobroslav\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi
-600\ectt1200.pk> <C:\Users\Dobroslav\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
-knappen\ec\dpi600\ecti1200.pk> <C:\Users\Dobroslav\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecbi1095.pk> <C:\Users\Dobroslav\AppData\Local\
-MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\Dobroslav\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Us
-ers\Dobroslav\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1
-095.pk> <C:\Users\Dobroslav\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\e
-c\dpi600\ecbx1200.pk> <C:\Users\Dobroslav\AppData\Local\MiKTeX\2.9\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecrm1200.pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips
-/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on prace.pdf (33 pages, 320658 bytes).
+ <C:\Users\dobro\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ectt1200.pk> <C:\Users\dobro\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecti1200.pk> <C:\Users\dobro\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecbi1095.pk> <C:\Users\dobro\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\dobro\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Users\dobro\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\dobro\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Us
+ers\dobro\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.
+pk>{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
+/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr
+8a.pfb>
+Output written on prace.pdf (38 pages, 819213 bytes).
 PDF statistics:
- 933 PDF objects out of 1000 (max. 8388607)
- 104 named destinations out of 1000 (max. 500000)
- 492 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1081 PDF objects out of 1200 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 526 words of extra memory for PDF output out of 10000 (max. 10000000)
 
