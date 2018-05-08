@@ -20,7 +20,7 @@ Výpočet KoP provedeme v šestli krocích, z čehož jsou čtyři kroky přípr
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
 	\item {Změna velikosti fotografie}
-	\item {Převod fotografie do normalizované matice}
+	\item {Převod fotografie do světlostní matice}
 	\item {Převod fotografie do vlnového spektra}
 	\item {Křížová korelace (Cross correlation method)}
 	\item {Převod zpět z vlnového spektra}
@@ -51,17 +51,27 @@ Takto připravené fotografie nejsou při dalším zpracování komutativní, po
 
 Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedena ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
 
-\n{2}{Převod fotografie do normalizované matice}
+\n{2}{Převod fotografie do světlostní matice}
+Světlostní matice je fotografie co by rastrová bitmapa převedená do dvourozměrné matice (někdy též šedotónový obraz; v anglicky psaných textech k nalezení pod názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu \cite{brightness-matrix}. Každý bod původní fotografie - pixel \cite{pixel} (dále jen px) je z RGB \cite{rgb} hodnot převeden na hodnotu intenzity jasové funkce.
+
+Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu $ <0,255> $.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item R => red,
+	\item G => green,
+	\item B => blue,
+\end{itemize}
+
+Výsledná hodnota intenzity jasové funkce px se spočítá jako střední hodnota z hodnot jednotlivých složek px (R, G a B). Jak napovídá interval možných hodnot, jeden px převedený na prvek světlostní matice zabírá v operační paměti 1 Byte (1 Byte = 8 bit => osmibitová barevná hloubka => 256 stupňů šedi). Na jedenu plnou referenční fotografii je tedy potřeba 75 KB.
+
 \n{2}{Převod fotografie do vlnového spektra}
 \n{2}{Křížová korelace (Cross correlation method)}
 \n{2}{Převod zpět z vlnového spektra}
 
 FFTW
 používá matlab i java
-
-
-Světlostní matice
-Šedotónový obraz je jako dvojrozměrná diskrétní veličina v počítači reprezentován maticí řádu 2. Řádky a sloupce matice určují samotnou obrazovou rovinu, prvky matice pak jasové hodnoty v příslušném obrazovém bodě (pixel). Pokud jde o šedotónový obraz (někdy nesprávně označován jako černobílý), jsou jednotlivé prvky matice tvořeny skalárem udávající hodnotu intenzity jasové funkce. Takový šedotónový obraz je zpravidla uložen v paměti počítače v osmibitové barevné hloubce tj. se 256 stupni šedi. Na každý obrazový bod je tedy zapotřebí 1 Byte paměti. Reprezentaci matice dat při zpracování diskrétního šedotónového obrazu o rozměru 8x8 pixelů ukazuje následující obrázek.
 
 Křížová korelace ve vlnovém spektru
 - FT převede do vlnového spektra

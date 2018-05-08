@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.2)  8 MAY 2018 19:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.2)  9 MAY 2018 00:17
 entering extended mode
 **./prace.tex
 (prace.tex
@@ -687,30 +687,36 @@ Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                removing `\textasciicaron' on input line 54.
 
 
-Package hyperref Warning: Composite letter `\textasciicaron+r'
+Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 55.
+(hyperref)                removing `\textasciicaron' on input line 54.
 
-
-Package hyperref Warning: Composite letter `\textasciicaron+r'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 56.
-
+[12 <./graphics/static-scaling.png> <./graphics/dynamic-scaling.png>]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 57.
+(hyperref)                removing `\textasciicaron' on input line 69.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 70.
+
+
+Package hyperref Warning: Composite letter `\textasciicaron+r'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 71.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 57.
+(hyperref)                removing `\textasciicaron' on input line 71.
 
-[12 <./graphics/static-scaling.png> <./graphics/dynamic-scaling.png>] [13]
+[13]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 79.
+(hyperref)                removing `\textasciicaron' on input line 89.
 
 [14
 
@@ -718,32 +724,32 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 93.
+(hyperref)                removing `\textasciicaron' on input line 103.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 96.
+(hyperref)                removing `\textasciicaron' on input line 106.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 99.
+(hyperref)                removing `\textasciicaron' on input line 109.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 126.
+(hyperref)                removing `\textasciicaron' on input line 136.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 129.
+(hyperref)                removing `\textasciicaron' on input line 139.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 146.
+(hyperref)                removing `\textasciicaron' on input line 156.
 
 [15
 
@@ -751,17 +757,17 @@ Package hyperref Warning: Composite letter `\textasciicaron+e'
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 149.
+(hyperref)                removing `\textasciicaron' on input line 159.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 162.
+(hyperref)                removing `\textasciicaron' on input line 172.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 165.
+(hyperref)                removing `\textasciicaron' on input line 175.
 
 (C:\Users\dobro\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-33.def
 File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
@@ -771,16 +777,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 194.
+(hyperref)                removing `\@ifnextchar' on input line 204.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hfill' on input line 194.
+(hyperref)                removing `\hfill' on input line 204.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 194.
+(hyperref)                removing `\textasciicaron' on input line 204.
 
 [16] [17] [18
 
@@ -791,17 +797,17 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 205.
+(hyperref)                removing `\textasciicaron' on input line 215.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 207.
+(hyperref)                removing `\textasciicaron' on input line 217.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 213.
+(hyperref)                removing `\textasciicaron' on input line 223.
 
 [20
 
@@ -809,94 +815,94 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 249.
+(hyperref)                removing `\textasciicaron' on input line 259.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 249.
+(hyperref)                removing `\textring' on input line 259.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 252.
+(hyperref)                removing `\textasciicaron' on input line 262.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 252.
+(hyperref)                removing `\textring' on input line 262.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 255.
+(hyperref)                removing `\textasciicaron' on input line 265.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 255.
+(hyperref)                removing `\textring' on input line 265.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 255.
+(hyperref)                removing `\textasciicaron' on input line 265.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 261.
+(hyperref)                removing `\textasciicaron' on input line 271.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 261.
+(hyperref)                removing `\textring' on input line 271.
 
 [21]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 272.
+(hyperref)                removing `\textasciicaron' on input line 282.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 272.
+(hyperref)                removing `\textring' on input line 282.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 283.
+(hyperref)                removing `\textasciicaron' on input line 293.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 283.
+(hyperref)                removing `\textring' on input line 293.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 283.
+(hyperref)                removing `\textasciicaron' on input line 293.
 
 [22]
 
 Package hyperref Warning: Composite letter `\textasciicaron+r'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 310.
+(hyperref)                removing `\textasciicaron' on input line 320.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 345.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 355.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [23
 
 ] [24]
-Overfull \hbox (126.94359pt too wide) in paragraph at lines 537--537
+Overfull \hbox (126.94359pt too wide) in paragraph at lines 547--547
 []\T1/cmtt/m/n/12 kernel = parallel.gpu.CUDAKernel([path, type, method, '.ptx']
 , [path, type, method, '.cu']);[] 
  []
 
 [25]
-Overfull \hbox (77.55565pt too wide) in paragraph at lines 537--537
+Overfull \hbox (77.55565pt too wide) in paragraph at lines 547--547
 []\T1/cmtt/m/n/12 im2Sc = feval(kernel, im2Sc, im_gpu{j}, int32(h(j)), int32(w(
 j)), scale_h, scale_w);[] 
  []
@@ -904,37 +910,37 @@ j)), scale_h, scale_w);[]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 549.
+(hyperref)                removing `\textasciicaron' on input line 559.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 549.
+(hyperref)                removing `\textring' on input line 559.
 
-<graphics/one-similarity-thread.png, id=460, 694.09312pt x 60.97781pt>
+<graphics/one-similarity-thread.png, id=466, 694.09312pt x 60.97781pt>
 File: graphics/one-similarity-thread.png Graphic file (type png)
 <use graphics/one-similarity-thread.png>
 Package pdftex.def Info: graphics/one-similarity-thread.png  used on input line
- 577.
+ 587.
 (pdftex.def)             Requested size: 441.01772pt x 38.74559pt.
 [26]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 582.
+(hyperref)                removing `\textasciicaron' on input line 592.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 582.
+(hyperref)                removing `\textring' on input line 592.
 
-<graphics/one-similarity-thread-with-gpu-paralelization.png, id=466, 425.33907p
+<graphics/one-similarity-thread-with-gpu-paralelization.png, id=472, 425.33907p
 t x 191.21437pt>
 File: graphics/one-similarity-thread-with-gpu-paralelization.png Graphic file (
 type png)
 <use graphics/one-similarity-thread-with-gpu-paralelization.png>
 Package pdftex.def Info: graphics/one-similarity-thread-with-gpu-paralelization
-.png  used on input line 612.
+.png  used on input line 622.
 (pdftex.def)             Requested size: 441.01772pt x 198.2747pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -942,31 +948,31 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 616.
+(hyperref)                removing `\textasciicaron' on input line 626.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 616.
+(hyperref)                removing `\textring' on input line 626.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 616.
+(hyperref)                removing `\textasciicaron' on input line 626.
 
 [27 <./graphics/one-similarity-thread.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 648.
+(hyperref)                removing `\@ifnextchar' on input line 658.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hfill' on input line 648.
+(hyperref)                removing `\hfill' on input line 658.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 648.
+(hyperref)                removing `\textasciicaron' on input line 658.
 
 [28 <./graphics/one-similarity-thread-with-gpu-paralelization.png>] [29
 
@@ -974,17 +980,17 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 651.
+(hyperref)                removing `\textring' on input line 661.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 653.
+(hyperref)                removing `\textring' on input line 663.
 
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 655.
+(hyperref)                removing `\textring' on input line 665.
 
 [30
 
@@ -995,7 +1001,7 @@ Package hyperref Warning: Composite letter `\textring+u'
 
 Package hyperref Warning: Composite letter `\textasciicaron+e'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 660.
+(hyperref)                removing `\textasciicaron' on input line 670.
 
 ) [32
 
@@ -1013,7 +1019,7 @@ Package hyperref Warning: Composite letter `\textring+u'
 
 Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textring' on input line 123.
+(hyperref)                removing `\textring' on input line 137.
 
 (prace.lof)
 \tf@lof=\write7
@@ -1051,23 +1057,23 @@ has been already used, duplicate ignored
                    \relax 
 l.7 \priloha{Název přílohy}
                               )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
  [38
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
  (prace.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
 Package rerunfilecheck Info: File `prace.out' has not changed.
-(rerunfilecheck)             Checksum: 4986089BFACD1648DBAFB34065C88B63;4736.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
+(rerunfilecheck)             Checksum: E3DD676F59B95F7E78B4CE6BE0926E7C;4733.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 150.
  ) 
 Here is how much of TeX's memory you used:
- 11810 strings out of 493305
- 171694 string characters out of 3138875
- 293099 words of memory out of 3000000
- 15016 multiletter control sequences out of 15000+200000
+ 11822 strings out of 493305
+ 171810 string characters out of 3138875
+ 293275 words of memory out of 3000000
+ 15022 multiletter control sequences out of 15000+200000
  22066 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,1025b,521s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1086,9 +1092,9 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr
 8a.pfb>
-Output written on prace.pdf (38 pages, 819213 bytes).
+Output written on prace.pdf (38 pages, 828737 bytes).
 PDF statistics:
- 1081 PDF objects out of 1200 (max. 8388607)
- 124 named destinations out of 1000 (max. 500000)
+ 1114 PDF objects out of 1200 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
  526 words of extra memory for PDF output out of 10000 (max. 10000000)
 
