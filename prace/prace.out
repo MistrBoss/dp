@@ -1,59 +1,58 @@
 \BOOKMARK [1][-]{section*.3}{\332vod}{}% 1
 \BOOKMARK [1][-]{part.1}{[0.85cm]I Teoretick\341 c\341st}{}% 2
-\BOOKMARK [1][-]{section.1}{Koeficient podobnosti dvou fotografi\355}{}% 3
-\BOOKMARK [2][-]{subsection.1.1}{Zmena velikosti fotografie}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.2}{Prevod na svetlostn\355 matici}{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.3}{Prevod do\205z vlnov\351ho spektra}{section.1}% 6
-\BOOKMARK [2][-]{subsection.1.4}{Kr\355\236ov\341 korelace \(Cross correlation method\)}{section.1}% 7
-\BOOKMARK [2][-]{subsection.1.5}{V\375pocet v\375sledn\351ho koeficientu}{section.1}% 8
-\BOOKMARK [1][-]{section.2}{Klasifikace re\235en\375ch oblast\355}{}% 9
-\BOOKMARK [2][-]{subsection.2.1}{Konstruktivn\355 zmeny fotografie}{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.1.1}{N\341vrh re\235en\355}{subsection.2.1}% 11
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Oblast z\341jmu}{subsection.2.1}% 12
-\BOOKMARK [2][-]{subsection.2.2}{Destruktivn\355 zmeny fotografie}{section.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.2.1}{N\341vrh re\235en\355}{subsection.2.2}% 14
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Oblast z\341jmu}{subsection.2.2}% 15
-\BOOKMARK [2][-]{subsection.2.3}{Kombinace konstruktivn\355ch a destruktivn\355ch zmen}{section.2}% 16
-\BOOKMARK [3][-]{subsubsection.2.3.1}{N\341vrh re\235en\355}{subsection.2.3}% 17
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Oblast z\341jmu}{subsection.2.3}% 18
-\BOOKMARK [2][-]{subsection.2.4}{V\375ber reprezentativn\355ho vzorku}{section.2}% 19
-\BOOKMARK [3][-]{subsubsection.2.4.1}{N\341vrh re\235en\355}{subsection.2.4}% 20
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Oblast z\341jmu}{subsection.2.4}% 21
-\BOOKMARK [2][-]{subsection.2.5}{Podnadpis}{section.2}% 22
-\BOOKMARK [1][-]{part.2}{[0.85cm]II Analytick\341 c\341st}{}% 23
-\BOOKMARK [1][-]{section.3}{Brainstorming}{}% 24
-\BOOKMARK [2][-]{subsection.3.1}{Akademick\375 kruh}{section.3}% 25
-\BOOKMARK [2][-]{subsection.3.2}{Profesn\355 kruh}{section.3}% 26
-\BOOKMARK [1][-]{section.4}{Diferencn\355 anal\375za \(GAP anal\375za\)}{}% 27
-\BOOKMARK [2][-]{subsection.4.1}{Popis soucasn\351ho stavu}{section.4}% 28
-\BOOKMARK [2][-]{subsection.4.2}{Popis c\355lov\351ho stavu}{section.4}% 29
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Nefunkcn\355 po\236adavky}{subsection.4.2}% 30
-\BOOKMARK [2][-]{subsection.4.3}{Rozd\355ly}{section.4}% 31
-\BOOKMARK [2][-]{subsection.4.4}{N\341vrh variant k dosa\236en\355 c\355le}{section.4}% 32
-\BOOKMARK [3][-]{subsubsection.4.4.1}{V\375pocet koeficientu na CPU}{subsection.4.4}% 33
-\BOOKMARK [3][-]{subsubsection.4.4.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.4.4}% 34
-\BOOKMARK [3][-]{subsubsection.4.4.3}{V\375pocet koeficientu na PC farme}{subsection.4.4}% 35
-\BOOKMARK [2][-]{subsection.4.5}{Zhodnocen\355 variant}{section.4}% 36
-\BOOKMARK [3][-]{subsubsection.4.5.1}{V\375pocet koeficientu na CPU}{subsection.4.5}% 37
-\BOOKMARK [3][-]{subsubsection.4.5.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.4.5}% 38
-\BOOKMARK [3][-]{subsubsection.4.5.3}{V\375pocet koeficientu na PC farme}{subsection.4.5}% 39
-\BOOKMARK [1][-]{section.5}{Benchmarking}{}% 40
-\BOOKMARK [2][-]{subsection.5.1}{Testovac\355 prostred\355}{section.5}% 41
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Pou\236it\375 HW}{subsection.5.1}% 42
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Pou\236it\375 SW}{subsection.5.1}% 43
-\BOOKMARK [2][-]{subsection.5.2}{V\375sledky testov\341n\355}{section.5}% 44
-\BOOKMARK [3][-]{subsubsection.5.2.1}{V\375pocet koeficientu na CPU}{subsection.5.2}% 45
-\BOOKMARK [3][-]{subsubsection.5.2.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.5.2}% 46
-\BOOKMARK [3][-]{subsubsection.5.2.3}{V\375pocet koeficientu na PC farme}{subsection.5.2}% 47
-\BOOKMARK [1][-]{part.3}{[0.85cm]III Projektov\341 c\341st}{}% 48
-\BOOKMARK [1][-]{section.6}{Distribuovan\341 slu\236ba}{}% 49
-\BOOKMARK [2][-]{subsection.6.1}{Fronta nezpracovan\375ch obr\341zku}{section.6}% 50
-\BOOKMARK [2][-]{subsection.6.2}{Servlet pro sta\236en\355 obr\341zku}{section.6}% 51
-\BOOKMARK [2][-]{subsection.6.3}{Odesl\341n\355 v\375sledku}{section.6}% 52
-\BOOKMARK [1][-]{section.7}{Klient}{}% 53
-\BOOKMARK [1][-]{section*.13}{Z\341ver}{}% 54
-\BOOKMARK [1][-]{section*.13}{Seznam pou\236it\351 literatury}{}% 55
-\BOOKMARK [1][-]{section*.15}{Seznam pou\236it\375ch symbolu a zkratek}{}% 56
-\BOOKMARK [1][-]{section*.15}{Seznam obr\341zku}{}% 57
-\BOOKMARK [1][-]{section*.15}{Seznam tabulek}{}% 58
-\BOOKMARK [1][-]{section*.15}{SEZNAM PR\315LOH}{}% 59
+\BOOKMARK [1][-]{section.1}{Klasifikace re\235en\375ch oblast\355}{}% 3
+\BOOKMARK [2][-]{subsection.1.1}{Konstruktivn\355 zmeny fotografie}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.1}{N\341vrh re\235en\355}{subsection.1.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Oblast z\341jmu}{subsection.1.1}% 6
+\BOOKMARK [2][-]{subsection.1.2}{Destruktivn\355 zmeny fotografie}{section.1}% 7
+\BOOKMARK [3][-]{subsubsection.1.2.1}{N\341vrh re\235en\355}{subsection.1.2}% 8
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Oblast z\341jmu}{subsection.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.3}{Kombinace konstruktivn\355ch a destruktivn\355ch zmen}{section.1}% 10
+\BOOKMARK [3][-]{subsubsection.1.3.1}{N\341vrh re\235en\355}{subsection.1.3}% 11
+\BOOKMARK [3][-]{subsubsection.1.3.2}{Oblast z\341jmu}{subsection.1.3}% 12
+\BOOKMARK [2][-]{subsection.1.4}{V\375ber reprezentativn\355ho vzorku}{section.1}% 13
+\BOOKMARK [3][-]{subsubsection.1.4.1}{N\341vrh re\235en\355}{subsection.1.4}% 14
+\BOOKMARK [3][-]{subsubsection.1.4.2}{Oblast z\341jmu}{subsection.1.4}% 15
+\BOOKMARK [1][-]{section.2}{Koeficient podobnosti dvou fotografi\355}{}% 16
+\BOOKMARK [2][-]{subsection.2.1}{Zmena velikosti fotografie}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.2}{Prevod na svetlostn\355 matici}{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.3}{Prevod do\205z vlnov\351ho spektra}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.4}{Kr\355\236ov\341 korelace \(Cross correlation method\)}{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.5}{V\375pocet v\375sledn\351ho koeficientu}{section.2}% 21
+\BOOKMARK [1][-]{part.2}{[0.85cm]II Analytick\341 c\341st}{}% 22
+\BOOKMARK [1][-]{section.3}{Brainstorming}{}% 23
+\BOOKMARK [2][-]{subsection.3.1}{Akademick\375 kruh}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.2}{Profesn\355 kruh}{section.3}% 25
+\BOOKMARK [1][-]{section.4}{Diferencn\355 anal\375za \(GAP anal\375za\)}{}% 26
+\BOOKMARK [2][-]{subsection.4.1}{Popis soucasn\351ho stavu}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.2}{Popis c\355lov\351ho stavu}{section.4}% 28
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Nefunkcn\355 po\236adavky}{subsection.4.2}% 29
+\BOOKMARK [2][-]{subsection.4.3}{Rozd\355ly}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.4}{N\341vrh variant k dosa\236en\355 c\355le}{section.4}% 31
+\BOOKMARK [3][-]{subsubsection.4.4.1}{V\375pocet koeficientu na CPU}{subsection.4.4}% 32
+\BOOKMARK [3][-]{subsubsection.4.4.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.4.4}% 33
+\BOOKMARK [3][-]{subsubsection.4.4.3}{V\375pocet koeficientu na PC farme}{subsection.4.4}% 34
+\BOOKMARK [2][-]{subsection.4.5}{Zhodnocen\355 variant}{section.4}% 35
+\BOOKMARK [3][-]{subsubsection.4.5.1}{V\375pocet koeficientu na CPU}{subsection.4.5}% 36
+\BOOKMARK [3][-]{subsubsection.4.5.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.4.5}% 37
+\BOOKMARK [3][-]{subsubsection.4.5.3}{V\375pocet koeficientu na PC farme}{subsection.4.5}% 38
+\BOOKMARK [1][-]{section.5}{Benchmarking}{}% 39
+\BOOKMARK [2][-]{subsection.5.1}{Testovac\355 prostred\355}{section.5}% 40
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Pou\236it\375 HW}{subsection.5.1}% 41
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Pou\236it\375 SW}{subsection.5.1}% 42
+\BOOKMARK [2][-]{subsection.5.2}{V\375sledky testov\341n\355}{section.5}% 43
+\BOOKMARK [3][-]{subsubsection.5.2.1}{V\375pocet koeficientu na CPU}{subsection.5.2}% 44
+\BOOKMARK [3][-]{subsubsection.5.2.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.5.2}% 45
+\BOOKMARK [3][-]{subsubsection.5.2.3}{V\375pocet koeficientu na PC farme}{subsection.5.2}% 46
+\BOOKMARK [1][-]{part.3}{[0.85cm]III Projektov\341 c\341st}{}% 47
+\BOOKMARK [1][-]{section.6}{Distribuovan\341 slu\236ba}{}% 48
+\BOOKMARK [2][-]{subsection.6.1}{Fronta nezpracovan\375ch obr\341zku}{section.6}% 49
+\BOOKMARK [2][-]{subsection.6.2}{Servlet pro sta\236en\355 obr\341zku}{section.6}% 50
+\BOOKMARK [2][-]{subsection.6.3}{Odesl\341n\355 v\375sledku}{section.6}% 51
+\BOOKMARK [1][-]{section.7}{Klient}{}% 52
+\BOOKMARK [1][-]{section*.13}{Z\341ver}{}% 53
+\BOOKMARK [1][-]{section*.13}{Seznam pou\236it\351 literatury}{}% 54
+\BOOKMARK [1][-]{section*.15}{Seznam pou\236it\375ch symbolu a zkratek}{}% 55
+\BOOKMARK [1][-]{section*.15}{Seznam obr\341zku}{}% 56
+\BOOKMARK [1][-]{section*.15}{Seznam tabulek}{}% 57
+\BOOKMARK [1][-]{section*.15}{SEZNAM PR\315LOH}{}% 58

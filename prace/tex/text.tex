@@ -12,6 +12,91 @@ Formátování druhého odstavce. Text text text text text text text text text t
 % ============================================================================ %
 \cast{Teoretická část}
 
+\n{1}{Klasifikace řešených oblastí}
+
+\n{2}{Konstruktivní změny fotografie}
+Konstruktivní změny fotografie jsou takové změny, které jsou viditelné pro lidské oko, avšak nemění zásadně charakter obrázku pro strojové zpracování.
+
+\n{3}{Návrh řešení}
+Křížová korelace zrychlená pomocí diskrétní Fourierovy transformace \cite{FFT}.
+
+\n{3}{Oblast zájmu}
+Touto numerickou metodou lze detekovat většinu nejčastějších záměrných modifikací fotografií (např. automatické doostření a následné uložení jako kopie). Lze sem zahrnout jak změny vlastností vázané na původní fotografii, tak drobné změny v původním obsahu fotografie.
+
+\n{4}{Změny vlastností}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item{Změna sytosti barev}
+	\item{Změna kontrastu}
+	\item{Změna jasu}
+\end{itemize}
+
+\n{4}{Změny obsahu}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item{Vodotisk}
+	\item{Logo}
+	\item{Šum}
+\end{itemize}
+
+\n{2}{Destruktivní změny fotografie}
+Destruktivní změny fotografie, jsou viditelné pro lidské oko, ale již lidským okem je často problém tyto fotografie bezpečně prohlásit za podobné. Ještě hůře je na tom strojové zpracování, pro které se výrazně mění charakter porovnávaných fotografií.
+
+\n{3}{Návrh řešení}
+Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentující hrany v obrazu \cite{FFT-technique}.
+
+\n{3}{Oblast zájmu}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item{Změna komprese (rozmazaná fotka)}
+	\item{Změny rozlišení}
+	\begin{itemize}
+		\item{Ořez (v jedné nebo obou dimenzích}
+		\item{Deformace (v jedné nebo obou dimenzích)}
+	\end{itemize}
+\end{itemize}
+
+\n{2}{Kombinace konstruktivních a destruktivních změn}
+Kombinace konstruktivních a destruktivních změn je vždy potřeba vyhodnotit nad konkrétním případem. Platí také, že jsou velmi obtížně řešitelné. V závislost na míře změn lze často rozpoznat stejně jako čistě konstruktivní změny.
+
+\n{3}{Návrh řešení}
+Redukce fotografie na její prahovou velikost jako příprava na křížovou korelaci viz konstruktivní změny \cite{fftw3}.
+
+\n{3}{Oblast zájmu}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Asymetrická změna obou stran s čímkoliv}
+	\item {Změna kvality v důsledku zhoršeni komprese s čímkoliv}
+	\item {Logo nebo vodotisk v kombinaci s předcházejícími}
+\end{itemize}
+
+\n{2}{Výběr reprezentativního vzorku}
+Pro skupinu vzájemně si podobných fotografií vybereme nejvhodnějšího kandidáta, který bude následně ostatní fotografie zastupovat.
+
+\n{3}{Návrh řešení}
+Pro tyto účely zavedeme koeficient podobnosti, který zjednodušeně určíme jako VELIKOST × OSTROST + JAS. Výsledek bude na intervalu <0, 1>. Hodnoty blížící se nule mají nejnižší koeficient zastupitelnosti a naopak hodnoty blížící se 1 mají nejvyšší koeficient zastupitelnosti. 
+
+\n{3}{Oblast zájmu}
+
+\n{4}{Střední hodnota jasu}
+Pouze zohlednění zda fotka není příliš jasná nebo příliš tmavá, jednoduchý algoritmus
+
+\n{4}{Poměrný počet hran}
+Test “rozmazanosti” fotky, konvoluce s vhodným (nutné testování) jádrem typu horní propust (s celkovým součtem 0) - tedy výsledek neutrální podklad z kterého “vystupují” hrany, velké množství hran ⇔ fotka není rozmazaná
+
+\n{4}{Rozlišení fotografie}
+Pouze klasická velikost fotky (větší ⇔ lepší).
+
+
+
 \n{1}{Koeficient podobnosti dvou fotografií}
 Základní ukazatelem, který bude v této práci řešen je koeficient podobnosti (dále jen KoP). KoP leží na intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na základě testovacích pokusů stanoven na $ <0,007, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5 \cite{md5}.
 Výpočet KoP provedeme v šesti krocích, z čehož jsou čtyři kroky přípravné (optimalizační) a pouze dva kroky reálně ovlivňují výsledný KoP.
@@ -106,103 +191,6 @@ Tuto problematiku řeší křížová korelace (Cross correlation method) \cite{
 \n{2}{Výpočet výsledného koeficientu}
 Po převodu z vlnového spektra zpět, vychází již matice z které jsou vyloučeny imaginární hodnoty a pracujeme tedy jen s reálnými čísly. Výsledný Kof pro dané fotografie je dám nejvyšším nalezeným korelačním koeficientem v matici.
 
-\n{1}{Klasifikace řešených oblastí}
-TODO: navodit téma + uvézt základní škálu
-
-\n{2}{Konstruktivní změny fotografie}
-TODO: definovat konstruktivní změny
-
-\n{3}{Návrh řešení}
-Křížová korelace zrychlená pomocí diskrétní Fourierovy transformace.
-TODO: rozvést
-
-\n{3}{Oblast zájmu}
-TODO: uvézt
-
-\n{4}{Změny vlastností}
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
-	\item{Změna barev; TODO: Popis změny barev}
-	\item{Změna kontrastu;TODO: Popis změny kontrastu}
-	\item{Změna jasu;TODO: Popis změny jasu}
-\end{itemize}
-
-\n{4}{Změny obsahu}
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
-	\item{Vodotisk}
-	\item{Logo}
-	\item{Šum}
-\end{itemize}
-
-\n{2}{Destruktivní změny fotografie}
-TODO: definovat destruktivní změny
-
-\n{3}{Návrh řešení}
-Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentující hrany v obrazu.
-TODO: rozvést
-
-\n{3}{Oblast zájmu}
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
-	\item{Změna komprese (rozmazaná fotka)}
-	\item{Změny rozlišení}
-	\begin{itemize}
-		\item{Ořez (v jedné nebo obou dimenzích}
-		\item{Deformace (v jedné nebo obou dimenzích)}
-	\end{itemize}
-\end{itemize}
-
-\n{2}{Kombinace konstruktivních a destruktivních změn}
-TODO: Obecně je porovnání problematické, rozvést.
-
-\n{3}{Návrh řešení}
-Redukce fotografie na její prahovou velikost jako příprava na křížovou korelaci viz konstruktivní změny.
-
-\n{3}{Oblast zájmu}
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
-	\item {Asymetrická změna obou stran s čímkoliv}
-	\item {Změna kvality v důsledku zhoršeni komprese s čímkoliv}
-	\item {Logo nebo vodotisk v kombinaci s předcházejícími}
-\end{itemize}
-
-\n{2}{Výběr reprezentativního vzorku}
-Pro skupinu vzájemně si podobných fotografií vybereme nejvhodnějšího kandidáta, který bude následně ostatní fotografie zastupovat.
-
-\n{3}{Návrh řešení}
-Pro tyto účely zavedeme koeficient podobnosti, který zjednodušeně určíme jako VELIKOST × OSTROST + JAS. Výsledek bude na intervalu <0, 1>. Hodnoty blížící se nule mají nejnižší koeficient zastupitelnosti a naopak hodnoty blížící se 1 mají nejvyšší koeficient zastupitelnosti. 
-
-\n{3}{Oblast zájmu}
-
-\n{4}{Střední hodnota jasu}
-Pouze zohlednění zda fotka není příliš jasná nebo příliš tmavá, jednoduchý algoritmus
-
-\n{4}{Poměrný počet hran}
-Test “rozmazanosti” fotky, konvoluce s vhodným (nutné testování) jádrem typu horní propust (s celkovým součtem 0) - tedy výsledek neutrální podklad z kterého “vystupují” hrany, velké množství hran ⇔ fotka není rozmazaná
-
-\n{4}{Rozlišení fotografie}
-Pouze klasická velikost fotky (větší ⇔ lepší).
-
-
-\n{2}{Podnadpis}
-Tato sekce obsahuje ukázku vložení tabulky (Tab. \ref{tab:priklad}).
-
-% Tabulku lze vkládat pomocí následujícího zjednodušeného stylu, nebo klasickým LaTex způsobem
-\tab{Popisek tabulky}{tab:priklad}{0.65}{|l|c|c|c|c|c|r|}{
-  \hline
-   & 1 & 2 & 3 & 4 & 5 & Cena [Kč] \\ \hline
-  \emph{F} & (jedna) & (dva) & (tři) & (čtyři) & (pět) & 300 \\ \hline
-}
-
 
 % ============================================================================ %
 
@@ -210,7 +198,7 @@ Tato sekce obsahuje ukázku vložení tabulky (Tab. \ref{tab:priklad}).
 \cast{Analytická část}
 
 \n{1}{Brainstorming}
-Analytický metoda sloužící ke sběru myšlenek, námětů a případné zevrubné konstruktivní kritice dané problematiky. V rámci této práce byla použita v akademickém a profesním kruhu pro identifikaci základních ukazatelů pro další kroky analýzy.
+Analytická metoda sloužící ke sběru myšlenek, námětů a případné zevrubné konstruktivní kritice dané problematiky. V rámci této práce byla použita v akademickém a profesním kruhu pro identifikaci základních ukazatelů pro další kroky analýzy.
 
 \n{2}{Akademický kruh}
 Diskutovány zejména technické možnosti. Kde a jak lze vůbec porovnání fotografií provádět strojově. K další analýze vyly vyb
@@ -234,7 +222,8 @@ Konsolidované fotografie prezentované klientovi budou v maximální možné m�
 	\item {Bezúdržbový systém}
 	\item {Nevyžadující v průběhu času další financování}
 	\item {Minimální vstupní investice}
-	\item {Maximální kompatibility s aktuálním HW}
+	\item {Maximální kompatibilita s aktuálním HW}
+	\item {Programovací jazyk JAVA}
 \end{itemize}
 
 \n{2}{Rozdíly}
@@ -272,7 +261,7 @@ Základní myšlenka je osadit do produkčního serveru pracovní grafickou kart
 Základní myšlenka je využít HW osobních PC, kterých je v každé větší firmě požehnaně a neprovádět výpočet na jednom stroji, na každém dostupném stroji.
 
 \n{2}{Zhodnocení variant}
-Zhodnocení vychází z benchmarkingu, který byl vyhodnocen jako pomocná analýza. Jako nejvýhodnější varianta pro realizaci vychází PC farma. Jako záložní řešení, lze využít produkční server s výpočtem na CPU. Pokud bude zvolena vhodný programovací jazyk, bude výsledné řešení přenositelné.
+Zhodnocení vychází z benchmarkingu, který byl vyhodnocen jako pomocná analýza. Jako nejvýhodnější varianta pro realizaci vychází PC farma. Jako záložní řešení, lze využít produkční server s výpočtem na CPU. Pokud bude zvolen vhodný programovací jazyk (např. požadovaná JAVA), bude výsledné řešení přenositelné.
 
 \n{3}{Výpočet koeficientů na CPU}
 \begin{itemize}
@@ -455,9 +444,9 @@ maximální koeficient ccCMax
 	%method = '_biquadr';
 	method = '_bicubic';
 	
-	type = 'single'; %změnit zde a na ř. 32
+	type = 'single';
 	
-	n = 35;
+	n = 35; %podle počtu obrázků...
 	
 	path = 'kernels\ImgScale\ImgScale\kernel_';
 	kernel = parallel.gpu.CUDAKernel([path, type, method, '.ptx'], [path, type, method, '.cu']);
@@ -473,79 +462,78 @@ maximální koeficient ccCMax
 	%nahrávání obrázků na grafiku
 	tic
 	for i = 1:n
-		if i < 10
-			s = [s0,'0',int2str(i),'.tif'];
-		else
-			s = [s0,int2str(i),'.tif'];
-	end
+	    if i < 10
+	        s = [s0,'0',int2str(i),'.tif'];
+	    else
+	        s = [s0,int2str(i),'.tif'];
+	    end
 	
-	im = single(imread(s)); %nahrání obrázku a převod
+	    im = single(imread(s)); %nahrání obrázku a převod
 	
-	[n1,n2,n3] = size(im);
-	h(i) = n1;
-	w(i) = n2;
-	im_gpu{i} = gpuArray(im); %nahrání obrázku na grafiku
+	    [n1,n2,n3] = size(im);
+	    h(i) = n1;
+	    w(i) = n2;
+	    im_gpu{i} = gpuArray(im); %nahrání obrázku na grafiku
 	end
 	disp('Nahrávání všech obrázků do paměti grafiky:');
 	toc
 	
 	%převádění obrázků na jasové matice
 	for i=1:n
-		im_gpu{i} = sum(im_gpu{i}, 3) ./ 3; %převod na jasovou matici
+	    im_gpu{i} = sum(im_gpu{i}, 3) ./ 3; %převod na jasovou matici
 	end;
 	disp('Převod všech obrázků na jasovou matici:');
 	toc
 	
 	log = zeros(n, n, type, 'gpuArray');
 	
-	%cyklus
 	for i=1:n
-		%ft prvního obrázku
-		ft1 = fft2(im_gpu{i});
-		ft1Norm = ft1 ./ abs(ft1);
+	    %ft prvního obrázku
+	    ft1 = fft2(im_gpu{i});
+	    ft1Norm = ft1 ./ abs(ft1);
 	
-		for j=1:n
-			if i==j
-			continue;
-		end;
+	    for j=1:n
+	        if i==j
+	            continue;
+	        end;
 	
-		scale = (min(h(i)/h(j), w(i)/w(j)));
-		h2 = round(scale * h(j));
-		h2 = min(h2, h(i));
-		w2 = round(scale * w(j));
-		w2 = min(w2, w(i));
-		scale_h = h(j)/h2;
-		scale_w = w(j)/w2;
+	        scale = (min(h(i)/h(j), w(i)/w(j)));
+	        h2 = round(scale * h(j));
+	        h2 = min(h2, h(i));
+	        w2 = round(scale * w(j));
+	        w2 = min(w2, w(i));
+	        scale_h = h(j)/h2;
+	        scale_w = w(j)/w2;
 	
-		%im2Sc = imresize(im_gpu{j}, scale);
+	        %im2Sc = imresize(im_gpu{j}, scale);
 	
-		im2Sc = zeros(h2, w2, type, 'gpuArray');
-		kernel.GridSize = w2;
-		kernel.ThreadBlockSize = h2;
-		im2Sc = feval(kernel, im2Sc, im_gpu{j}, int32(h(j)), int32(w(j)), scale_h, scale_w);
+	        im2Sc = zeros(h2, w2, type, 'gpuArray');
+	        kernel.GridSize = w2;
+	        kernel.ThreadBlockSize = h2;
+	        im2Sc = feval(kernel, im2Sc, im_gpu{j}, int32(h(j)), int32(w(j)), scale_h, scale_w);
 	
-		%doplnění druhého obrázku nulami na jednotnou velikost
-		im2 = zeros(h(i), w(i), type, 'gpuArray');
-		im2(1:h2, 1:w2) = im2Sc;
+	        %doplnění druhého obrázku nulami na jednotnou velikost
+	        im2 = zeros(h(i), w(i), type, 'gpuArray');
+	        im2(1:h2, 1:w2) = im2Sc;
 	
-		%ft druhého obrázku
-		ft2 = fft2(im2);
-		ft2Norm = ft2 ./ abs(ft2);
+	        %ft druhého obrázku
+	        ft2 = fft2(im2);
+	        ft2Norm = ft2 ./ abs(ft2);
 	
-		%křížová korelace ve frekvenčním spektru
-		ccW = ft1Norm .* conj(ft2Norm);
+	        %křížová korelace ve frekvenčním spektru
+	        ccW = ft1Norm .* conj(ft2Norm);
 	
-		%převod do obyčejného souřadnicového systému
-		ccC = real(ifft2(ccW));
+	        %převod do obyčejného souřadnicového systému
+	        ccC = real(ifft2(ccW));
 	
-		%hledání maximálního korelačního koeficientu
-		ccCMax = max(ccC);
-		ccCMax = max(ccCMax);
-		log(i,j) = ccCMax;
-		disp(['obr1: ',int2str(i),';  obr2: ',int2str(j)]);
+	        %hledání maximálního korelačního koeficientu
+	        ccCMax = max(ccC);
+	        ccCMax = max(ccCMax);
+	        log(i,j) = ccCMax;
+	        disp(['obr1: ',int2str(i),';  obr2: ',int2str(j)]);
+	    end
 	end
-end
-		disp(['Cyklus ',int2str(n),' obrázků:']);
+	disp(['Cyklus ',int2str(n),' obrázků:']);
 	log_gpu = gather(log);
 	toc
 	
@@ -553,13 +541,14 @@ end
 \end{verbatim}
 
 \n{2}{Výsledky testování}
-Byly realizovány dva testovací scénáře.
+Byly realizovány tři testovací scénáře.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Výpočet čistě na CPU s maximálním využitím HW.}
+	\item {Výpočet čistě na CPU s maximálním využitím produkčního HW.}
 	\item {Výpočet na CPU s využitím GPU pro paralelizaci vybraných procesů.}
+	\item {Výpočet čistě na CPU na PC farmě.}
 \end{itemize}
 
 \n{3}{Výpočet koeficientů na CPU}
