@@ -65,10 +65,10 @@ Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu
 
 Výsledná hodnota intenzity jasové funkce px se spočítá jako střední hodnota z hodnot jednotlivých složek px (R, G a B). Jak napovídá interval možných hodnot, jeden px převedený na prvek světlostní matice zabírá v operační paměti 1 Byte (1 Byte = 8 bit => osmibitová barevná hloubka => 256 stupňů šedi). Na jedenu plnou referenční fotografii je tedy potřeba 75 KB.
 
-\n{2}{Převod do vlnového spektra}
+\n{2}{Převod do--z vlnového spektra}
 Převodem do vlnového spektra dosáhneme zajímavé výkonností optimalizace \cite{FFT}. Kdybychom tento krok z celého procesu výpočtu KoP vynechali (stejně jako následně nezbytný převod zpět z vlnového spektra), museli bychom udělat křížovou korelaci v normálním spektru. Tzn. $ O(n^4) $ operací, kde $ n $ je velikost strany čtvercové matice.
 
-Pokud ale nejprve provedeme dopřednou Fourierovu transformaci (DFT) pro převod do vlnového spektra, a až následně křížovou korelaci, ušetříme jeden řád hodnosti počtu operací. Budeme potřebovat $ O(n^3 * logn) $ operací. To je za předpokladu matice reprezentující 200 × 200 px fotografii rozdíl dvou řádů operací.
+Pokud ale nejprve provedeme Diskrétní Fourierovu transformaci (DFT) pro převod do vlnového spektra, až následně křížovou korelaci a nakonec Zpětnou Fourierovu transformaci (IFT), ušetříme jeden řád hodnosti počtu operací. Budeme potřebovat $ O(n^3 * logn) $ operací. To je za předpokladu matice reprezentující 200 × 200 px fotografii rozdíl dvou řádů operací.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
@@ -78,7 +78,7 @@ Pokud ale nejprve provedeme dopřednou Fourierovu transformaci (DFT) pro převod
 \end{itemize}
 
 \n{2}{Křížová korelace (Cross correlation method)}
-Korelace je nejdůležitější krok celého výpočtu KoP. Umožní pomocí jednoduchých matematických operací rozhodnout, zda jsou světlostní matice vzorové a referenční fotografie podobné. Míra podobnosti je vyjádřena hodnotami korelačních koeficientů sestavených do jedné matice (zatím ještě ve vlnovém spektru). Čím více se výsledné hodnoty blíží $ 1 $, tím více jsi sou fotografie podobné v daném bodě.
+Korelace je nejdůležitější krok celého výpočtu KoP. Umožní pomocí jednoduchých matematických operací rozhodnout, zda jsou světlostní matice vzorové a referenční fotografie podobné. Míra podobnosti je vyjádřena hodnotami korelačních koeficientů sestavených do jedné matice (zatím ještě ve vlnovém spektru). Čím více se výsledné hodnoty blíží $ 1 $, tím více si jsou fotografie podobné v daném bodě.
 
 Celý proces není citlivý na konstruktivní změny (viz níže). Dokáže tedy podobnost vyhodnotit bez ohledu na změnu sytosti barev, kontrastu či jasu. Stejně tak výsledek není ovlivněn přidáním vodotisku nebo šumem. Přidání loga do fotografie již sice sníží KoP, ale pokud není logo přes polovinu fotografie, je stále bezpečně rozpoznána jako podobná či nikoliv.
 
@@ -103,37 +103,8 @@ Tuto problematiku řeší křížová korelace (Cross correlation method) \cite{
 
 \obr{Příklad proložení dvou fotografií s použítím křížové korelace}{fig:cross-correlation}{1.0}{graphics/cross-correlation.png}
 
-\n{2}{Převod zpět z vlnového spektra}
-
-FFTW
-používá matlab i java
-
-Křížová korelace ve vlnovém spektru
-- FT převede do vlnového spektra
-- pak proběhne křížová korelace
-- IFT pak převede zpět z vlnového spektra
-
-Úspora převodem 
-v normálním spektru křížová korelace je operací O(n\^4); n je jedna strana obrazové matice (čtvercové)
-ve vlnovém spektru křížová korelace je operací 
-
-Úspora je oproti původním 
-
-\n{1}{Použité analytické metody}
-
-\n{2}{Diferenční analýza}
-Diferenční analýzu (někdy též Gap analýza) navrhl Igor Ansoff. Skládá se z následujících kroků:
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
-	\item{Popis stávajícího stavu}
-	\item{Stanovení cílů (popis cílového stavu)}
-	\item{Určení rozdílu (mezery) mezi stávajícím a cílovým stavem}
-	\item{Návrh variant dosažení cílového stavu (alternativní strategie)}
-	\item{Zhodnocení variant a výběr nevhodnější z nich}
-	\item{V případě potřeby se celý postup opakuje, dokud není dosaženo cílového stavu}
-\end{itemize}
+\n{2}{Výpočet výsledného koeficientu}
+Po převodu z vlnového spektra zpět, vychází již matice z které jsou vyloučeny imaginární hodnoty a pracujeme tedy jen s reálnými čísly. Výsledný Kof pro dané fotografie je dám nejvyšším nalezeným korelačním koeficientem v matici.
 
 \n{1}{Klasifikace řešených oblastí}
 TODO: navodit téma + uvézt základní škálu
