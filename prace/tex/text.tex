@@ -44,7 +44,6 @@ Změna velikosti vzorové fotografie na $ [320 × ?] $ nebo $ [? × 240] $ se pr
 
 Takto připravené fotografie nejsou při dalším zpracování komutativní, pokud mají vzájemně jiný poměr stran. V důsledku to znamená, že se musí porovnat fotografie v obou směrech (jak vzorová vůči referenční, tak referenční vůči vzorové). Můžete si to ukázat na příkladu (Obr. \ref{fig:static-scaling}) a (Obr. \ref{fig:dynamic-scaling}).
 
-
 \obr{Statický scaling obrázků (je komutativní)}{fig:static-scaling}{1.0}{graphics/static-scaling.png}
 
 \obr{Dynamický scaling obrázků (není komutativní)}{fig:dynamic-scaling}{1.0}{graphics/dynamic-scaling.png}
@@ -79,6 +78,31 @@ Pokud ale nejprve provedeme dopřednou Fourierovu transformaci (DFT) pro převod
 \end{itemize}
 
 \n{2}{Křížová korelace (Cross correlation method)}
+Korelace je nejdůležitější krok celého výpočtu KoP. Umožní pomocí jednoduchých matematických operací rozhodnout, zda jsou světlostní matice vzorové a referenční fotografie podobné. Míra podobnosti je vyjádřena hodnotami korelačních koeficientů sestavených do jedné matice (zatím ještě ve vlnovém spektru). Čím více se výsledné hodnoty blíží $ 1 $, tím více jsi sou fotografie podobné v daném bodě.
+
+Celý proces není citlivý na konstruktivní změny (viz níže). Dokáže tedy podobnost vyhodnotit bez ohledu na změnu sytosti barev, kontrastu či jasu. Stejně tak výsledek není ovlivněn přidáním vodotisku nebo šumem. Přidání loga do fotografie již sice sníží KoP, ale pokud není logo přes polovinu fotografie, je stále bezpečně rozpoznána jako podobná či nikoliv.
+
+Formálně je korelace zejména statistický pojem, který označuje vzájemný lineární vztah mezi znaky nebo veličinami. Míra korelace je daná korelačním koeficientem \cite{correlation}. Zjednodušený postup výpočtu:
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item{K matici $ A $ se spočítá rozptyl $ \sigma_{A} $ a střední hodnota $ \mu_{A} $.}
+	\item{K matici $ B $ se spočítá rovněž rozptyl $ \sigma_{B} $ a střední hodnota $ \mu_{B} $.}
+	\item{Výslednou matici lze získat skalárním součinem $ A $ a $ B $ ponížených o jejich střední hodnoty.}
+	\item{Výslednou matici je nutné na závěr vydělit součinem rozptylů obou matic.}
+\end{itemize}
+
+$ \rho_{A,B} = \dfrac{(A - \mu_{A}) × (B - \mu_{B})}{\sigma_{A}\sigma_{B}} $
+
+Za předpokladu, že objekty na porovnávaných fotografiích nejsou vůči sobě v prostoru posunuty, poskytuje korelační matice odpověď na otázku, zda jsou si dvě fotografie podobné. V praxi ale tento model příliš nenastává. Naopak je velmi časné, že porovnáváte např. výřez z fotografie oproti původní originální fotce, případně posunutou fotografie po libovolné z os.
+
+Tuto problematiku řeší křížová korelace (Cross correlation method) \cite{cross-correlation}. Princip samotné korelace je stejný, pouze se opakuje s částečným posunem tak, aby pokryla všechny možné kombinace mezi dvěma fotografiemi. Příklad je asi nejlépe vidět na původních fotografiích, jak ukazuje (Obr. \ref{fig:correlation}) a (Obr. \ref{fig:cross-correlation}).
+
+\obr{Příklad proložení dvou fotografií s použitím klasické korelace}{fig:correlation}{1.0}{graphics/correlation.png}
+
+\obr{Příklad proložení dvou fotografií s použítím křížové korelace}{fig:cross-correlation}{1.0}{graphics/cross-correlation.png}
+
 \n{2}{Převod zpět z vlnového spektra}
 
 FFTW
