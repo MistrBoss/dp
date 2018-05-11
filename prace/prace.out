@@ -48,16 +48,22 @@
 \BOOKMARK [3][-]{subsubsection.6.2.2}{V\375pocet koeficientu na CPU s paralelizac\355 na GPU}{subsection.6.2}% 48
 \BOOKMARK [3][-]{subsubsection.6.2.3}{V\375pocet koeficientu na PC farme}{subsection.6.2}% 49
 \BOOKMARK [1][-]{part.3}{[0.85cm]III Projektov\341 c\341st}{}% 50
-\BOOKMARK [1][-]{section.7}{Serverov\341 \(sbern\341\) strana distribuovan\351 slu\236by}{}% 51
-\BOOKMARK [2][-]{subsection.7.1}{Databelizace fotografi\355}{section.7}% 52
-\BOOKMARK [2][-]{subsection.7.2}{Fronta nezpracovan\375ch obr\341zku}{section.7}% 53
-\BOOKMARK [2][-]{subsection.7.3}{Servlet pro sta\236en\355 obr\341zku}{section.7}% 54
-\BOOKMARK [2][-]{subsection.7.4}{Odesl\341n\355 v\375sledku}{section.7}% 55
-\BOOKMARK [1][-]{section.8}{Klientsk\341 \(v\375konn\341\) strana distribuovan\351 slu\236by}{}% 56
-\BOOKMARK [2][-]{subsection.8.1}{}{section.8}% 57
-\BOOKMARK [1][-]{section*.30}{Z\341ver}{}% 58
-\BOOKMARK [1][-]{section*.30}{Seznam pou\236it\351 literatury}{}% 59
-\BOOKMARK [1][-]{section*.32}{Seznam pou\236it\375ch symbolu a zkratek}{}% 60
-\BOOKMARK [1][-]{section*.32}{Seznam obr\341zku}{}% 61
-\BOOKMARK [1][-]{section*.32}{Seznam tabulek}{}% 62
-\BOOKMARK [1][-]{section*.32}{SEZNAM PR\315LOH}{}% 63
+\BOOKMARK [1][-]{section.7}{Pr\355prava projektu}{}% 51
+\BOOKMARK [2][-]{subsection.7.1}{Po\236adavky}{section.7}% 52
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Funkcn\355 po\236adavky}{subsection.7.1}% 53
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Nefunkcn\355 po\236adavky}{subsection.7.1}% 54
+\BOOKMARK [2][-]{subsection.7.2}{Pr\355pad pou\236it\355}{section.7}% 55
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Akt\351ri}{subsection.7.2}% 56
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Pr\355pady pou\236it\355}{subsection.7.2}% 57
+\BOOKMARK [1][-]{section.8}{Serverov\341 \(sbern\341\) strana distribuovan\351 slu\236by}{}% 58
+\BOOKMARK [2][-]{subsection.8.1}{Databelizace fotografi\355}{section.8}% 59
+\BOOKMARK [2][-]{subsection.8.2}{Fronta nezpracovan\375ch obr\341zku}{section.8}% 60
+\BOOKMARK [2][-]{subsection.8.3}{Servlet pro sta\236en\355 obr\341zku}{section.8}% 61
+\BOOKMARK [2][-]{subsection.8.4}{Odesl\341n\355 v\375sledku}{section.8}% 62
+\BOOKMARK [1][-]{section.9}{Klientsk\341 \(v\375konn\341\) strana distribuovan\351 slu\236by}{}% 63
+\BOOKMARK [1][-]{section*.34}{Z\341ver}{}% 64
+\BOOKMARK [1][-]{section*.34}{Seznam pou\236it\351 literatury}{}% 65
+\BOOKMARK [1][-]{section*.36}{Seznam pou\236it\375ch symbolu a zkratek}{}% 66
+\BOOKMARK [1][-]{section*.36}{Seznam obr\341zku}{}% 67
+\BOOKMARK [1][-]{section*.36}{Seznam tabulek}{}% 68
+\BOOKMARK [1][-]{section*.36}{SEZNAM PR\315LOH}{}% 69

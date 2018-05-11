@@ -1,12 +1,16 @@
 \babel@toc {czech}{}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Statick\IeC {\'y} scaling obr\IeC {\'a}zk\IeC {\r u} (komutativn\IeC {\'\i })\relax }}{15}{figure.caption.9}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Dynamick\IeC {\'y} scaling obr\IeC {\'a}zk\IeC {\r u} (diskomutativn\IeC {\'\i })\relax }}{15}{figure.caption.10}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad prolo\IeC {\v z}en\IeC {\'\i } dvou fotografi\IeC {\'\i } s pou\IeC {\v z}it\IeC {\'\i }m klasick\IeC {\'e} korelace\relax }}{17}{figure.caption.11}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad prolo\IeC {\v z}en\IeC {\'\i } dvou fotografi\IeC {\'\i } s pou\IeC {\v z}\IeC {\'\i }t\IeC {\'\i }m k\IeC {\v r}\IeC {\'\i }\IeC {\v z}ov\IeC {\'e} korelace\relax }}{17}{figure.caption.12}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad Diskr\IeC {\'e}tn\IeC {\'\i } 2D konvoluce\nobreakspace {}\cite {convolition}\relax }}{19}{figure.caption.13}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Vizualizace procesu v\IeC {\'y}po\IeC {\v c}tu koeficient\IeC {\r u} na CPU\relax }}{31}{figure.caption.26}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Vizualizace procesu v\IeC {\'y}po\IeC {\v c}tu koeficient\IeC {\r u} na CPU s paralelizac\IeC {\'\i } na GPU\relax }}{32}{figure.caption.27}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad p\IeC {\v r}eost\IeC {\v r}enosti fotografie\relax }}{36}{figure.caption.29}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fotografie p\IeC {\v r}ed \IeC {\'u}pravou}}}{36}{subfigure.1.1}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Vizualizace hran}}}{36}{subfigure.1.2}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Vizualizace p\IeC {\v r}eost\IeC {\v r}en\IeC {\'y}ch hran}}}{36}{subfigure.1.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Statick\IeC {\'y} scaling obr\IeC {\'a}zk\IeC {\r u} (komutativn\IeC {\'\i })\relax }}{16}{figure.caption.9}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Dynamick\IeC {\'y} scaling obr\IeC {\'a}zk\IeC {\r u} (diskomutativn\IeC {\'\i })\relax }}{16}{figure.caption.10}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad prolo\IeC {\v z}en\IeC {\'\i } dvou fotografi\IeC {\'\i } s pou\IeC {\v z}it\IeC {\'\i }m klasick\IeC {\'e} korelace\relax }}{18}{figure.caption.11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad prolo\IeC {\v z}en\IeC {\'\i } dvou fotografi\IeC {\'\i } s pou\IeC {\v z}\IeC {\'\i }t\IeC {\'\i }m k\IeC {\v r}\IeC {\'\i }\IeC {\v z}ov\IeC {\'e} korelace\relax }}{18}{figure.caption.12}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad Diskr\IeC {\'e}tn\IeC {\'\i } 2D konvoluce\nobreakspace {}\cite {convolition}\relax }}{20}{figure.caption.13}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Vizualizace procesu v\IeC {\'y}po\IeC {\v c}tu koeficient\IeC {\r u} na CPU\relax }}{32}{figure.caption.26}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Vizualizace procesu v\IeC {\'y}po\IeC {\v c}tu koeficient\IeC {\r u} na CPU s paralelizac\IeC {\'\i } na GPU\relax }}{33}{figure.caption.27}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky\relax }}{36}{figure.caption.28}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky\relax }}{36}{figure.caption.29}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Akt\IeC {\'e}\IeC {\v r}i\relax }}{37}{figure.caption.30}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky\relax }}{37}{figure.caption.31}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad p\IeC {\v r}eost\IeC {\v r}enosti fotografie\relax }}{39}{figure.caption.33}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fotografie p\IeC {\v r}ed \IeC {\'u}pravou}}}{39}{subfigure.1.1}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Vizualizace hran}}}{39}{subfigure.1.2}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Vizualizace p\IeC {\v r}eost\IeC {\v r}en\IeC {\'y}ch hran}}}{39}{subfigure.1.3}
