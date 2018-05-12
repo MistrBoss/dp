@@ -63,22 +63,29 @@
 \contentsline {subsubsection}{\numberline {6.2.3}V\IeC {\'y}po\IeC {\v c}et koeficient\IeC {\r u} na PC farm\IeC {\v e}}{33}{subsubsection.6.2.3}
 \contentsline {section}{\makebox [0.85cm]{III\hfill } Projektov\IeC {\'a} \IeC {\v c}\IeC {\'a}st}{34}{part.3}
 \contentsline {section}{\numberline {7}P\IeC {\v r}\IeC {\'\i }prava projektu}{36}{section.7}
-\contentsline {subsection}{\numberline {7.1}Po\IeC {\v z}adavky}{36}{subsection.7.1}
-\contentsline {subsubsection}{\numberline {7.1.1}Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{36}{subsubsection.7.1.1}
-\contentsline {subsubsection}{\numberline {7.1.2}Nefunk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{36}{subsubsection.7.1.2}
-\contentsline {subsection}{\numberline {7.2}P\IeC {\v r}\IeC {\'\i }pad pou\IeC {\v z}it\IeC {\'\i }}{37}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Akt\IeC {\'e}\IeC {\v r}i}{37}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.2}P\IeC {\v r}\IeC {\'\i }pady pou\IeC {\v z}it\IeC {\'\i }}{37}{subsubsection.7.2.2}
-\contentsline {section}{\numberline {8}Serverov\IeC {\'a} (sb\IeC {\v e}rn\IeC {\'a}) strana distribuovan\IeC {\'e} slu\IeC {\v z}by}{38}{section.8}
-\contentsline {subsection}{\numberline {8.1}Databelizace fotografi\IeC {\'\i }}{38}{subsection.8.1}
-\contentsline {paragraph}{\itshape \bfseries {P\IeC {\v r}\IeC {\'\i }klad}}{38}{section*.32}
-\contentsline {subsection}{\numberline {8.2}Fronta nezpracovan\IeC {\'y}ch obr\IeC {\'a}zk\IeC {\r u}}{38}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Servlet pro sta\IeC {\v z}en\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{38}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Odesl\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{38}{subsection.8.4}
-\contentsline {section}{\numberline {9}Klientsk\IeC {\'a} (v\IeC {\'y}konn\IeC {\'a}) strana distribuovan\IeC {\'e} slu\IeC {\v z}by}{40}{section.9}
-\contentsline {section}{Z\IeC {\'a}v\IeC {\v e}r}{41}{section*.34}
-\contentsline {section}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{42}{section*.34}
-\contentsline {section}{Seznam pou\IeC {\v z}it\IeC {\'y}ch symbol\IeC {\r u} a zkratek}{44}{section*.36}
-\contentsline {section}{Seznam obr\IeC {\'a}zk\IeC {\r u}}{45}{section*.36}
-\contentsline {section}{Seznam tabulek}{46}{section*.36}
-\contentsline {section}{SEZNAM P\IeC {\v R}\IeC {\'I}LOH}{47}{section*.36}
+\contentsline {subsection}{\numberline {7.1}HW Architektura}{36}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Pohled na aktu\IeC {\'a}ln\IeC {\'\i } HW mapu}{36}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}Pohled na pl\IeC {\'a}novanou HW mapu}{36}{subsubsection.7.1.2}
+\contentsline {subsection}{\numberline {7.2}Po\IeC {\v z}adavky}{37}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{37}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Nefunk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{37}{subsubsection.7.2.2}
+\contentsline {subsection}{\numberline {7.3}P\IeC {\v r}\IeC {\'\i }pady pou\IeC {\v z}it\IeC {\'\i }}{37}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Akt\IeC {\'e}\IeC {\v r}i}{37}{subsubsection.7.3.1}
+\contentsline {subsubsection}{\numberline {7.3.2}P\IeC {\v r}\IeC {\'\i }pady u\IeC {\v z}it\IeC {\'\i }}{38}{subsubsection.7.3.2}
+\contentsline {subsection}{\numberline {7.4}Modely}{38}{subsection.7.4}
+\contentsline {subsubsection}{\numberline {7.4.1}Model t\IeC {\v r}\IeC {\'\i }d}{38}{subsubsection.7.4.1}
+\contentsline {subsubsection}{\numberline {7.4.2}Model slu\IeC {\v z}eb}{39}{subsubsection.7.4.2}
+\contentsline {subsection}{\numberline {7.5}Sekven\IeC {\v c}n\IeC {\'\i } diagram distribuovan\IeC {\'e} slu\IeC {\v z}by}{39}{subsection.7.5}
+\contentsline {section}{\numberline {8}Serverov\IeC {\'a} (sb\IeC {\v e}rn\IeC {\'a}) strana distribuovan\IeC {\'e} slu\IeC {\v z}by}{41}{section.8}
+\contentsline {subsection}{\numberline {8.1}Databelizace fotografi\IeC {\'\i }}{41}{subsection.8.1}
+\contentsline {paragraph}{\itshape \bfseries {P\IeC {\v r}\IeC {\'\i }klad}}{41}{section*.37}
+\contentsline {subsection}{\numberline {8.2}Fronta nezpracovan\IeC {\'y}ch obr\IeC {\'a}zk\IeC {\r u}}{41}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Servlet pro sta\IeC {\v z}en\IeC {\'\i } obr\IeC {\'a}zk\IeC {\r u}}{41}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Odesl\IeC {\'a}n\IeC {\'\i } v\IeC {\'y}sledk\IeC {\r u}}{41}{subsection.8.4}
+\contentsline {section}{\numberline {9}Klientsk\IeC {\'a} (v\IeC {\'y}konn\IeC {\'a}) strana distribuovan\IeC {\'e} slu\IeC {\v z}by}{43}{section.9}
+\contentsline {section}{Z\IeC {\'a}v\IeC {\v e}r}{44}{section*.39}
+\contentsline {section}{Seznam pou\IeC {\v z}it\IeC {\'e} literatury}{45}{section*.39}
+\contentsline {section}{Seznam pou\IeC {\v z}it\IeC {\'y}ch symbol\IeC {\r u} a zkratek}{47}{section*.41}
+\contentsline {section}{Seznam obr\IeC {\'a}zk\IeC {\r u}}{48}{section*.41}
+\contentsline {section}{Seznam tabulek}{49}{section*.41}
+\contentsline {section}{SEZNAM P\IeC {\v R}\IeC {\'I}LOH}{50}{section*.41}

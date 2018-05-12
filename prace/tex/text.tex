@@ -547,25 +547,59 @@ Zátěž na CPU je konstantní. Jedno jádro ze dvou jede permanentně na 100\%.
 % ============================================================================ %
 \cast{Projektová část}
 
+
+
+
 \n{1}{Příprava projektu}
+
+
+\n{2}{HW Architektura}
+
+\n{3}{Pohled na aktuální HW mapu}
+\obr {L1 pohled aktuálního stavu}{fig:L1-now}{0.8}{graphics/yed/hw-architecture-now.eps}
+
+\n{3}{Pohled na plánovanou HW mapu}
+\obr {L1 pohled cílového stavu}{fig:L1-tobe}{0.8}{graphics/yed/hw-architecture-tobe.eps}
+
+
 \n{2}{Požadavky}
 
 \n{3}{Funkční požadavky}
 Klasifikaci funkčních požadavků systému znázorňuje obrázek (Obr. \ref{fig:functional-requirements}).
-\obr {Funkční požadavky}{fig:functional-requirements}{1.0}{graphics/functional-requirements.png}
+\obr {Funkční požadavky}{fig:functional-requirements}{1.0}{graphics/ea/functional-requirements.png}
 
 \n{3}{Nefunkční požadavky}
 Klasifikaci nefunkčních požadavků systému znázorňuje obrázek (Obr. \ref{fig:non-functional-requirements}).
-\obr {Funkční požadavky}{fig:non-functional-requirements}{1.0}{graphics/non-functional-requirements.png}
+\obr {Nefunkční požadavky}{fig:non-functional-requirements}{1.0}{graphics/ea/non-functional-requirements.png}
 
-\n{2}{Případ použití}
+
+\n{2}{Případy použití}
+
 \n{3}{Aktéři}
 Klasifikaci aktérů (Obr. \ref{fig:actors}).
-\obr {Aktéři}{fig:use-case}{1.0}{graphics/actors.png}
+\obr {Aktéři}{fig:actors}{1.0}{graphics/ea/actors.png}
 
-\n{3}{Případy použití}
+\n{3}{Případy užití}
 Klasifikaci případů použití znázorňuje obrázek (Obr. \ref{fig:use-case}).
-\obr {Funkční požadavky}{fig:use-case}{1.0}{graphics/use-case.png}
+\obr {Případy užití}{fig:use-case}{1.0}{graphics/ea/use-case.png}
+
+
+\n{2}{Modely}
+
+\n{3}{Model tříd}
+Identifikované datové modely jsou znázorněny pomocí modelu třídy na obrázku níže (Obr. \ref{fig:class-model})
+\obr {Model tříd}{fig:class-model}{1.0}{graphics/ea/class-model.png}
+
+\n{3}{Model služeb}
+Identifikované backendové služby jsou znázorněny pomocí na obrázku níže (Obr. \ref{fig:bean-model})
+\obr {Model služeb}{fig:class-model}{1.0}{graphics/ea/bean-model.png}
+
+
+\n{2}{Sekvenční diagram distribuované služby}
+Na obrázku níže (Obr. \ref{fig:sq-similarity-worker}) je znázorněn sekvenční diagram přibližující odbavení výpočtu KoF.
+\obr {Sekvenční diagram}{fig:sq-similarity-worker}{1.0}{graphics/ea/sq-similarity-worker.png}
+
+
 
 \n{1}{Serverová (sběrná) strana distribuované služby}
 
