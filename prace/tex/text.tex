@@ -13,7 +13,7 @@ Formátování druhého odstavce. Text text text text text text text text text t
 \cast{Teoretická část}
 
 \n{1}{Klasifikace řešených oblastí}
-Pro porovnání dvou fotografií a jejich vzájemné vyhodnocení jako podobné či nikoliv bude zaveden koeficient podobnosti fotografií (dále jen KoP). Postupně budou popsány všechny silné i slabé stránky pro možnosti výpočtu KoP. Základní klasifikací je rozdělit si rozdíly mezi vzorovou a referenční fotografií na konstruktivní a destruktivní změny.
+Pro porovnání dvou fotografií a jejich vzájemné vyhodnocení jako podobné či nikoliv bude zaveden koeficient podobnosti fotografií (dále jen KoP). Postupně budou popsány všechny silné i slabé stránky pro možnosti výpočtu KoP. Základem klasifikace je vymezení rozdílů mezi vzorovou a referenční fotografií, které definují konstruktivní a destruktivní změny.
 
 \n{2}{Konstruktivní změny fotografie}
 Konstruktivní změny fotografie jsou takové změny, které jsou viditelné pro lidské oko, avšak nemění zásadně charakter obrázku pro strojové zpracování. Možné změny (případně jejich kombinace) jsou rozvedeny níže.
@@ -45,7 +45,7 @@ Touto numerickou metodou lze detekovat většinu nejčastějších záměrných 
 \end{itemize}
 
 \n{2}{Destruktivní změny fotografie}
-Destruktivní změny fotografie, jsou viditelné pro lidské oko, ale již lidským okem je často problém tyto fotografie bezpečně prohlásit za podobné. Ještě hůře je na tom strojové zpracování, pro které se výrazně mění charakter porovnávaných fotografií.
+Destruktivní změny fotografie jsou viditelné pro lidské oko, ale pouze vjemem lidského oka je často problém tyto fotografie bezpečně prohlásit za podobné. Ještě horší situace je u strojového zpracování, pro které se výrazně mění charakter porovnávaných fotografií.
 
 \n{3}{Návrh řešení}
 Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentující hrany v obrazu~\cite{FFT-technique}.
@@ -58,13 +58,13 @@ Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentuj
 	\item{Změna komprese (rozmazaná fotografie)}
 	\item{Změny rozlišení}
 	\begin{itemize}
-		\item{Ořez (v jedné nebo obou dimenzích}
+		\item{Ořez (v jedné nebo obou dimenzích)}
 		\item{Deformace (v jedné nebo obou dimenzích)}
 	\end{itemize}
 \end{itemize}
 
 \n{2}{Kombinace konstruktivních a destruktivních změn}
-Kombinace konstruktivních a destruktivních změn je vždy potřeba vyhodnotit nad konkrétním případem. Platí také, že jsou velmi obtížně řešitelné. V závislost na míře změn lze často rozpoznat stejně jako čistě konstruktivní změny.
+Kombinace konstruktivních a destruktivních změn je vždy potřeba vyhodnotit nad konkrétním případem. Platí také, že jsou velmi obtížně řešitelné. V závislosti na míře změn lze často rozpoznat KoP stejně jako u čistě konstruktivních změn.
 
 \n{3}{Návrh řešení}
 Redukce fotografie na její prahovou velikost jako příprava na křížovou korelaci viz konstruktivní změny~\cite{fftw3}.
@@ -88,7 +88,7 @@ Bude zaveden koeficient zastupitelnosti (dále jen KoZ), který je zjednodušen�
 \n{3}{Oblast zájmu}
 
 \n{4}{Střední hodnota jasu}
-je opět určena pomocí světlostní matice. Pouze zohlednění zda fotka není příliš jasná nebo příliš tmavá. Jde o~jednoduchý algoritmus. Na výsledek nemá zásadní vliv.
+je určena pomocí světlostní matice. Jedná se pouze o zohlednění, zda fotografie není příliš jasná nebo tmavá. Jde o~jednoduchý algoritmus. Na výsledek nemá zásadní vliv.
 
 \n{4}{Poměrný počet hran}
 slouží jako test rozmazanosti fotografie. K realizaci se používá konvoluční matice (více v samostatné kapitole věnované této problematice) s vhodným jádrem typu horní i dolní propusť (s celkovým součtem 0). Na výsledek má největší dopad.
@@ -97,7 +97,7 @@ slouží jako test rozmazanosti fotografie. K realizaci se používá konvolučn
 je bráno jako klasická velikost fotografie v px (větší ⇔ lepší).
 
 \n{1}{Koeficient podobnosti dvou fotografií}
-Jde o základní ukazatelem podobnosti dvou fotografií. KoP leží na intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na základě testovacích pokusů stanoven na $ <0,07, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5~\cite{md5}.
+Jde o základní ukazatel podobnosti dvou fotografií. KoP leží na intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na základě testovacích pokusů stanoven na $ <0,07, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5~\cite{md5}.
 Výpočet KoP provedeme v šesti krocích, z čehož jsou čtyři kroky přípravné (optimalizační) a pouze dva kroky reálně ovlivňují výsledný KoP.
 \begin{enumerate}
 	\setlength{\parskip}{0pt}
@@ -113,7 +113,7 @@ Výpočet KoP provedeme v šesti krocích, z čehož jsou čtyři kroky přípra
 Body 1 - 3 slouží jako přípravné a aplikují se na obě fotografie (vzorová a referenční). Do bodu 4 tedy vstupují dvě matice (pro každou fotografii jedna). Výstupem 4. bodu je již jen jedna matice, která je v bodě 6 vyhodnocena do výsledného KoP.
 
 \n{2}{Změna velikosti fotografie}
-Jedná se o nezbytný přípravný krok, jehož cílem sjednotit u obou fotografií počet bodů a tím pádem také počet prvků v maticích, které vzniknou v následujícím kroku výpočtu KoP.
+Jedná se o nezbytný přípravný krok, jehož cílem je sjednotit u obou fotografií počet bodů a tím také počet prvků v maticích, které vzniknou v následujícím kroku výpočtu KoP.
 Jako referenční velikost byla stanovena
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -122,17 +122,17 @@ Jako referenční velikost byla stanovena
 	\item Šířka: 320 px,
 	\item Výška: 240 px,
 \end{itemize}
-které vyšli jako nejvhodnější kompromis mezi relevancí výsledku a HW časem nutným k jeho zpracování.
+které jsou nejvhodnějším kompromisem mezi relevancí výsledku a HW časem nutným k jeho zpracování.
 
-Změna velikosti vzorové fotografie na $ [320 × ?] $ nebo $ [? × 240] $ se provádí v závislosti delší straně. Kratší strana je dopočítána podle původního poměru stran. Výsledný rozměr není doplněn nulami na plnou referenční velikost $ [320 × 240] $. Vzorová fotografie tedy určuje velikost, na kterou musíme upravit referenční fotografii. Pokud má referenční fotografie jiný poměr stran, bude doplněna nulami, aby nevznikaly prázdná místa.
+Změna velikosti vzorové fotografie na $ [320 × ?] $ nebo $ [? × 240] $ se provádí v závislosti na delší straně. Kratší strana je dopočítána podle původního poměru stran. Výsledný rozměr není doplněn nulami na plnou referenční velikost $ [320 × 240] $. Vzorová fotografie tedy určuje velikost, na kterou musíme upravit referenční fotografii. Pokud má referenční fotografie jiný poměr stran, bude doplněna nulami, aby nevznikala prázdná místa.
 
-Takto připravené fotografie nejsou při dalším zpracování komutativní, pokud mají vzájemně jiný poměr stran. V důsledku to znamená, že se musí porovnat fotografie v obou směrech (jak vzorová vůči referenční, tak referenční vůči vzorové). Můžete si to ukázat na příkladu (Obr.~\ref{fig:static-scaling}) a (Obr.~\ref{fig:dynamic-scaling}).
+Takto připravené fotografie nejsou při dalším zpracování komutativní, pokud mají vzájemně jiný poměr stran. V důsledku to znamená, že se musí porovnat fotografie v obou směrech (jak vzorová vůči referenční, tak referenční vůči vzorové). Situaci ukazují příklady na Obr.~\ref{fig:static-scaling} a Obr.~\ref{fig:dynamic-scaling}.
 
 \obr{Statický scaling obrázků (komutativní)}{fig:static-scaling}{1.0}{graphics/static-scaling.png}
 
 \obr{Dynamický scaling obrázků (diskomutativní)}{fig:dynamic-scaling}{1.0}{graphics/dynamic-scaling.png}
 
-Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedena ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
+Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedna ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
 
 \n{2}{Převod na světlostní matici}
 Světlostní matice je fotografie co by rastrová bitmapa převedená do dvourozměrné matice (někdy též šedotónový obraz; v anglicky psaných textech k nalezení pod názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu~\cite{brightness-matrix}. Každý bod původní fotografie - pixel~\cite{pixel} (dále jen px) je z RGB~\cite{rgb} hodnot převeden na hodnotu intenzity jasové funkce.
