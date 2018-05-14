@@ -135,7 +135,7 @@ Takto připravené fotografie nejsou při dalším zpracování komutativní, po
 Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedna ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
 
 \n{2}{Převod na světlostní matici}
-Světlostní matice prezentuje fotografii ve formátu rastrové bitmapy, je převedena do dvourozměrné matice (někdy též šedotónový obraz; v anglicky psaných textech k nalezení pod názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu~\cite{brightness-matrix}. Každý bod původní fotografie - pixel~\cite{pixel} (dále jen px) je z RGB~\cite{rgb} hodnot převeden na hodnotu intenzity jasové funkce.
+Světlostní matice představuje fotografii ve formátu rastrové bitmapy (někdy též šedotónový obraz; v anglicky psaných textech k nalezení pod názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu~\cite{brightness-matrix}. Každý bod původní fotografie - pixel~\cite{pixel} (dále jen px) je z RGB~\cite{rgb} hodnot převeden na hodnotu intenzity jasové funkce.
 
 Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu $ <0,255> $.
 \begin{itemize}
@@ -204,7 +204,7 @@ Názorná ukázka konvoluce je vidět na přiloženém obrázku (Obr.~\ref{fig:d
 \n{2}{Konvoluce a volba jádra}
 Konvoluce ve světě počítačové grafiky je operace s obrázkem ve formátu matice pomocí jiné matice zvané „jádro“ (nebo též konvoluční maska). Jako první matice se používá obrázek určený k úpravě. Obrázek představuje dvojrozměrnou pravoúhlou souřadnicovou síť pixelů. Použité jádro závisí na požadovaném efektu.
 
-V našem případě je požadovaným filtrem detekce hran~\cite{edge-detection}. Základní jádra pro detekci hran mají součet roven nule (Tab.~\ref{tab:convolution-core-4} a Tab.~\ref{tab:convolution-core-8}). Nejsou vhodné na obrázky zatížené šumem. Ten je nezbytné před aplikací těchto filtrů eliminovat.
+V našem případě je požadovaný filtr na detekci hran~\cite{edge-detection}. Základní jádra pro detekci hran mají součet roven nule (Tab.~\ref{tab:convolution-core-4} a Tab.~\ref{tab:convolution-core-8}). Nejsou vhodné na obrázky zatížené šumem. Ten je nezbytné před aplikací těchto filtrů eliminovat.
 
 \tab {Jádro pro detekci hran (horizontálně a vertikálně)} {tab:convolution-core-4} {1.0}
 	{|r|r|r|}
@@ -291,7 +291,7 @@ Základní myšlenka je využít nejdostupnější produkční HW a na zavedené
 Tento způsob předpokládá osazení produkčního serveru dedikovanou pracovní grafickou kartou a vybrané části procesu výpočtu KoP a KoZ optimalizovat pro zpracování na GPU~\cite{gpu}.
 
 \n{3}{Výpočet koeficientů na PC farmě}
-Způsob předpokládá využití HW osobních PC, kterých je v každé větší společnosti dostatečný počet. Výpočet koeficientů tedy není nutno provádět na jednom stroji, ale lze jej provádět na každém dostupném stroji.
+Způsob předpokládá využití HW osobních PC, kterých je v každé větší společnosti dostatek. Výpočet koeficientů tedy není nutno provádět na jednom stroji, ale lze jej provádět na každém dostupném stroji.
 
 \n{2}{Zhodnocení variant}
 Jako nejvýhodnější varianta pro realizaci vychází PC farma. Jako záložní řešení lze využít produkční server s výpočtem na CPU. Pokud bude zvolen vhodný programovací jazyk (např. požadovaný programovací jazyk Java~\cite{java}), bude výsledné řešení přenositelné.
@@ -364,7 +364,7 @@ Výsledek jednoho kancelářského PC je zanedbatelný a nemůže se rovnat pře
 	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 700\%.}
 \end{itemize}
 
-Tento krok předpokládá mimo jiné i revizi infrastruktury, především kvalitu a šířku pásma sítě, centrální správu PC apod., které v této práci dále nejsou řešeny a jsou zanedbány.
+Tento krok předpokládá mimo jiné i revizi infrastruktury, především kvalitu a šířku pásma sítě, centrální správu PC apod., které v této fázi nejsou zahrnuty do hodnotících kritérií.
 
 \n{1}{Benchmarking}
 Jednotlivé kandidáty pro realizaci klientské části (zavedené v diferenční analýze) podrobíme výkonnostním a srovnávacím testům.
@@ -476,8 +476,7 @@ Výpočet na CPU byl spuštěn v pěti vláknech. Po spuštění probíhal výpo
 Na obrázku níže (Obr.~\ref{fig:one-similarity-thread}) je výstup z profilování výpočtu na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
 \obr{Vizualizace procesu výpočtu koeficientů na CPU}{fig:one-similarity-thread}{1.0}{graphics/one-similarity-thread.png}
 
-Celková zátěž alokovaného HW nedopadla přijatelně. Nepodařilo se efektivně využít CPU, které dosahovalo průměrné zátěže 30\%, zejména kvůli neustálé realokaci operační paměti, na kterou čekaly jednotlivé procesy.
-Úvodní myšlenka využít hrubou sílu produkčního HW se ukázala jako nevyhovující.
+Celková zátěž alokovaného HW byla oproti očekávání výrazně nižší. Nepodařilo se efektivně využít CPU, které dosahovalo průměrné zátěže 30\%. Hlavní problém je realokace operační paměti. Jednotlivé procesy pak čekají na přidělení operační paměti. Úvodní myšlenka využít hrubou sílu produkčního HW se ukázala jako nevyhovující.
 
 \n{3}{Výpočet koeficientů na CPU s paralelizací na GPU}
 Výpočet byl spuštěn v jednom vlákně na CPU. Vhodné operace pro GPU jsou delegovány pro paralelní zpracování.
@@ -592,7 +591,7 @@ Identifikované datové modely jsou znázorněny pomocí modelu třídy na obrá
 
 \n{3}{Model služeb}
 Identifikované backendové služby jsou znázorněny na obrázku níže (Obr. \ref{fig:bean-model})
-\obr {Model služeb}{fig:class-model}{1.0}{graphics/ea/bean-model.png}
+\obr {Model služeb}{fig:bean-model}{1.0}{graphics/ea/bean-model.png}
 
 
 \n{2}{Sekvenční diagram distribuované služby}
