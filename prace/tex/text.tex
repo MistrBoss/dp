@@ -110,7 +110,7 @@ Výpočet KoP provedeme v šesti krocích, z čehož jsou čtyři kroky přípra
 	\item {Převod zpět z vlnového spektra}
 	\item {Výpočet KoP z výsledné matice}
 \end{enumerate}
-Body 1 - 3 slouží jako přípravné a aplikují se na obě fotografie (vzorová a referenční). Do bodu 4 tedy vstupují dvě matice (pro každou fotografii jedna). Výstupem 4. bodu je již jen jedna matice, která je v bodě 6 vyhodnocena do výsledného KoP.
+Body 1--3 slouží jako přípravné a aplikují se na obě fotografie (vzorová a referenční). Do bodu 4 tedy vstupují dvě matice (pro každou fotografii jedna). Výstupem 4. bodu je již jen jedna matice, která je v bodě 6 vyhodnocena do výsledného KoP.
 
 \n{2}{Změna velikosti fotografie}
 Jedná se o nezbytný přípravný krok, jehož cílem je sjednotit u obou fotografií počet bodů a tím také počet prvků v maticích, které vzniknou v následujícím kroku výpočtu KoP.
@@ -420,20 +420,16 @@ pro je založena na PC Dell Optiplex 780. Obecně je to velmi rozšířený kanc
 V úvodní fázi projektu probíhal vývoj i testování algoritmů v Matlabu~\cite{matlab}. Ten vnitřně používá pro zpracování DFT a IFT knihovnu FFTW~\cite{fftw}. Tato knihovna má dostupnou nativní implementaci v CMake~\cite{cmake}. Dále má pro řadu programovacích jazyků (včetně programovacího jazyku Java~\cite{FFT-java}) připravený wrapper~\cite{wrapper}.
 
 \n{4}{Algoritmu v matlabu (výpočet KoP na CPU)}
-banchmark-cpu.m
-
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\tiny]{code/matlab/banchmark-cpu.m}
-Výsledný KoP odpovídá proměnné ccCMax.
+níže (Kod. \ref{banchmark-cpu.m}) byl použit jako základní srovnávací test pro výpočet KoP hrubou silou na~CPU. Výsledný KoP odpovídá v~alogritmu proměnné ccCMax.
+\script{banchmark-cpu.m}{Matlab}
 
 \n{4}{Algoritmus v matlabu (výpočet KoP s paralelizací na GPU)}
-banchmark-gpu.m
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\tiny]{code/matlab/banchmark-gpu.m}
-Výsledný KoP odpovídá proměnné ccCMax.
+níže (Kod. \ref{banchmark-gpu.m}) vychází z~původního zpracování (Kod. \ref{banchmark-cpu.m}). Vybrané části výpočtu KoP jsou zpracovány pomocí paralelizace na~GPU. Výsledný KoP opět odpovídá proměnné ccCMax. Pro paralelizaci byla využita platforma CUDA~\cite{cuda}.
+\script{banchmark-gpu.m}{Matlab}
 
 \n{4}{Algoritmus v matlabu (výpočet KoZ na CPU)}
-banchmark-koz-cpu.m
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\tiny]{code/matlab/banchmark-koz-cpu.m}
-Výpočet KoZ byl po provedení testů ve srovnávacích testech zanedbán. Především proto, že se nemusí počítat pro kombinace fotografií, ale právě jednou pro každou fotografii a to při jejím pořízení. Průměrná doba výpočtu KoZ je 620 ms.
+níze (Kod.~\ref{banchmark-koz-cpu.m}) je svou strukturou a celkovým provedením odlišný od~předchozích algoritmů (Kod.~\ref{banchmark-cpu.m} a~Kod.~\ref{banchmark-gpu.m}). Některé prvky (např. výpočet světlostní matice) zůstaly zachovány. Výpočet KoZ byl po~provedení testů ve~srovnávacích testech zanedbán. Především proto, že~se~nemusí počítat pro~kombinace fotografií, ale~právě jednou pro~každou fotografii a~to~při~jejím pořízení. Průměrná doba výpočtu KoZ je 620~ms.
+\script{banchmark-koz-cpu.m}{Matlab}
 
 \n{2}{Výsledky testování}
 Byly realizovány tři testovací scénáře.

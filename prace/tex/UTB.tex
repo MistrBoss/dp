@@ -13,7 +13,7 @@
 %\usepackage[czech,english]{babel} % volba při kompilaci latexem (vyžaduje texlive-lang), zakomentovano, nastavovanu prikazem \nastavjazyk
 \usepackage[T1]{fontenc}% definice vnitřního kódování
 \usepackage[utf8x]{inputenc} % slouží pro definici kódování (při problémech zkusit zaměnit utf8x za utf8)
-\usepackage{color}      % umožňuje použití barev
+\usepackage[usenames,dvipsnames]{color}      % umožňuje použití barev
 \usepackage{graphicx}	% rozšíření práce s grafikou
 \usepackage{amsmath}	% balíček pro pokročilejší matematiku
 \usepackage{fancyhdr}	% detailnější nastavení záhlaví a zápatí
@@ -34,7 +34,7 @@
 \usepackage[pdftex,pdfa,hidelinks,breaklinks]{hyperref}	% vytváří křížové odkazy
 %\usepackage{multicol}	% vícesloupcová sazba
 %\usepackage{flafter}	% zajistí, aby se plovoucí objekty objevovali až za jejich umístěním v textu
-\usepackage{chngcntr}   % Umožňuje změnu nastavení číslování obrázků, tabulek i rovnic
+
 \usepackage{etoolbox}   % Tool-box for LaTeX programmers
 \usepackage[labelsep=space,tableposition=bottom,justification=centering]{caption} % Přenastavení popisků u figur a tabulek
 
@@ -42,12 +42,39 @@
 \usepackage[numbered]{matlab-prettifier}	% Podpora matlabu
 \usepackage[shorthands=off,czech]{babel}
 
-\usepackage{listingsutf8}
+\usepackage{listings}
+
+\usepackage{chngcntr}   % Umožňuje změnu nastavení číslování obrázků, tabulek i rovnic
 
 % ---------------------------------------------------------------------------- %
 
 \usepackage{xmpincl}
 \usepackage{hyperxmp}
+
+\lstset{
+	numberbychapter=true,
+	style=Matlab-editor,
+	basicstyle=\linespread{0.8}\tiny\mlttfamily,	% Use small true type font
+	keywordstyle=[2]\color{Purple},         		% MATLAB function arguments purple
+	stringstyle=\color{Purple},             		% Strings are purple
+	tabsize=4,                              		% 5 spaces per tab
+	literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1
+}
+
+
+\lstloadlanguages{Java, Matlab}
+
 
 % \convertDate converts D:20080419103507+02'00' to 2008-04-19T10:35:07+02:00
 \def\convertDate{%
@@ -227,6 +254,23 @@
 	\end{figure}
 }
 
+% Styl pro zdrojový kód
+% \code{filename}{language}
+% Includes a MATLAB script.
+% The first parameter is the label, which also is the name of the script
+%   without the .m.
+% The second parameter is the optional caption.
+\def\script#1#2{
+	\begin{center}
+		\lstinputlisting[
+			caption=#1, 
+			label=#1, 
+			language=#2
+		]
+		{code/#2/#1}
+	\end{center}
+}
+
 % Styl pro tabulky
 % \tab{popisek}{label}{rozměr (0.0 - 1.0)}{definice sloupců}{obsah} 
 \def\tab#1#2#3#4#5{
@@ -304,6 +348,18 @@
 		\addcontentsline{toc}{section}{List of Tables}
 	\fi \fi
 	\listoftables
+	\clearpage
+}
+
+% Příkaz pro vysázení seznamu zdrojového kódu
+\def\seznamscript{
+	\clearpage
+	\ifczech
+		\addcontentsline{toc}{section}{Seznam zdrojového kódu}
+	\else \ifenglish
+		\addcontentsline{toc}{section}{List of Source codes}
+	\fi \fi
+	\lstlistoflistings
 	\clearpage
 }
 
@@ -584,13 +640,15 @@
 % ============================================================================ %
 % NASTAVENÍ FORMÁTU ČÍSLOVÁNÍ OBRÁZKŮ A TABULEK
 
-\def\thefigure{\arabic{figure}}      % číslování obrázků typu (y)
-\def\thetable{\arabic{table}}        % číslování tabulek typu (y)
+\def\thefigure{\arabic{figure}}      	% číslování obrázků typu (y)
+\def\thetable{\arabic{table}}        	% číslování tabulek typu (y)
+\def\thelstlisting{\arabic{lstlisting}}      	% číslování tabulek typu (y)
 \captiondelim{. } % změníme dvoutečku za Obr/Tab za tečku
 
 % Nastavení číslování obrázků, tabulek i rovnic do formátu <číslo kapitoly>.<pořadové číslo>
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
+\AtBeginDocument{\counterwithin{lstlisting}{section}}
 \counterwithin{equation}{section}
 
 % Odsazeni popisku v seznamu obrazku a tabulek
@@ -598,6 +656,7 @@
 %{\renewcommand*\numberline[1]{Fig. \,#1\space}}
 \renewcommand*\l@figure{\@dottedtocline{1}{0em}{5.0em}}
 \renewcommand*\l@table{\@dottedtocline{1}{0em}{5.0em}}
+\renewcommand*\l@lstlisting{\@dottedtocline{1}{0em}{5.0em}}
 
 % Vynulování čítačů
 \@addtoreset{table}{section}
@@ -764,8 +823,10 @@
 		\addto\captionsczech{\renewcommand{\refname}{\MakeTextUppercase{Seznam použité literatury}}}
 		\addto\captionsczech{\renewcommand{\listfigurename}{\MakeTextUppercase{Seznam obrázků}}}
 		\addto\captionsczech{\renewcommand{\listtablename}{\MakeTextUppercase{Seznam tabulek}}}
+		\addto\captionsczech{\renewcommand{\lstlistlistingname}{\MakeTextUppercase{Seznam zdrojového kódu}}}
 		\addto\captionsczech{\renewcommand{\figurename}{Obr.}}
 		\addto\captionsczech{\renewcommand{\tablename}{Tab.}}
+		\addto\captionsczech{\renewcommand{\lstlistingname}{Kod.}}
 	\else \ifenglish
 		\usepackage[english]{babel}	
 		% Vlastni definice nazvu
