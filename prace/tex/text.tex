@@ -591,12 +591,41 @@ Identifikované backendové služby jsou znázorněny na obrázku níže (Obr. \
 
 
 \n{2}{Sekvenční diagram distribuované služby}
-Na obrázku níže (Obr. \ref{fig:sq-similarity-worker}) je znázorněn sekvenční diagram přibližující odbavení výpočtu KoF.
+Na obrázku níže (Obr. \ref{fig:sq-similarity-worker}) je znázorněn sekvenční diagram přibližující odbavení výpočtu KoP.
 \obr {Sekvenční diagram}{fig:sq-similarity-worker}{1.0}{graphics/ea/sq-similarity-worker.png}
 
 
 
-\n{1}{Serverová (sběrná) strana distribuované služby}
+\n{1}{Serverová strana distribuované služby}
+Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{java-se} a~Springu~\cite{spring}. Pro komunikaci využívá SOAP~API. Data ukládá do relační databáze (PostrgreSQL~\cite{postresql}). Tato serverová strana bude modifikována. Nově zde bude vystavena webová služba pro obsluhu distribuované služby a~upraven proces databelizace fotografií.
+
+\n{2}{SOAP API}
+Kompletní komunikační rozhraní ve formátu WSDL~\cite{wsdl} je k~dispozici na~přiloženém CD. Vybranou část WSDL znázorňuje obrázek níže (Obr.~\ref{fig:similarity-service-wsdl}).
+\obr {Vizualizace komunikačních metod distribuované služby}{fig:similarity-service-wsdl}{0.75}{graphics/soap/similarity-queue-service.jpg}
+
+\n{3}{Autentizace}
+Aby bylo možné konzumovat vystavené webové služby, je nejprve nutné provést autentizaci. K~těmto účelům je použita technika CRAM~\cite{challenge-response} (někdy také jako challenge--response).
+\n{4}{attach}
+je metoda, která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave) (Obr.~\ref{fig:api-attach}). Je nezabezpečená metoda (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na straně serveru.
+\obr{Detail metody attach}{fig:api-attach}{1.0}{graphics/soap/attach.png}
+
+\n{4}{challenge}
+je metoda, kterou slave žádá server o~vytvoření zabezpečeného komunikačního kanálu. Server na~tento požadavek reaguje pouze v~případě, že~se slave prokáže platným slave\_id. V~odpovědi server vrací vygenerovanou sůl (pseudonáhodné hexadecimální číslo~\cite{hash}) potřebnou pro~další komunikaci (Obr.~\ref{fig:api-challenge}).
+\obr{Detail metody challenge}{fig:api-challenge}{1.0}{graphics/soap/challenge.png}
+
+\n{4}{challengeLogin} je metoda pro~autentizaci slave. Server i~slave provedou nezávisle na~sobě výpočet hashe (s~přednastaveným hashovacím algoritmem) za~použití soli. Slave odešle data (Obr.~\ref{fig:api-challengeLogin}) a~pokud jsou ve~shodě se serverovými, je relace tohoto slave nadále autentizována.
+\obr{Detail metody challengeLogin}{fig:api-challengeLogin}{1.0}{graphics/soap/challenge-login.png}
+
+\n{3}{Distribuce požadavků na výpočet KoP}
+Autentizovaný slave může zažádat o~metadata k~výpočtu KoP. Pokud jsou ve~frontě na~výpočet KoP zařazeny nějaké požadavky, jsou vráceny. Jakmile je slave vyhodnotí, odesílá výsledek zpět na server.
+
+\n{4}{getDataToCompare}
+je metoda určená pro~distribuci výpočtu (metadat k výpočtu) KoP (Obr.~\ref{fig:api-getDataToCompare}).
+\obr{Detail metody getDataToCompare}{fig:api-getDataToCompare}{1.0}{graphics/soap/get-data.png}
+
+\n{4}{submitResult}
+je metoda určená pro~odeslání výsledku distribuovaného výpočtu KoP zpět na~server (Obr.~\ref{fig:api-submitResult}).
+\obr{Detail metody submitResult}{fig:api-submitResult}{1.0}{graphics/soap/submit-result.png}
 
 \n{2}{Databelizace fotografií}
 
@@ -661,6 +690,7 @@ Obrázek
 
 \n{1}{Klientská (výkonná) strana distribuované služby}
 
+\script{ImageComparatorWithConstantScale.java}{Java}
 %\lstinputlisting[style=Matlab-editor,language=java,basicstyle=\mlttfamily\tiny]{code/java/ImageComparatorWithConstantScale.java}
 
 %\section{Java}

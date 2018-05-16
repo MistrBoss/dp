@@ -17,7 +17,7 @@ import javax.media.jai.iterator.RandomIterFactory;
 import org.apache.log4j.Logger;
 
 /**
- * Scale vzorového a refenčních obrázků na [320 × ?] nebo [? × 240] + doplnění
+ *Scalevzorového a refenčních obrázků na [320 × ?] nebo [? × 240] + doplnění
  * vzorového i referenčního nulami na [320 × 240]. Dále provede křížovou
  * korelaci ve vlnovém spektru. <B>Operace je komutativní.</B>
  *

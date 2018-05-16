@@ -1,0 +1,486 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.server.dovolena.sa.cz/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SimilarityQueueServiceImplService" targetNamespace="http://ws.server.dovolena.sa.cz/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.server.dovolena.sa.cz/" elementFormDefault="unqualified" targetNamespace="http://ws.server.dovolena.sa.cz/" version="1.0">
+
+  <xs:element name="attach" type="tns:attach"></xs:element>
+
+  <xs:element name="attachResponse" type="tns:attachResponse"></xs:element>
+
+  <xs:element name="challenge" type="tns:challenge"></xs:element>
+
+  <xs:element name="challengeLogin" type="tns:challengeLogin"></xs:element>
+
+  <xs:element name="challengeLoginResponse" type="tns:challengeLoginResponse"></xs:element>
+
+  <xs:element name="challengeResponse" type="tns:challengeResponse"></xs:element>
+
+  <xs:element name="checkLogin" type="tns:checkLogin"></xs:element>
+
+  <xs:element name="checkLoginResponse" type="tns:checkLoginResponse"></xs:element>
+
+  <xs:element name="detach" type="tns:detach"></xs:element>
+
+  <xs:element name="detachResponse" type="tns:detachResponse"></xs:element>
+
+  <xs:element name="getDataToCompare" type="tns:getDataToCompare"></xs:element>
+
+  <xs:element name="getDataToCompareResponse" type="tns:getDataToCompareResponse"></xs:element>
+
+  <xs:element name="logError" type="tns:logError"></xs:element>
+
+  <xs:element name="logErrorResponse" type="tns:logErrorResponse"></xs:element>
+
+  <xs:element name="login" type="tns:login"></xs:element>
+
+  <xs:element name="loginResponse" type="tns:loginResponse"></xs:element>
+
+  <xs:element name="submitResult" type="tns:submitResult"></xs:element>
+
+  <xs:element name="submitResultResponse" type="tns:submitResultResponse"></xs:element>
+
+  <xs:complexType name="attach">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="slave_id" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="attachResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="detach">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="slave_id" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="detachResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="checkLogin">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="checkLoginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="challenge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="challengeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:wsChallenge"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType final="extension restriction" name="wsChallenge">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="user_salt" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="challenge_salt" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDataToCompare">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="slave_id" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDataToCompareResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:similarityData"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType final="extension restriction" name="similarityData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pattern" type="tns:sFileSource"></xs:element>
+      <xs:element minOccurs="0" name="compare" type="tns:sFileSource"></xs:element>
+      <xs:element minOccurs="0" name="similarity" type="xs:double"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sFileSource">
+    <xs:complexContent>
+      <xs:extension base="tns:soapUjo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="active" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="bytes" type="xs:long"></xs:element>
+          <xs:element minOccurs="0" name="dateCleared" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="dateDeleted" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="dateModified" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="description" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="group" type="tns:sFileSource"></xs:element>
+          <xs:element minOccurs="0" name="hash" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="height" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="id" type="xs:long"></xs:element>
+          <xs:element minOccurs="0" name="optimalSharpnessCoeficient" type="xs:double"></xs:element>
+          <xs:element minOccurs="0" name="overSharpness" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="relativePath" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="sharpness" type="xs:int"></xs:element>
+          <xs:element minOccurs="0" name="size" type="tns:size"></xs:element>
+          <xs:element minOccurs="0" name="src" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="userCreated" type="tns:sUser"></xs:element>
+          <xs:element minOccurs="0" name="userDeleted" type="tns:sUser"></xs:element>
+          <xs:element minOccurs="0" name="userModified" type="tns:sUser"></xs:element>
+          <xs:element minOccurs="0" name="width" type="xs:int"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="soapUjo">
+    <xs:complexContent>
+      <xs:extension base="tns:quickUjo">
+        <xs:sequence></xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="quickUjo">
+    <xs:complexContent>
+      <xs:extension base="tns:abstractUjo">
+        <xs:sequence></xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="abstractUjo">
+    <xs:complexContent>
+      <xs:extension base="tns:superAbstractUjo">
+        <xs:sequence></xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="superAbstractUjo">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sUser">
+    <xs:complexContent>
+      <xs:extension base="tns:soapUjo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="active" type="xs:boolean"></xs:element>
+          <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="dateDeleted" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="dateModified" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="email" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="firstname" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="id" type="xs:long"></xs:element>
+          <xs:element minOccurs="0" name="lastIp" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="lastLogin" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="lastname" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="password" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="passwordRe" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="passwordResetDate" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="passwordResetHash" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="previousLastLoginDate" type="xs:dateTime"></xs:element>
+          <xs:element minOccurs="0" name="salt" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="sessionId" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="userCreated" type="tns:sUser"></xs:element>
+          <xs:element minOccurs="0" name="userDeleted" type="tns:sUser"></xs:element>
+          <xs:element minOccurs="0" name="userModified" type="tns:sUser"></xs:element>
+          <xs:element minOccurs="0" name="userRole" type="tns:userRole"></xs:element>
+          <xs:element minOccurs="0" name="username" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="pass" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="logError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="slave_id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="log" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="logErrorResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="challengeLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="user" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="pass" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="challenge" type="xs:long"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="challengeLoginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="submitResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="slave_id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="result" type="tns:similarityData"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="submitResultResponse">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="size">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SMALL"></xs:enumeration>
+      <xs:enumeration value="MEDIUM"></xs:enumeration>
+      <xs:enumeration value="LARGE"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="userRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SYSTEM"></xs:enumeration>
+      <xs:enumeration value="ADMIN"></xs:enumeration>
+      <xs:enumeration value="USER"></xs:enumeration>
+      <xs:enumeration value="SELLER"></xs:enumeration>
+      <xs:enumeration value="DISCOUNT"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="attachResponse">
+    <wsdl:part element="tns:attachResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataToCompareResponse">
+    <wsdl:part element="tns:getDataToCompareResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part element="tns:loginResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="detach">
+    <wsdl:part element="tns:detach" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="submitResultResponse">
+    <wsdl:part element="tns:submitResultResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="challengeLoginResponse">
+    <wsdl:part element="tns:challengeLoginResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logError">
+    <wsdl:part element="tns:logError" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="submitResult">
+    <wsdl:part element="tns:submitResult" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="logErrorResponse">
+    <wsdl:part element="tns:logErrorResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="challengeLogin">
+    <wsdl:part element="tns:challengeLogin" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="attach">
+    <wsdl:part element="tns:attach" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkLogin">
+    <wsdl:part element="tns:checkLogin" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="challenge">
+    <wsdl:part element="tns:challenge" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkLoginResponse">
+    <wsdl:part element="tns:checkLoginResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="detachResponse">
+    <wsdl:part element="tns:detachResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="challengeResponse">
+    <wsdl:part element="tns:challengeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataToCompare">
+    <wsdl:part element="tns:getDataToCompare" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part element="tns:login" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SimilarityQueueService">
+    <wsdl:operation name="attach">
+      <wsdl:input message="tns:attach" name="attach">
+    </wsdl:input>
+      <wsdl:output message="tns:attachResponse" name="attachResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detach">
+      <wsdl:input message="tns:detach" name="detach">
+    </wsdl:input>
+      <wsdl:output message="tns:detachResponse" name="detachResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLogin">
+      <wsdl:input message="tns:checkLogin" name="checkLogin">
+    </wsdl:input>
+      <wsdl:output message="tns:checkLoginResponse" name="checkLoginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="challenge">
+      <wsdl:input message="tns:challenge" name="challenge">
+    </wsdl:input>
+      <wsdl:output message="tns:challengeResponse" name="challengeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataToCompare">
+      <wsdl:input message="tns:getDataToCompare" name="getDataToCompare">
+    </wsdl:input>
+      <wsdl:output message="tns:getDataToCompareResponse" name="getDataToCompareResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:login" name="login">
+    </wsdl:input>
+      <wsdl:output message="tns:loginResponse" name="loginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logError">
+      <wsdl:input message="tns:logError" name="logError">
+    </wsdl:input>
+      <wsdl:output message="tns:logErrorResponse" name="logErrorResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="challengeLogin">
+      <wsdl:input message="tns:challengeLogin" name="challengeLogin">
+    </wsdl:input>
+      <wsdl:output message="tns:challengeLoginResponse" name="challengeLoginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitResult">
+      <wsdl:input message="tns:submitResult" name="submitResult">
+    </wsdl:input>
+      <wsdl:output message="tns:submitResultResponse" name="submitResultResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SimilarityQueueServiceImplServiceSoapBinding" type="tns:SimilarityQueueService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="attach">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="attach">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="attachResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="detach">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="detach">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="detachResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLogin">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="checkLogin">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="checkLoginResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="challenge">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="challenge">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="challengeResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataToCompare">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getDataToCompare">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getDataToCompareResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logError">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="logError">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="logErrorResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="login">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="challengeLogin">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="challengeLogin">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="challengeLoginResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="submitResult">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="submitResult">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="submitResultResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SimilarityQueueServiceImplService">
+    <wsdl:port binding="tns:SimilarityQueueServiceImplServiceSoapBinding" name="SimilarityQueueServiceImplPort">
+      <soap:address location="http://dpl-dev-dv-platba.sa.cz/dovolena/services/SimilarityQueue"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
