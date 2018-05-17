@@ -610,7 +610,7 @@ Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{ja
 
 
 \n{2}{Databelizace fotografií}
-Do původního řešení byla zavedena kontrola existence totožné fotografie na základě MD5. Hodnota MD5 je ukládána do DB. Dále se nově při importu fotografie ukládají její vybraná metadata. Ty později s výhodou používají na výpočet KoZ přímo v SQL dotazu. Jedná se o:
+Do~původního řešení byla zavedena kontrola existence totožné fotografie na~základě MD5. Hodnota MD5 je ukládána do~DB. Nad~tímto sloupec je aplikován unikátní index. Dále se nově při importu fotografie ukládají její vybraná metadata. Ty později s výhodou používají na výpočet KoZ přímo v SQL dotazu. Jedná se o:
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
@@ -618,18 +618,21 @@ Do původního řešení byla zavedena kontrola existence totožné fotografie n
 	\item {výšku a šířku v px}
 	\item {poměrný počet hran (přeostřenost)}
 \end{itemize}
+Výsledek po dokončení importu fotografií je patrný na obrázku níže (Obr.~\ref{fig:hotel-photo}).
+\obr{Náhled administrace uložených fotografií}{fig:hotel-photo}{1.0}{graphics/hotel-photo.png}
 
 \n{3}{Výpočet poměrného počtu hran}
 Jedná se o~matematickou operaci založenou na~kovoluci, DFT a IFT. Základní torzo nosného alogritmu je vidět níže (Kod.~\ref{SharpnessCore.java}).
 \script{SharpnessCore.java}{Java}
-Nyní budou představeny postupně jednotlivé kroky.
 
 \n{4}{Světlostní matice}
 vznikne převodem fotografie (Obr.~\ref{fig:sharpness-original}) do dvourozměrného pole (Kod.~\ref{BrightnessMatrix.java}).
 \script{BrightnessMatrix.java}{Java}
 
 \n{4}{Matice ostrosti}
-je dána maticí hran, která se získá převodem světlostní matice do~vlnového spektra pomocí DFT a~následnou konvolucí ve~vlnovém spektru (Kod.~\ref{FTHighKernelMatrix.java}). Grafická prezentace této operace je na~obrázku níže (Obr.~\ref{fig:sharpness-matrix}). K~docílení požadovaného stavu je nutné zvolit vhodný filtr viz Tab.~\ref{tab:convolution-high} (konvoluční jádro). Aplikované jádro bylo sestaveno experimentálně a~jeho funkčnost ověřena testováním na~lidech.
+je matice hran, která se získá převodem světlostní matice do~vlnového spektra pomocí DFT a~následnou konvolucí ve~vlnovém spektru (Kod.~\ref{FTHighKernelMatrix.java}). Grafická prezentace této operace je na~obrázku níže (Obr.~\ref{fig:sharpness-matrix}). K~docílení požadovaného stavu je nutné zvolit vhodný filtr (Tab.~\ref{tab:convolution-high}, (Kod.~\ref{FTHighKernelMatrix.java}). Samotné sestavení matice ostrosti ve~vlnovém spektru znázorňuje přiložený kód níže (Kod.~\ref{ConvolutionMatrix.java}).
+
+\script{FTHighKernelMatrix.java}{Java}
 
 \tab {Jádro typu horní propusť} {tab:convolution-high} {1.0}
 {|r|r|r|}
@@ -641,53 +644,32 @@ je dána maticí hran, která se získá převodem světlostní matice do~vlnov�
 	-1/16 & -1/16 & -1/16 \\
 	\hline}
 
-\script{FTHighKernelMatrix.java}{Java}
+\script{ConvolutionMatrix.java}{Java}
 
 \n{4}{Matice přeostřenosti}
-je dána maticí hran za prahovou hodnotou (přeostřených hran). Prahová hodnota byla opět definována (a testována) experimentálně v mnoha iteracích.
-Jednotlivé kroky výpočtu:
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
+je matice hran za~prahovou hodnotou ostrosti (přeostřených hran). Vzniká z~konvolucí (Kod.~\ref{ConvolutionMatrix.java}) matice ostrosti s~jádrem typu dolní propusť (Tab.~\ref{tab:convolution-low}, Kod.~\ref{FTLowKernelMatrix.java}) bylo sestaveno experimentálně v~mnoha iteracích a~jeho funkčnost ověřena testováním na~lidech, stejně jako aplikovaná prahová hodnota.
 
-	\item{Sestavení matice přeostřenosti, tj. matice hran za prahovou hodnotou (Obr.~\ref{fig:oversharpness-matrix})}
-	\begin{itemize}
-		\setlength{\parskip}{0pt}
-		\setlength{\itemsep}{0pt}
-		\setstretch{1.05}
-		\item {Převod matice ostrosti ve vlnovém spektru na matici přeostřených hran,}
-		\item {za pomocí konvoluce typu horní propusť.}
-	\end{itemize}
-	\item{Převod vypočtených matic zpět z vlnového spektra pomocí IFT.}
-	\item{Sečtení hran v matici ostrosti a sečtení přeostřených hran v matici přeostřenosti.}
-	\item{Podíl sumy hran a sumy přeostřených hran je KoZ.}
-\end{itemize}
+\script{FTLowKernelMatrix.java}{Java}
 
-\n{4}{Příklad}
-představu, jak tento proces funguje, prezentuje obrázek  (Obr.~\ref{fig:sharpness-example}). Po oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), od všech hran (Obr.~\ref{fig:sharpness-matrix}) je již snadné vypočítat jejich poměrný koeficient.
+\tab {Jádro typu dolní propusť} {tab:convolution-low} {1.0}
+{|r|r|r|}
+{\hline
+	1/8 & 1/8 & 1/8 \\
+	\hline
+	1/8 & 1/2 & 1/8 \\
+	\hline
+	1/8 & 1/8 & 1/8 \\
+	\hline}
 
-\begin{figure}
-	\centering
-	\subfloat[Fotografie před úpravou] {{\includegraphics[width=11cm]{graphics/sharpness-original.png} \label{fig:sharpness-original}}}%
-	\qquad
-	\subfloat[Vizualizace hran] {{\includegraphics[width=11cm]{graphics/sharpness-matrix.png} \label{fig:sharpness-matrix}}}%
-	\qquad
-	\subfloat[Vizualizace přeostřených hran] {{\includegraphics[width=11cm]{graphics/oversharpness-matrix.png} \label{fig:oversharpness-matrix}}}%
-	\caption{Příklad přeostřenosti fotografie}%
-	\label{fig:sharpness-example}%
-\end{figure}
+\n{4}{Poměrný počet hran}
+je podíl sumy hran a~sumy přeostřených hran. Suma hran je dána součtem jednotlivých prvků matice ostrosti po~převodu zpět z~vlnového spektra pomocí IFT (Kod.~\ref{sumSharpness.java}). Suma přeostřených hran vzniká podobně (Kod.~\ref{sumOverSharpness.java}). Jediný rozdíl je zohlednění prahového hodnoty ostrosti (respektive přeostřenosti).
 
-Hlavní část určení KoZ je čistě experimentální, jelikož nebyl nalezen žádný srovnatelný vzorek či projekt, na kterém by šlo empiricky stavět.
+\script{sumSharpness.java}{Java}
 
-Je nutné ručně nastavit do algoritmu některé konstanty (např. Negativní koeficient konvolučního jádra pro horní propusť) a jejich správnost následně testovat. Výsledkem je neutrální podklad z kterého “vystupují” hrany, velké množství hran ⇔ fotka není rozmazaná.
+\script{sumOverSharpness.java}{Java}
 
-
-1. horní propusť - obraz hran
-2. dolní propusť na obrazu hran - tím docílíme odstraněním velmi ostrých hran (přeostřenosti)
--- tím spočítám počet ostrých hran
-Obrázek 
-
+\n{4}{Příklad přeostřenosti fotografie}
+prezentují obrázky níže. Z~původní fotografie (Obr.~\ref{fig:sharpness-original}) je po~oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), ode~všech hran (Obr.~\ref{fig:sharpness-matrix}) stanoven jejich poměrný koeficient.
 
 \n{2}{Fronta nezpracovaných obrázků}
 Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotaz (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do DB v reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
