@@ -417,7 +417,7 @@ pro je založena na PC Dell Optiplex 780. Obecně je to velmi rozšířený kanc
 \end{itemize}
 
 \n{3}{Použitý SW}
-V úvodní fázi projektu probíhal vývoj i testování algoritmů v Matlabu~\cite{matlab}. Ten vnitřně používá pro zpracování DFT a IFT knihovnu FFTW~\cite{fftw}. Tato knihovna má dostupnou nativní implementaci v CMake~\cite{cmake}. Dále má pro řadu programovacích jazyků (včetně programovacího jazyku Java~\cite{FFT-java}) připravený wrapper~\cite{wrapper}.
+V~úvodní fázi projektu probíhal vývoj i~testování algoritmů v~Matlabu~\cite{matlab}. Ten vnitřně používá pro~zpracování DFT a~IFT knihovnu FFTW~\cite{fftw}. Tato knihovna má dostupnou nativní implementaci v~CMake~\cite{cmake}. Dále má pro~řadu programovacích jazyků (včetně programovacího jazyku Java~\cite{FFT-java}) připravený wrapper~\cite{wrapper}.
 
 \n{4}{Algoritmu v matlabu (výpočet KoP na CPU)}
 níže (Kod. \ref{banchmark-cpu.m}) byl použit jako základní srovnávací test pro výpočet KoP hrubou silou na~CPU. Výsledný KoP odpovídá v~alogritmu proměnné ccCMax.
@@ -597,54 +597,60 @@ Na obrázku níže (Obr. \ref{fig:sq-similarity-worker}) je znázorněn sekvenč
 
 
 \n{1}{Serverová strana distribuované služby}
-Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{java-se} a~Springu~\cite{spring}. Pro komunikaci využívá SOAP~API. Data ukládá do relační databáze (PostrgreSQL~\cite{postresql}). Tato serverová strana bude modifikována. Nově zde bude vystavena webová služba pro obsluhu distribuované služby a~upraven proces databelizace fotografií.
-
-\n{2}{SOAP API}
-Kompletní komunikační rozhraní ve formátu WSDL~\cite{wsdl} je k~dispozici na~přiloženém CD. Vybranou část WSDL znázorňuje obrázek níže (Obr.~\ref{fig:similarity-service-wsdl}).
-\obr {Vizualizace komunikačních metod distribuované služby}{fig:similarity-service-wsdl}{0.75}{graphics/soap/similarity-queue-service.jpg}
-
-\n{3}{Autentizace}
-Aby bylo možné konzumovat vystavené webové služby, je nejprve nutné provést autentizaci. K~těmto účelům je použita technika CRAM~\cite{challenge-response} (někdy také jako challenge--response).
-\n{4}{attach}
-je metoda, která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave) (Obr.~\ref{fig:api-attach}). Je nezabezpečená metoda (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na straně serveru.
-\obr{Detail metody attach}{fig:api-attach}{1.0}{graphics/soap/attach.png}
-
-\n{4}{challenge}
-je metoda, kterou slave žádá server o~vytvoření zabezpečeného komunikačního kanálu. Server na~tento požadavek reaguje pouze v~případě, že~se slave prokáže platným slave\_id. V~odpovědi server vrací vygenerovanou sůl (pseudonáhodné hexadecimální číslo~\cite{hash}) potřebnou pro~další komunikaci (Obr.~\ref{fig:api-challenge}).
-\obr{Detail metody challenge}{fig:api-challenge}{1.0}{graphics/soap/challenge.png}
-
-\n{4}{challengeLogin} je metoda pro~autentizaci slave. Server i~slave provedou nezávisle na~sobě výpočet hashe (s~přednastaveným hashovacím algoritmem) za~použití soli. Slave odešle data (Obr.~\ref{fig:api-challengeLogin}) a~pokud jsou ve~shodě se serverovými, je relace tohoto slave nadále autentizována.
-\obr{Detail metody challengeLogin}{fig:api-challengeLogin}{1.0}{graphics/soap/challenge-login.png}
-
-\n{3}{Distribuce požadavků na výpočet KoP}
-Autentizovaný slave může zažádat o~metadata k~výpočtu KoP. Pokud jsou ve~frontě na~výpočet KoP zařazeny nějaké požadavky, jsou vráceny. Jakmile je slave vyhodnotí, odesílá výsledek zpět na server.
-
-\n{4}{getDataToCompare}
-je metoda určená pro~distribuci výpočtu (metadat k výpočtu) KoP (Obr.~\ref{fig:api-getDataToCompare}).
-\obr{Detail metody getDataToCompare}{fig:api-getDataToCompare}{1.0}{graphics/soap/get-data.png}
-
-\n{4}{submitResult}
-je metoda určená pro~odeslání výsledku distribuovaného výpočtu KoP zpět na~server (Obr.~\ref{fig:api-submitResult}).
-\obr{Detail metody submitResult}{fig:api-submitResult}{1.0}{graphics/soap/submit-result.png}
-
-\n{2}{Databelizace fotografií}
-
-Proces určení KoZ je již trochu složitější. Nejprve je představen zjednodušeně a následně budou jednotlivé kroky rozvedeny.
-
+Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{java-se} a~Springu~\cite{spring}. Pro komunikaci využívá SOAP~API. Data ukládá do relační databáze (PostrgreSQL~\cite{postresql}). Tato serverová strana bude modifikována. Nově zde bude
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item{Převod fotografie (Obr.~\ref{fig:sharpness-original}) na světlostní matici}
-	\item{Převod světlostní matice do vlnového spektra pomocí DFT}
-	\item{Sestavení matice ostrosti (matice hran)}
-	\begin{itemize}
-		\setlength{\parskip}{0pt}
-		\setlength{\itemsep}{0pt}
-		\setstretch{1.05}
-		\item {Převod světlostní matice ve vlnovém spektru na matici hran (Obr.~\ref{fig:sharpness-matrix}),}
-		\item {za pomocí konvoluce typu horní propusť.}
-	\end{itemize}
+	\item {upraven proces databelizace fotografií (výpočet KoZ),}
+	\item {zkonstruována fronta importovaných fotografií čekajících na~výpočet KoP,}
+	\item {vystaven servlet navracející fotografie,}
+	\item {vystavena webová služba pro~obsluhu distribuované služby.}
+\end{itemize}
+
+
+\n{2}{Databelizace fotografií}
+Do původního řešení byla zavedena kontrola existence totožné fotografie na základě MD5. Hodnota MD5 je ukládána do DB. Dále se nově při importu fotografie ukládají její vybraná metadata. Ty později s výhodou používají na výpočet KoZ přímo v SQL dotazu. Jedná se o:
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {výšku a šířku v px}
+	\item {poměrný počet hran (přeostřenost)}
+\end{itemize}
+
+\n{3}{Výpočet poměrného počtu hran}
+Jedná se o~matematickou operaci založenou na~kovoluci, DFT a IFT. Základní torzo nosného alogritmu je vidět níže (Kod.~\ref{SharpnessCore.java}).
+\script{SharpnessCore.java}{Java}
+Nyní budou představeny postupně jednotlivé kroky.
+
+\n{4}{Světlostní matice}
+vznikne převodem fotografie (Obr.~\ref{fig:sharpness-original}) do dvourozměrného pole (Kod.~\ref{BrightnessMatrix.java}).
+\script{BrightnessMatrix.java}{Java}
+
+\n{4}{Matice ostrosti}
+je dána maticí hran, která se získá převodem světlostní matice do~vlnového spektra pomocí DFT a~následnou konvolucí ve~vlnovém spektru (Kod.~\ref{FTHighKernelMatrix.java}). Grafická prezentace této operace je na~obrázku níže (Obr.~\ref{fig:sharpness-matrix}). K~docílení požadovaného stavu je nutné zvolit vhodný filtr viz Tab.~\ref{tab:convolution-high} (konvoluční jádro). Aplikované jádro bylo sestaveno experimentálně a~jeho funkčnost ověřena testováním na~lidech.
+
+\tab {Jádro typu horní propusť} {tab:convolution-high} {1.0}
+{|r|r|r|}
+{\hline
+	-1/16 & -1/16 & -1/16 \\
+	\hline
+	-1/16 & 1/2 & -1/16 \\
+	\hline
+	-1/16 & -1/16 & -1/16 \\
+	\hline}
+
+\script{FTHighKernelMatrix.java}{Java}
+
+\n{4}{Matice přeostřenosti}
+je dána maticí hran za prahovou hodnotou (přeostřených hran). Prahová hodnota byla opět definována (a testována) experimentálně v mnoha iteracích.
+Jednotlivé kroky výpočtu:
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+
 	\item{Sestavení matice přeostřenosti, tj. matice hran za prahovou hodnotou (Obr.~\ref{fig:oversharpness-matrix})}
 	\begin{itemize}
 		\setlength{\parskip}{0pt}
@@ -661,7 +667,7 @@ Proces určení KoZ je již trochu složitější. Nejprve je představen zjedno
 \n{4}{Příklad}
 představu, jak tento proces funguje, prezentuje obrázek  (Obr.~\ref{fig:sharpness-example}). Po oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), od všech hran (Obr.~\ref{fig:sharpness-matrix}) je již snadné vypočítat jejich poměrný koeficient.
 
-\begin{figure}[!ht]
+\begin{figure}
 	\centering
 	\subfloat[Fotografie před úpravou] {{\includegraphics[width=11cm]{graphics/sharpness-original.png} \label{fig:sharpness-original}}}%
 	\qquad
@@ -682,11 +688,53 @@ Je nutné ručně nastavit do algoritmu některé konstanty (např. Negativní k
 -- tím spočítám počet ostrých hran
 Obrázek 
 
+
 \n{2}{Fronta nezpracovaných obrázků}
+Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotaz (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do DB v reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
+\script{queue.sql}{sql}
+
 
 \n{2}{Servlet pro stažení obrázků}
+Servlet je součást serverové strany. Je realizován pomocí spring bean~\cite{bean} typu singleton~\cite{SpringInAction} (Obr.~\ref{fig:singleton}). Na~základě vstupní URL~adresy~\cite{url} (GET~dotazu~\cite{get}) určí parametr md5. Pomocí něj vyčte z~DB relativní cestu na~datovém, síťovém úložišti, kde se fotografie nachází (Kod.~\ref{servlet.sql}).
+\script{servlet.sql}{sql}
+\obr{Ukázka použití singleton~\cite{scopes}}{fig:singleton}{0.75}{graphics/singleton.png}
 
-\n{2}{Odeslání výsledků}
+
+\n{2}{SOAP API}
+Kompletní komunikační rozhraní ve~formátu WSDL~\cite{wsdl} je k~dispozici na~přiloženém CD. Vybranou část WSDL znázorňuje obrázek níže (Obr.~\ref{fig:similarity-service-wsdl}).
+
+\obr {Vizualizace komunikačních metod distribuované služby}{fig:similarity-service-wsdl}{0.75}{graphics/soap/similarity-queue-service.jpg}
+
+\n{3}{Autentizace}
+Aby bylo možné konzumovat vystavené webové služby, je nejprve nutné provést autentizaci. K~těmto účelům je použita technika CRAM~\cite{challenge-response} (někdy také jako challenge--response).
+\n{4}{attach}
+je metoda, která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave) (Obr.~\ref{fig:api-attach}). Je nezabezpečená metoda (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na straně serveru.
+
+\obr{Detail metody attach}{fig:api-attach}{1.0}{graphics/soap/attach.png}
+
+\n{4}{challenge}
+je metoda, kterou slave žádá server o~vytvoření zabezpečeného komunikačního kanálu. Server na~tento požadavek reaguje pouze v~případě, že~se slave prokáže platným slave\_id. V~odpovědi server vrací vygenerovanou sůl (pseudonáhodné hexadecimální číslo~\cite{hash}) potřebnou pro~další komunikaci (Obr.~\ref{fig:api-challenge}).
+
+\obr{Detail metody challenge}{fig:api-challenge}{1.0}{graphics/soap/challenge.png}
+
+\n{4}{challengeLogin} je metoda pro~autentizaci slave. Server i~slave provedou nezávisle na~sobě výpočet hashe (s~přednastaveným hashovacím algoritmem) za~použití soli. Slave odešle data (Obr.~\ref{fig:api-challengeLogin}) a~pokud jsou ve~shodě se serverovými, je relace tohoto slave nadále autentizována.
+
+\obr{Detail metody challengeLogin}{fig:api-challengeLogin}{1.0}{graphics/soap/challenge-login.png}
+
+\n{3}{Distribuce požadavků na výpočet KoP}
+Autentizovaný slave může zažádat o~metadata k~výpočtu KoP. Pokud jsou ve~frontě na~výpočet KoP zařazeny nějaké požadavky, jsou vráceny. Jakmile je slave vyhodnotí, odesílá výsledek zpět na server.
+
+\n{4}{getDataToCompare}
+je metoda určená pro~distribuci výpočtu (metadat k výpočtu) KoP (Obr.~\ref{fig:api-getDataToCompare}).
+
+\obr{Detail metody getDataToCompare}{fig:api-getDataToCompare}{1.0}{graphics/soap/get-data.png}
+
+\n{4}{submitResult}
+je metoda určená pro~odeslání výsledku distribuovaného výpočtu KoP zpět na~server (Obr.~\ref{fig:api-submitResult}).
+
+\obr{Detail metody submitResult}{fig:api-submitResult}{1.0}{graphics/soap/submit-result.png}
+
+
 
 \n{1}{Klientská (výkonná) strana distribuované služby}
 

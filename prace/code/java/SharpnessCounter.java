@@ -59,7 +59,7 @@ public class SharpnessCounter {
     }
 
     /**
-     * Určí koeficient ostrosti
+     * Určí poměrný koeficient ostrosti
      *
      * @return koeficient ostrosti
      */
