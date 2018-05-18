@@ -23,6 +23,7 @@
 \usepackage{ifthen} 	% balíček umožňující skladby if, then -- využijeme při definici nadpisů
 \usepackage{setspace}	% balíček umožňující nastavit řádkování na 1, 1.5, 2
 \usepackage{ccaption}	% vylepšení práce s popisky obrázků či tabulek
+%\usepackage{caption}	% vylepšení práce s popisky obrázků či tabulek
 \usepackage{sectsty}	% pro nastavení vzhledu nadpisů
 \usepackage[srcstyle=leftnumhang,linenumbersep={\ }]{examplep} % pokročilejší sazba programového kódu
 \usepackage{url}        % balíček pro vysázení internetové adresy stylem verbatim s vylepšeným řádkovým zlomem
@@ -297,15 +298,16 @@
 	
 % Styl pro tabulky z MS Excelu exportované do EPS
 % \extab{popisek}{rozměr (0.0 - 1.0)}{soubor}
-\def\extab#1#2#3{
-	\begin{table}
-	%\captionwidth{#2\linewidth}
-	%\changecaptionwidth
-	\captionsetup{width=#2\linewidth}
-	\caption{#1}
-	\begin{center}
-	\includegraphics[width=#2\linewidth]{#3}
-	\end{center}
+\def\extab#1#2#3#4{
+	\begin{table}[h]
+		%\captionwidth{#2\linewidth}
+		%\changecaptionwidth
+		\captionsetup{width=#3\linewidth}
+		\caption{#1}
+		\label{#2}
+		\begin{center}
+			\includegraphics[width=#3\linewidth]{#4}
+		\end{center}
 	\end{table}
 }
 

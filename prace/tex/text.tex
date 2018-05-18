@@ -88,7 +88,7 @@ Bude zaveden koeficient zastupitelnosti (dále jen KoZ), který je zjednodušen�
 \n{3}{Oblast zájmu}
 
 \n{4}{Střední hodnota jasu}
-je určena pomocí světlostní matice. Jedná se pouze o zohlednění, zda fotografie není příliš jasná nebo tmavá. Jde o~jednoduchý algoritmus. Na výsledek nemá zásadní vliv.
+je určena pomocí světlostní matice. Jedná se pouze o zohlednění, zda fotografie není příliš jasná nebo tmavá. Jde o~jednoduchý algoritmus. Na~výsledek nemá zásadní vliv.
 
 \n{4}{Poměrný počet hran}
 slouží jako test rozmazanosti fotografie. K realizaci se používá konvoluční matice (více v samostatné kapitole věnované této problematice) s vhodným jádrem typu horní i dolní propusť (s celkovým součtem 0). Na výsledek má největší dopad.
@@ -181,7 +181,7 @@ Na první pohled se může zdát složitý, ale skrývá v sobě tři jednoduch�
 
 Za předpokladu, že objekty na porovnávaných fotografiích nejsou vůči sobě v prostoru posunuty, poskytuje korelační matice odpověď na otázku, zda jsou si dvě fotografie podobné. V praxi ale tento model příliš nenastává. Naopak je velmi časné, že je porovnáván např. výřez z fotografie oproti originálu, případně posunuté fotografie po horizontální či vertikální ose.
 
-Tuto problematiku řeší křížová korelace (Cross correlation method)~\cite{cross-correlation}. Princip samotné korelace je stejný, pouze se opakuje s částečným posunem tak, aby pokryla všechny možné kombinace mezi dvěma fotografiemi. Příklad je názorně vidět na původních fotografiích, jak ukazuje (Obr.~\ref{fig:correlation}) a (Obr.~\ref{fig:cross-correlation}).
+Tuto problematiku řeší křížová korelace (Cross correlation method)~\cite{cross-correlation}. Princip samotné korelace je stejný, pouze se opakuje s částečným posunem tak, aby pokryla všechny možné kombinace mezi dvěma fotografiemi. Příklad je názorně vidět na původních fotografiích, jak ukazuje (Obr.~\ref{fig:correlation}) a~(Obr.~\ref{fig:cross-correlation}).
 
 \obr{Příklad proložení dvou fotografií s použitím klasické korelace}{fig:correlation}{1.0}{graphics/correlation.png}
 
@@ -419,7 +419,7 @@ pro je založena na PC Dell Optiplex 780. Obecně je to velmi rozšířený kanc
 \n{3}{Použitý SW}
 V~úvodní fázi projektu probíhal vývoj i~testování algoritmů v~Matlabu~\cite{matlab}. Ten vnitřně používá pro~zpracování DFT a~IFT knihovnu FFTW~\cite{fftw}. Tato knihovna má dostupnou nativní implementaci v~CMake~\cite{cmake}. Dále má pro~řadu programovacích jazyků (včetně programovacího jazyku Java~\cite{FFT-java}) připravený wrapper~\cite{wrapper}.
 
-\n{4}{Algoritmu v matlabu (výpočet KoP na CPU)}
+\n{4}{Algoritmus v matlabu (výpočet KoP na CPU)}
 níže (Kod. \ref{banchmark-cpu.m}) byl použit jako základní srovnávací test pro výpočet KoP hrubou silou na~CPU. Výsledný KoP odpovídá v~alogritmu proměnné ccCMax.
 \script{banchmark-cpu.m}{Matlab}
 
@@ -428,7 +428,7 @@ níže (Kod. \ref{banchmark-gpu.m}) vychází z~původního zpracování (Kod. \
 \script{banchmark-gpu.m}{Matlab}
 
 \n{4}{Algoritmus v matlabu (výpočet KoZ na CPU)}
-níze (Kod.~\ref{banchmark-koz-cpu.m}) je svou strukturou a celkovým provedením odlišný od~předchozích algoritmů (Kod.~\ref{banchmark-cpu.m} a~Kod.~\ref{banchmark-gpu.m}). Některé prvky (např. výpočet světlostní matice) zůstaly zachovány. Výpočet KoZ byl po~provedení testů ve~srovnávacích testech zanedbán. Především proto, že~se~nemusí počítat pro~kombinace fotografií, ale~právě jednou pro~každou fotografii a~to~při~jejím pořízení. Průměrná doba výpočtu KoZ je 620~ms.
+níže (Kod.~\ref{banchmark-koz-cpu.m}) je svou strukturou a celkovým provedením odlišný od~předchozích algoritmů (Kod.~\ref{banchmark-cpu.m} a~Kod.~\ref{banchmark-gpu.m}). Některé prvky (např. výpočet světlostní matice) zůstaly zachovány. Výpočet KoZ byl po~provedení testů ve~srovnávacích testech zanedbán. Především proto, že~se~nemusí počítat pro~kombinace fotografií, ale~právě jednou pro~každou fotografii a~to~při~jejím pořízení. Průměrná doba výpočtu KoZ je 620~ms.
 \script{banchmark-koz-cpu.m}{Matlab}
 
 \n{2}{Výsledky testování}
@@ -503,7 +503,7 @@ Je opět patrný mírný propad krátkodobého testu oproti dlouhodobému.
 	\item {Propad o 10\%}
 \end{itemize}
 
-Na obrázku níže (Obr.~\ref{fig:one-similarity-thread-with-gpu-paralelization}) je výstup z profilování výpočtu na CPU s využitím GPU pro paralelizací dlouhotrvajících operací na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
+Na obrázku níže (Obr.~\ref{fig:one-similarity-thread-with-gpu-paralelization}) je výstup z~profilování výpočtu na CPU s~využitím GPU pro paralelizaci dlouhotrvajících operací na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a~doby jednotlivých částí zprůměrovány.
 \obr {Vizualizace procesu výpočtu koeficientů na CPU s paralelizací na GPU}{fig:one-similarity-thread-with-gpu-paralelization}{1.0}{graphics/one-similarity-thread-with-gpu-paralelization.png}
 
 Zátěž na CPU dosahuje v průměru 5\%. Naopak GPU dosahuje zátěže cca 75\%. Otázkou zůstává, jak dlouho je schopná GPU pracovat pod tímto permanentním zatížením.
@@ -610,12 +610,12 @@ Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{ja
 
 
 \n{2}{Databelizace fotografií}
-Do~původního řešení byla zavedena kontrola existence totožné fotografie na~základě MD5. Hodnota MD5 je ukládána do~DB. Nad~tímto sloupec je aplikován unikátní index. Dále se nově při importu fotografie ukládají její vybraná metadata. Ty později s výhodou používají na výpočet KoZ přímo v SQL dotazu. Jedná se o:
+Do~původního řešení byla zavedena kontrola existence totožné fotografie na~základě MD5. Hodnota MD5 je ukládána do~DB. Nad~tímto sloupcem je aplikován unikátní index. Dále se nově při importu fotografie ukládají její vybraná metadata. Ta později lze s~výhodou použít na~určení KoZ přímo v~SQL dotazu. Jedná se o:
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {výšku a šířku v px}
+	\item {výšku a šířku v px,}
 	\item {poměrný počet hran (přeostřenost)}
 \end{itemize}
 Výsledek po dokončení importu fotografií je patrný na obrázku níže (Obr.~\ref{fig:hotel-photo}).
@@ -647,7 +647,7 @@ je matice hran, která se získá převodem světlostní matice do~vlnového spe
 \script{ConvolutionMatrix.java}{Java}
 
 \n{4}{Matice přeostřenosti}
-je matice hran za~prahovou hodnotou ostrosti (přeostřených hran). Vzniká z~konvolucí (Kod.~\ref{ConvolutionMatrix.java}) matice ostrosti s~jádrem typu dolní propusť (Tab.~\ref{tab:convolution-low}, Kod.~\ref{FTLowKernelMatrix.java}) bylo sestaveno experimentálně v~mnoha iteracích a~jeho funkčnost ověřena testováním na~lidech, stejně jako aplikovaná prahová hodnota.
+je matice hran za~prahovou hodnotou ostrosti (přeostřených hran). Vzniká konvolucí (Kod.~\ref{ConvolutionMatrix.java}) matice ostrosti s~použití jádra typu dolní propusť (Tab.~\ref{tab:convolution-low}, Kod.~\ref{FTLowKernelMatrix.java}). Jádro bylo sestaveno experimentálně v~mnoha iteracích a~jeho funkčnost byla ověřena testováním na~lidech, stejně jako aplikovaná prahová hodnota míry ostrosti.
 
 \script{FTLowKernelMatrix.java}{Java}
 
@@ -669,10 +669,11 @@ je podíl sumy hran a~sumy přeostřených hran. Suma hran je dána součtem jed
 \script{sumOverSharpness.java}{Java}
 
 \n{4}{Příklad přeostřenosti fotografie}
-prezentují obrázky níže. Z~původní fotografie (Obr.~\ref{fig:sharpness-original}) je po~oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), ode~všech hran (Obr.~\ref{fig:sharpness-matrix}) stanoven jejich poměrný koeficient.
+prezentují obrázky níže. Z~původní fotografie (Obr.~\ref{fig:sharpness-original}) je po~oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), ode~všech hran (Obr.~\ref{fig:sharpness-matrix}), stanoven jejich poměrný koeficient.
+
 
 \n{2}{Fronta nezpracovaných obrázků}
-Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotaz (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do DB v reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
+Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotazu (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do DB v reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
 \script{queue.sql}{sql}
 
 
@@ -690,7 +691,7 @@ Kompletní komunikační rozhraní ve~formátu WSDL~\cite{wsdl} je k~dispozici n
 \n{3}{Autentizace}
 Aby bylo možné konzumovat vystavené webové služby, je nejprve nutné provést autentizaci. K~těmto účelům je použita technika CRAM~\cite{challenge-response} (někdy také jako challenge--response).
 \n{4}{attach}
-je metoda, která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave) (Obr.~\ref{fig:api-attach}). Je nezabezpečená metoda (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na straně serveru.
+je metoda (Obr.~\ref{fig:api-attach}), která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave). Jedná se nezabezpečenou metodu (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na straně serveru.
 
 \obr{Detail metody attach}{fig:api-attach}{1.0}{graphics/soap/attach.png}
 
@@ -740,7 +741,74 @@ je metoda určená pro~odeslání výsledku distribuovaného výpočtu KoP zpět
 
 % ============================================================================ %
 \nn{Závěr}
-Text závěru
+Zadání práce bylo splněno ve~všech bodech. Výsledný produkt byl spuštěn v~produkčním provozu. Možným námětem na~rozšíření je podpora CMYK~\cite{cmyk} formátu barev. Aplikované algoritmy jsou optimalizované na zpracování RGB formátu barev.
+
+Během realizace byl identifikován možný bod rozšíření algoritmu na~výpočet KoP. Jak se ukázalo, některé fotografie jsou vůči sobě pootočené v~prostoru. V~úvodu práce je této problematice věnován odstavec v~teoretické části. Lidské oko vyhodnotí tyto fotografie jako duplicitní. Použité algoritmy tuto problematiku neřeší.
+
+Níže jsou výsledky testovacího vzorku (35 fotografií vybraného hotelu). Na~základě určeného koeficientu podobnosti KoP (Tab.~\ref{tab:kop-result}) lze rozdělit fotografie na~obsahově unikátní a~duplicitní. Celkem bylo v~testovacím vzorku nalezeno 19 obsahově unikátních fotografií.
+
+\extab{Výsledky porovnání KoP 35 hotelových fotografií}{tab:kop-result}{1.0}{graphics/kop/result.png}
+
+Všechny fotografie (referenční vzorky) jsou dostupné na~přiloženém CD. Náhledy vzájemně podobných fotografií dle tabulky výše (první nalezená skupina, fotografie 1--8 viz Tab.~\ref{tab:kop-result}) jsou k dispozici níže (Obr.~\ref{fig:img01}, Obr.~\ref{fig:img02}, Obr.~\ref{fig:img03}, Obr.~\ref{fig:img04}, Obr.~\ref{fig:img05}, Obr.~\ref{fig:img06}, Obr.~\ref{fig:img07}, Obr.~\ref{fig:img08}).
+
+\begin{figure}[!htb]
+	\minipage{0.32\textwidth}
+	\includegraphics[width=\linewidth]{graphics/kop/aa01.png}
+	\caption{Fotografie 1}\label{fig:img01}
+	\endminipage\hfill
+	\minipage{0.32\textwidth}
+	\includegraphics[width=\linewidth]{graphics/kop/aa02.png}
+	\caption{Fotografie 2}\label{fig:img02}
+	\endminipage\hfill
+	\minipage{0.32\textwidth}%
+	\includegraphics[width=\linewidth]{graphics/kop/aa03.png}
+	\caption{Fotografie 3}\label{fig:img03}
+	\endminipage\hfill
+%\end{figure}
+%\begin{figure}[!htb]
+	\minipage{0.32\textwidth}%
+	\includegraphics[width=\linewidth]{graphics/kop/aa04.png}
+	\caption{Fotografie 4}\label{fig:img04}
+	\endminipage\hfill
+	\minipage{0.32\textwidth}%
+	\includegraphics[width=\linewidth]{graphics/kop/aa05.png}
+	\caption{Fotografie 5}\label{fig:img05}
+	\endminipage\hfill
+	\minipage{0.32\textwidth}%
+	\includegraphics[width=\linewidth]{graphics/kop/aa06.png}
+	\caption{Fotografie 6}\label{fig:img06}
+	\endminipage\hfill
+%\end{figure}
+%\begin{figure}[!htb]
+	\minipage{0.32\textwidth}%
+	\includegraphics[width=\linewidth]{graphics/kop/aa07.png}
+	\caption{Fotografie 7}\label{fig:img07}
+	\endminipage\hfill
+	\minipage{0.32\textwidth}%
+	\includegraphics[width=\linewidth]{graphics/kop/aa08.png}
+	\caption{Fotografie 8}\label{fig:img08}
+	\endminipage\hfill
+\end{figure}
+
+Pro~první nalezenou skupinu obsahově duplicitních fotografií byl porovnán koeficient zastupitelnosti KoZ (Tab.~\ref{tab:koz-result}) a~vybrána referenční fotografie (Obr.~\ref{fig:best-photo}) nadále zastupující tuto skupinu. Pro~srovnání je přiložena také fotografie s~nejhorším koeficientem zastupitelnosti ve~skupině (Obr.~\ref{fig:worst-photo}).
+
+\tab {Výsledky porovnání KoZ na 8 podobncýh fotografiích dle KoP} {tab:koz-result} {1.0}
+{|r|r|r|r|}
+{\hline
+							&	Sharpens	&	OverSharpness	&	KoZ				\\	\hline
+	\textbf{Fotografie 1}	&	8922		&	432				&	\textbf{35,69}	\\	\hline
+	Fotografie 2			&	13228		&	662				&	32,11			\\	\hline
+	Fotografie 3			&	1431		&	1				&	5,72			\\	\hline
+	Fotografie 4			&	5963		&	115				&	23,85			\\	\hline
+	Fotografie 5			&	412			&	0				&	1,65			\\	\hline
+	Fotografie 6			&	10900		&	748				&	21,89			\\	\hline
+	\textbf{Fotografie 7}	&	261			&	0				&	\textbf{1,04}	\\	\hline
+	Fotografie 8			&	8586		&	437				&	34,34			\\	\hline}
+
+\obr{Fotografie s nejvyšším KoZ (nejkvalitnější)}{fig:best-photo}{1.0}{graphics/koz/best-aa01.png}
+
+\obr{Fotografie s nejnižším KoZ (nejméně kvalitní)}{fig:worst-photo}{1.0}{graphics/koz/worst-aa07.png}
+
 
 
 % ============================================================================ %
