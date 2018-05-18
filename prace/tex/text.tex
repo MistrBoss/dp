@@ -719,24 +719,31 @@ je metoda určená pro~odeslání výsledku distribuovaného výpočtu KoP zpět
 
 
 
-\n{1}{Klientská (výkonná) strana distribuované služby}
+\n{1}{Klientská strana distribuované služby}
 
-\script{ImageComparatorWithConstantScale.java}{Java}
-%\lstinputlisting[style=Matlab-editor,language=java,basicstyle=\mlttfamily\tiny]{code/java/ImageComparatorWithConstantScale.java}
+Výsledná komponenta pro výpočet KoP je JAR~\cite{jar} knihovna optimalizovaná pro~běh na~kancelářském PC. Přesto, že její spuštění je plánováno v~čase, kdy~je stroj nevyužívaný uživatelem, je možné pohodlně využívat PC i~v~době, kdy je komponenta aktivní.
 
-%\section{Java}
-%\begin{lstlisting}[style=Matlab-editor,language=java,basicstyle=\mlttfamily\tiny]
-% class HelloWorldApp {
-%  public static void main(String[] args) {
-%    System.out.println("Hello World!"); // Display the string.
-%    for (int i = 0; i < 100; ++i) {
-%      System.out.println(i);
-%    }
-%  }
-%}
-%\end{lstlisting}
+Není k~dispozici žádné GUI~\cite{gui}. Knihovna si po~startu vytvoří v~domovském adresáři uživatele pracovní adresář. V~něm se nachází veškerá data i~konfigurace, která jsou s~komponentou svázána. Je zde potřeba nastavit zejména adresa serveru cílové služby, uživatelské jméno a~heslo pro~komunikaci aj.
 
-%\lstinputlisting[language=Java,basicstyle=\mlttfamily\tiny]{code/matlab/ImageComparatorWithConstantScale.java}
+Po~navázání spojení s~cílovým serverem běží v~nekonečné smyčce kontrola nezpracovaných požadavků na~výpočet KoP a~jejich případně odbavení. Pokud dojde k~výpadku odezvy cílového serveru, zkouší se knihovna opakovaně připojit v~pravidelných intervalech po~dobu 15~minut.
+
+\n{2}{Distribuovaný výpočet KoP}
+V~případě úspěšného stažení metadat požadavku na~výpočet KoP a~násleného fyzického stažení samotných fotografií, je zahájen výpočet KoP.
+
+\n{4}{Úprava velikosti fotografie} se provádí poměrným zvětšením~/~zmenšením na~referenční velikost (Kod.~\ref{scale.java}) podle delší strany vzorové fotografie (při~zachování poměru stran). Pokud referenční obrázek poměrem stran neodpovídá vzorovému, je doplněn nulami. Algoritmus použitý pro scaling~\cite{scaling} je na~bázi interpolace blízkého okolí (Nearest-neighbor interpolation~\cite{nearest-neighbor-interpolation}) a~to zejména díky rychlosti provedení.
+\script{scale.java}{Java}
+
+\n{4}{Světlostní matice} se tvoří stejně jako u~výpočtu KoZ. Jediný rozdíl je v~tom, že~nyní se převádí do~světlostní matice zmenšený obrázek (nikoliv originál v~plné velikosti). Může tedy dojít k~lehké modifikaci světlostní matice na~základě zvoleného algoritmu pro scaling~\cite{scaling} obrázku.
+
+\n{4}{Normalizace} světlostní matice převedené pomocí DFT do~vlnového spektra připraví matici vzorového i~referenčního obrázku na~křížovou korelaci (Kod.~\ref{NormalizedFTMatrix.java}). Podělí reálnou i~imaginární část absolutní hodnotou komplexního čísla.
+\script{NormalizedFTMatrix.java}{Java}
+
+\n{4}{Křížová korelace} vytvoří výslednou matici z~matice vzorového obrázku a~komplexně sdružené matice referenčního obrázku (Kod.~\ref{CrossCorrelation.java}). Matice se stále ještě nachází ve~vlnovém spektru.
+\script{CrossCorrelation.java}{Java}
+
+\n{4}{KoP}
+udává největší číselná hodnota ve~výsledné matici křížové korelace zpět po~převodu z~vlnového spektra pomocí IFT (Kod.~\ref{maxCorrelationCoeficient.java}).
+\script{maxCorrelationCoeficient.java}{Java}
 
 
 % ============================================================================ %

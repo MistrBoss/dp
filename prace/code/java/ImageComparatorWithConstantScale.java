@@ -17,20 +17,20 @@ import javax.media.jai.iterator.RandomIterFactory;
 import org.apache.log4j.Logger;
 
 /**
- *Scalevzorového a refenčních obrázků na [320 × ?] nebo [? × 240] + doplnění
- * vzorového i referenčního nulami na [320 × 240]. Dále provede křížovou
- * korelaci ve vlnovém spektru. <B>Operace je komutativní.</B>
+ *Scalevzoroveho a refencnich obrazku na [320 x ?] nebo [? x 240] + doplneni
+ * vzoroveho i referencniho nulami na [320 x 240]. Dale provede krizovou
+ * korelaci ve vlnovem spektru. <B>Operace je komutativni.</B>
  *
  * @author Dobroslav Pelc, 05.12.2014 9:42
  */
 public class ImageComparatorWithConstantScale {
 
-    /* Požadovaná šířka obrázku */
+    /* Pozadovana sirka obrazku */
     protected static final int BASE_SIZE_WIDTH = 320;
-    /* Požadovaná výška obrázku */
+    /* Pozadovana vyska obrazku */
     protected static final int BASE_SIZE_HEIGHT = 240;
 
-    /* Počet barev pro zvolený grafický režim */
+    /* Pocet barev pro zvoleny graficky rezim */
     private static final int RGB = 3;
 
     protected int matrixXSize = BASE_SIZE_HEIGHT;
@@ -44,21 +44,21 @@ public class ImageComparatorWithConstantScale {
     private final Logger log = Logger.getLogger(getClass());
 
     /**
-     * @param originalFilePath cesta k vzorovému obrázku
+     * @param originalFilePath cesta k vzorovemu obrazku
      */
     public ImageComparatorWithConstantScale(String originalFilePath) {
-        Preconditions.checkNotNull(originalFilePath, "Cesta ke zdrojovému souboru musí být vyplněná.");
+        Preconditions.checkNotNull(originalFilePath, "Cesta ke zdrojovemu souboru musi byt vyplnena.");
         File modelImageFile = new File(originalFilePath);
-        Preconditions.checkArgument(modelImageFile.exists(), "[" + originalFilePath + "] --> vzorový obrázek musí existovat.");
-        Preconditions.checkArgument(modelImageFile.canRead(), "[" + originalFilePath + "] --> nad vzorovým obrázkem musí být právo ke čtení.");
-        /* Konstantně scalovaný vzorový obrázek */
+        Preconditions.checkArgument(modelImageFile.exists(), "[" + originalFilePath + "] --> vzorovy obrazek musi existovat.");
+        Preconditions.checkArgument(modelImageFile.canRead(), "[" + originalFilePath + "] --> nad vzorovym obrazkem musi byt pravo ke cteni.");
+        /* Konstantne scalovany vzorovy obrazek */
         scaledModelImage = doConstantScale(modelImageFile);
     }
 
     public void bindModel() {
         fFTransformer = new DoubleFFT_2D(matrixXSize, matrixYSize / 2);
         double[][] matrixImage = buildNormalizedFTMatrix(scaledModelImage);
-        /* Výsledná matice */
+        /* Vysledna matice */
         normalizedFourierMatrix = matrixImage;
     }
 
@@ -76,38 +76,38 @@ public class ImageComparatorWithConstantScale {
         try {
             return ImageIO.read(modelImageFile);
         } catch (IOException ex) {
-            log.fatal("Nepodařilo se načíst obrázek '" + modelImageFile.getAbsolutePath() + "'", ex);
+            log.fatal("Nepodarilo se nacist obrazek '" + modelImageFile.getAbsolutePath() + "'", ex);
         }
         return null;
     }
 
     protected double[][] buildNormalizedFTMatrix(RenderedImage scaledModelImage) {
-        /* Obrázek převedený do matice, px = cross corel value */
+        /* Obrazek prevedeny do matice, px = cross corel value */
         double[][] matrixImage = buildBrightnessMatrix(scaledModelImage);
-        /* Obrázek je již převedený furierovou transformací */
-        /* Původní pole přebere novou hodnotu */
+        /* Obrazek je jiz prevedeny furierovou transformaci */
+        /* Puvodni pole prebere novou hodnotu */
         fFTransformer.realForwardFull(matrixImage);
-        /* Normování Fourierovi transformace obrázku */
+        /* Normovani Fourierovi transformace obrazku */
         for (int x = 0; x < matrixXSize; x++) {
             for (int y = 0; y < matrixYSize / 2; y++) {
-                /* bereme sudé y => reálné číslo */
+                /* bereme sude y => realne cislo */
                 final int realPartOfMatrixFieldY = 2 * y;
                 final double realPart = matrixImage[x][realPartOfMatrixFieldY];
 
-                /* bereme liché y => imaginární číslo */
+                /* bereme liche y => imaginarni cislo */
                 final int imagPartOfMatrixFieldY = 2 * y + 1;
                 final double imagPart = matrixImage[x][imagPartOfMatrixFieldY];
 
-                /* absolutní hodnota komplexního čísla */
+                /* absolutni hodnota komplexniho cisla */
                 double absoluteMatrixFieldValue = Math.sqrt(imagPart * imagPart + realPart * realPart);
 
                 /* 
-                 * Pokud výjde nula, tak obecne doslo k tomu, ze pro nejakou
+                 * Pokud vyjde nula, tak obecne doslo k tomu, ze pro nejakou
                  * mocninu dvou 2^k je v nejakym radku nebo sloupci kazdej 
-                 * 2^k-tý pixel stejnej 
+                 * 2^k-ty pixel stejnej 
                  */
                 if (absoluteMatrixFieldValue != 0) {
-                    Preconditions.checkArgument(absoluteMatrixFieldValue != 0, "Nulou nelze dělit.");
+                    Preconditions.checkArgument(absoluteMatrixFieldValue != 0, "Nulou nelze delit.");
                     matrixImage[x][realPartOfMatrixFieldY] /= absoluteMatrixFieldValue;
                     matrixImage[x][imagPartOfMatrixFieldY] /= absoluteMatrixFieldValue;
                 }
@@ -117,15 +117,15 @@ public class ImageComparatorWithConstantScale {
     }
 
     /**
-     * Vrátí vyrenderovaný obrázek v nových rozměrech. Kontroluje větší stranu,
-     * podle které určí poměr. NEDEFORMUJE poměr stran => Výsledný obrázek je
-     * ještě potřeba doplnit nulama, protože nemusí odpovídat přesně zadaným
-     * rozměrům v obouch osásch.scaledIimage@param image originální obrázek
+     * Vrati vyrenderovany obrazek v novych rozmerech. Kontroluje vetsi stranu,
+     * podle ktere urci pomer. NEDEFORMUJE pomer stran => Vysledny obrazek je
+     * jeste potreba doplnit nulama, protoze nemusi odpovidat presne zadanym
+     * rozmerum v obouch osasch.scaledIimage@param image originalni obrazek
      *
-     * @param scaleToWidth požadovaný šířka, do které se má obrázek scalovat
-     * @param scaleToHeight požadovaná výška, do které se má obrázek scalovat
+     * @param scaleToWidth pozadovany sirka, do ktere se ma obrazek scalovat
+     * @param scaleToHeight pozadovana vyska, do ktere se ma obrazek scalovat
      *
-     * @return obrázek v nových rozměrech
+     * @return obrazek v novych rozmerech
      */
     protected RenderedImage scale(RenderedImage image, int scaleToWidth, int scaleToHeight) {
         RenderedOp rescale = null;
@@ -153,20 +153,20 @@ public class ImageComparatorWithConstantScale {
     }
 
     /**
-     * Vytvoří matici, která má pro každý px obrázku vypočítá průměrnou světlost
-     * a uloží do výstupního pole. Pokud obrázek není v poměru 4×3, prázdné
-     * místa se doplní nulami.
+     * Vytvori matici, ktera ma pro kazdy px obrazku vypocita prumernou svetlost
+     * a ulozi do vystupniho pole. Pokud obrazek neni v pomeru 4x3, prazdne
+     * mista se doplni nulami.
      *
-     * @param image vyrenderovaný obrázek
-     * @return pole křížové korelace všech px obrázku.
+     * @param image vyrenderovany obrazek
+     * @return pole krizove korelace vsech px obrazku.
      */
     private double[][] buildBrightnessMatrix(RenderedImage image) {
 
-        Preconditions.checkNotNull(image, "Obrázek, nad kterých chcete vypočítat průměrnou světlost, nesmí být null.");
+        Preconditions.checkNotNull(image, "Obrazek, nad kterych chcete vypocitat prumernou svetlost, nesmi byt null.");
         final int imageWidth = image.getWidth();
-        Preconditions.checkArgument(imageWidth <= matrixYSize / 2, "Obrázek, nad kterých chcete vypočítat průměrnou světlost, musí být scalovaný na 320×24px.");
+        Preconditions.checkArgument(imageWidth <= matrixYSize / 2, "Obrazek, nad kterych chcete vypocitat prumernou svetlost, musi byt scalovany na 320x240px.");
         final int imageHeight = image.getHeight();
-        Preconditions.checkArgument(imageHeight <= matrixXSize, "Obrázek, nad kterých chcete vypočítat průměrnou světlost, musí být scalovaný na 320×24px.");
+        Preconditions.checkArgument(imageHeight <= matrixXSize, "Obrazek, nad kterych chcete vypocitat prumernou svetlost, musi byt scalovany na 320x240px.");
 
         final double[][] brightnessMatrix = new double[matrixXSize][matrixYSize];
         final RandomIter iterator = RandomIterFactory.create(image, null);
@@ -174,10 +174,10 @@ public class ImageComparatorWithConstantScale {
         for (int x = 0; x < imageHeight; x++) {
             for (int y = 0; y < imageWidth; y++) {
                 final double[] pixel = new double[RGB];
-                /* Pro vhodnější práci s maticí v FFT jsme otočili význam indexů, z obrázku ale musím načítat pořád stejně */
+                /* Pro vhodnejsi praci s matici v FFT jsme otocili vyznam indexu, z obrazku ale musim nacitat porad stejne */
                 iterator.getPixel(y, x, pixel);
 
-                /* Výpočet jasu průměrného jasu pixelu */
+                /* Vypocet jasu prumerneho jasu pixelu */
                 double averageBrightness = (pixel[0] + pixel[1] + pixel[2]) / 3;
                 brightnessMatrix[x][y] = averageBrightness;
             }
@@ -186,35 +186,35 @@ public class ImageComparatorWithConstantScale {
     }
 
     /**
-     * Porovná vstupní obrázek se vzorem. Je pravidlem, že výsledek porovnání
-     * vzorového obrázku s referenčním je stejný i naopak. Proto je vhodné
-     * provádět porovnání každý s každým, kdy NEzáleží na pořadí.
+     * Porovna vstupni obrazek se vzorem. Je pravidlem, ze vysledek porovnani
+     * vzoroveho obrazku s referencnim je stejny i naopak. Proto je vhodne
+     * provadet porovnani kazdy s kazdym, kdy NEzalezi na poradi.
      *
-     * @param path absolutní cesta k druhému obrázku
-     * @return koeficient podobnosti obrázku vůči vzoru
+     * @param path absolutni cesta k druhemu obrazku
+     * @return koeficient podobnosti obrazku vuci vzoru
      */
     public double compare(String path) {
-        Preconditions.checkNotNull(path, "Cesta ke zdrojovému souboru musí být vyplněná.");
+        Preconditions.checkNotNull(path, "Cesta ke zdrojovemu souboru musi byt vyplnena.");
         File reference = new File(path);
-        Preconditions.checkArgument(reference.exists(), "Vzorový obrázek musí existovat.");
-        Preconditions.checkArgument(reference.canRead(), "Nad vzorovým obrázkem musí být právo ke čtení.");
+        Preconditions.checkArgument(reference.exists(), "Vzorovy obrazek musi existovat.");
+        Preconditions.checkArgument(reference.canRead(), "Nad vzorovym obrazkem musi byt pravo ke cteni.");
 
         try {
-            /* Konstantně scalovaný referenční obrázek */
+            /* Konstantne scalovany referencni obrazek */
             final RenderedImage comparedImage = doConstantScale(reference);
-            /* Výslední matice druhého obrázku */
+            /* Vysledni matice druheho obrazku */
             double[][] matrixImage = buildNormalizedFTMatrix(comparedImage);
 
-            /* křížová korelace ve vlnovém spektru*/
+            /* krizova korelace ve vlnovem spektru*/
             double[][] crossCorelMatirx = crossCorrelation(normalizedFourierMatrix, matrixImage);
 
-            /* zpětná (inverzní) FT */
-            /* křížová korelace v původním souřadnicovém systému */
+            /* zpetna (inverzni) FT */
+            /* krizova korelace v puvodnim souradnicovem systemu */
             fFTransformer.complexInverse(crossCorelMatirx, true);
 
             return maxCorrelationCoeficient(crossCorelMatirx);
         } catch (Throwable e) {
-            log.fatal("Při výpočtu podobnosti '" + path + "' došlo k chybě.", e);
+            log.fatal("Pri vypoctu podobnosti '" + path + "' doslo k chybe.", e);
             return -1D;
         }
 
@@ -234,12 +234,12 @@ public class ImageComparatorWithConstantScale {
     }
 
     /**
-     * Křížová korelace ve vlnovém spektru.
+     * Krizova korelace ve vlnovem spektru.
      *
-     * @param a normovaná matice FT vzoru
-     * @param b normovaná matice FT obrazu
-     * @return a .* b' (vynásobím prvek po prvku a a b, přičemž b je komplexně
-     * zrdužená)
+     * @param a normovana matice FT vzoru
+     * @param b normovana matice FT obrazu
+     * @return a .* b' (vynasobim prvek po prvku a a b, pricemz b je komplexne
+     * zrduzena)
      */
     protected double[][] crossCorrelation(double[][] a, double[][] b) {
         double[][] result = new double[matrixXSize][matrixYSize];
@@ -249,9 +249,9 @@ public class ImageComparatorWithConstantScale {
                 final double realPartB = b[x][2 * y];
                 final double imagPartA = a[x][2 * y + 1];
                 final double imagPartB = b[x][2 * y + 1];
-                /* reálná část výsledné matice */
+                /* realna cast vysledne matice */
                 result[x][2 * y] = realPartA * realPartB + imagPartA * imagPartB;
-                /* imaginární část výsledné matice */
+                /* imaginarni cast vysledne matice */
                 result[x][2 * y + 1] = realPartA * imagPartB - imagPartA * realPartB;
             }
         }
