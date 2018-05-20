@@ -4,27 +4,26 @@
 
 % ============================================================================ %
 \nn{Úvod}
-ÚVOD
-Práce se zaměřuje na~strojové zpracování rasterové grafiky. První kapitola se věnuje klasifikaci problémů a~vybraným technikám vhodným k~jejich řešení, jako je např. Fourierova transformace, křížová korelace nebo konvoluce. Další kapitola naváže analýzou potřeb všech zainteresovaných stran. Po~analýze bude následovat návrh modulární architektury řešení. Zde bude kladen důraz především na~aplikované techniky. V~poslední kapitole bude zhodnocen výsledek práce.
+Práce se zaměřuje na~strojové zpracování rastrové grafiky. První kapitola se věnuje klasifikaci problémů a~vybraným technikám vhodným k~jejich řešení, jako je např. Fourierova transformace, křížová korelace nebo konvoluce. Další kapitola naváže analýzou potřeb všech zainteresovaných stran. Po~analýze bude následovat návrh modulární architektury řešení. Zde bude kladen důraz především na~aplikované techniky. V~poslední kapitole bude zhodnocen výsledek práce.
 
 Cílem této práce je analyzovat možnosti, porovnat je srovnávacím testem. Nejlepší varianta bude realizována formou prototypu distribuované služby, podrobena dalším testům a~odladěna pro~produkční provoz. Výsledná komponenta musí plnit všechny nefunkční požadavky a~maximum funkčních požadavků.
 
-Práce je limitována možnostmi současného produkčního prostředí. Hledá způsoby jak optimálně využít hrubou sílu produkčního prostředí, která je obecně nevhodná pro operace s~rasterovou grafikou. Hlavní myšlenkou této práce je porovnat možnosti paralelizace strojového zpracování rasterové grafiky na~GPU s~finanční dostupností tohoto řešení pro~produkční provoz. 
+Práce je limitována možnostmi současného produkčního prostředí. Hledá způsoby jak optimálně využít hrubou sílu produkčního prostředí, která je obecně nevhodná pro~operace s~rastrovou grafikou. Hlavní myšlenkou této práce je porovnat možnosti paralelizace strojového zpracování rastrové grafiky na~GPU s~finanční dostupností tohoto řešení pro~produkční provoz. 
 
 % ============================================================================ %
 \cast{Teoretická část}
 
 \n{1}{Klasifikace řešených oblastí}
-Pro porovnání dvou fotografií a jejich vzájemné vyhodnocení jako podobné či nikoliv bude zaveden koeficient podobnosti fotografií (dále jen KoP). Postupně budou popsány všechny silné i slabé stránky pro možnosti výpočtu KoP. Základem klasifikace je vymezení rozdílů mezi vzorovou a referenční fotografií, které definují konstruktivní a destruktivní změny.
+Pro~porovnání dvou fotografií a~jejich vzájemné vyhodnocení jako podobné či nikoliv bude zaveden koeficient podobnosti fotografií (dále jen KoP). Postupně budou popsány všechny silné i~slabé stránky pro~možnosti výpočtu KoP. Základem klasifikace je vymezení rozdílů mezi vzorovou a referenční fotografií, které definují konstruktivní a~destruktivní změny.
 
 \n{2}{Konstruktivní změny fotografie}
-Konstruktivní změny fotografie jsou takové změny, které jsou viditelné pro lidské oko, avšak nemění zásadně charakter obrázku pro strojové zpracování. Možné změny (případně jejich kombinace) jsou rozvedeny níže.
+Konstruktivní změny fotografie jsou takové změny, které jsou viditelné pro~lidské oko, avšak nemění zásadně charakter obrázku pro~strojové zpracování. Možné změny (případně jejich kombinace) jsou rozvedeny níže.
 
 \n{3}{Návrh řešení}
-Pro porovnání dvou podobných fotografií, které obsahují pouze konstruktivní změny, plně postačí křížová korelace, která bude urychlena (v rámci optimalizace HW času) pomocí diskrétní Fourierovy transformace~\cite{FFT}.
+Pro~porovnání dvou podobných fotografií, které obsahují pouze konstruktivní změny, plně postačí křížová korelace, která bude urychlena (v~rámci optimalizace HW času) pomocí diskrétní Fourierovy transformace~\cite{FFT}.
 
 \n{3}{Oblast zájmu}
-Touto numerickou metodou lze detekovat většinu nejčastějších záměrných modifikací fotografií (např. automatické doostření a následné uložení jako kopie). Lze sem zahrnout jak změny vlastností vázané na původní fotografii, tak drobné změny v původním obsahu fotografie.
+Touto numerickou metodou lze detekovat většinu nejčastějších záměrných modifikací fotografií (např. automatické doostření a~následné uložení jako kopie). Lze sem zahrnout jak změny vlastností vázané na~původní fotografii, tak drobné změny v~původním obsahu fotografie.
 
 \n{4}{Změny vlastností}
 \begin{itemize}
@@ -47,10 +46,10 @@ Touto numerickou metodou lze detekovat většinu nejčastějších záměrných 
 \end{itemize}
 
 \n{2}{Destruktivní změny fotografie}
-Destruktivní změny fotografie jsou viditelné pro lidské oko, ale pouze vjemem lidského oka je často problém tyto fotografie bezpečně prohlásit za podobné. Ještě horší situace je u strojového zpracování, pro které se výrazně mění charakter porovnávaných fotografií.
+Destruktivní změny fotografie jsou viditelné pro~lidské oko, ale pouze vjemem lidského oka je často problém tyto fotografie bezpečně prohlásit za~podobné. Ještě horší situace je u~strojového zpracování, pro~které se výrazně mění charakter porovnávaných fotografií.
 
 \n{3}{Návrh řešení}
-Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentující hrany v obrazu~\cite{FFT-technique}.
+Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentující hrany v~obrazu~\cite{FFT-technique}.
 
 \n{3}{Oblast zájmu}
 \begin{itemize}
@@ -60,62 +59,62 @@ Výpočet Hausdorfovy vzdálenosti mezi konvexními polyedry, které reprezentuj
 	\item{Změna komprese (rozmazaná fotografie)}
 	\item{Změny rozlišení}
 	\begin{itemize}
-		\item{Ořez (v jedné nebo obou dimenzích)}
-		\item{Deformace (v jedné nebo obou dimenzích)}
+		\item{Ořez (v~jedné nebo obou dimenzích)}
+		\item{Deformace (v~jedné nebo obou dimenzích)}
 	\end{itemize}
 \end{itemize}
 
 \n{2}{Kombinace konstruktivních a destruktivních změn}
-Kombinace konstruktivních a destruktivních změn je vždy potřeba vyhodnotit nad konkrétním případem. Platí také, že jsou velmi obtížně řešitelné. V závislosti na míře změn lze často rozpoznat KoP stejně jako u čistě konstruktivních změn.
+Kombinace konstruktivních a~destruktivních změn je vždy potřeba vyhodnotit nad~konkrétním případem. Platí také, že jsou velmi obtížně řešitelné. V~závislosti na~míře změn lze často rozpoznat KoP stejně jako u~čistě konstruktivních změn.
 
 \n{3}{Návrh řešení}
-Redukce fotografie na její prahovou velikost jako příprava na křížovou korelaci viz konstruktivní změny~\cite{fftw3}.
+Redukce fotografie na~její prahovou velikost jako příprava na~křížovou korelaci viz konstruktivní změny~\cite{fftw3}.
 
 \n{3}{Oblast zájmu}
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Asymetrická změna obou stran s čímkoliv}
-	\item {Změna kvality v důsledku zhoršeni komprese s čímkoliv}
-	\item {Logo nebo vodotisk v kombinaci s předcházejícími}
+	\item {Asymetrická změna obou stran s~čímkoliv}
+	\item {Změna kvality v důsledku zhoršeni komprese s~čímkoliv}
+	\item {Logo nebo vodotisk v kombinaci s~předcházejícími}
 \end{itemize}
 
 \n{2}{Výběr reprezentativního vzorku}
-Pro skupinu vzájemně si podobných fotografií vybereme nejvhodnějšího kandidáta, který bude následně ostatní fotografie zastupovat. Jde o~experimentální postup.
+Pro~skupinu vzájemně si podobných fotografií vybereme nejvhodnějšího kandidáta, který bude následně ostatní fotografie zastupovat. Jde o~experimentální postup.
 
 \n{3}{Návrh řešení}
-Bude zaveden koeficient zastupitelnosti (dále jen KoZ), který je zjednodušeně určen jako $ VELIKOST * OSTROST + JAS $. Přičemž platí, že vyšší hodnota koeficientu zastupitelnosti znamená kvalitnější fotografii (nikoliv na oko hezčí fotografii). Reprezentativní vzorek bude fotografie, která bude vybraná ze skupiny podobných fotografií na základě KoP, s nejvyšším KoZ.
+Bude zaveden koeficient zastupitelnosti (dále jen KoZ), který je zjednodušeně určen jako $ VELIKOST * OSTROST + JAS $. Přičemž platí, že vyšší hodnota koeficientu zastupitelnosti znamená kvalitnější fotografii (nikoliv na~oko hezčí fotografii). Reprezentativní vzorek bude fotografie, která bude vybraná ze~skupiny podobných fotografií na~základě KoP, s~nejvyšším KoZ.
 
 \n{3}{Oblast zájmu}
 
 \n{4}{Střední hodnota jasu}
-je určena pomocí světlostní matice. Jedná se pouze o zohlednění, zda fotografie není příliš jasná nebo tmavá. Jde o~jednoduchý algoritmus. Na~výsledek nemá zásadní vliv.
+je určena pomocí světlostní matice. Jedná se pouze o~zohlednění, zda fotografie není příliš jasná nebo tmavá. Jde o~jednoduchý algoritmus. Na~výsledek nemá zásadní vliv.
 
 \n{4}{Poměrný počet hran}
-slouží jako test rozmazanosti fotografie. K realizaci se používá konvoluční matice (více v samostatné kapitole věnované této problematice) s vhodným jádrem typu horní i dolní propusť (s celkovým součtem 0). Na výsledek má největší dopad.
+slouží jako test rozmazanosti fotografie. K~realizaci se používá konvoluční matice (více v~samostatné kapitole věnované této problematice) s~vhodným jádrem typu horní i~dolní propusť (s~celkovým součtem 0). Na~výsledek má největší dopad.
 
 \n{4}{Rozlišení fotografie}
-je bráno jako klasická velikost fotografie v px (větší ⇔ lepší).
+je bráno jako klasická velikost fotografie v~px (větší ⇔ lepší).
 
 \n{1}{Koeficient podobnosti dvou fotografií}
-Jde o základní ukazatel podobnosti dvou fotografií. KoP leží na intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na základě testovacích pokusů stanoven na $ <0,07, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5~\cite{md5}.
-Výpočet KoP provedeme v šesti krocích, z čehož jsou čtyři kroky přípravné (optimalizační) a pouze dva kroky reálně ovlivňují výsledný KoP.
+Jde o~základní ukazatel podobnosti dvou fotografií. KoP leží na~intervalu $ <0,1> $. Přičemž hodnoty blížící se $ 1 $ symbolizují podobné fotografie. Interval podobnosti byl na~základě testovacích pokusů stanoven na~$ <0,07, 1) $. Hodnota $ 1 $ znamená duplicitní fotografii. Byla z~intervalu vyloučena, jelikož jsou fotografie nejprve unifikovány pomocí otisku MD5~\cite{md5}.
+Výpočet KoP provedeme v~šesti krocích, z~čehož jsou čtyři kroky přípravné (optimalizační) a~pouze dva kroky reálně ovlivňují výsledný KoP.
 \begin{enumerate}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
 	\item {Změna velikosti fotografie}
-	\item {Převod na světlostní matici}
-	\item {Převod do vlnového spektra}
+	\item {Převod na~světlostní matici}
+	\item {Převod do~vlnového spektra}
 	\item {Křížová korelace (Cross correlation method)}
-	\item {Převod zpět z vlnového spektra}
-	\item {Výpočet KoP z výsledné matice}
+	\item {Převod zpět z~vlnového spektra}
+	\item {Výpočet KoP z~výsledné matice}
 \end{enumerate}
-Body 1--3 slouží jako přípravné a aplikují se na obě fotografie (vzorová a referenční). Do bodu 4 tedy vstupují dvě matice (pro každou fotografii jedna). Výstupem 4. bodu je již jen jedna matice, která je v bodě 6 vyhodnocena do výsledného KoP.
+Body 1--3 slouží jako přípravné a~aplikují se na~obě fotografie (vzorová a referenční). Do~bodu 4 tedy vstupují dvě matice (pro~každou fotografii jedna). Výstupem 4. bodu je již jen~jedna matice, která je v~bodě 6 vyhodnocena do~výsledného KoP.
 
 \n{2}{Změna velikosti fotografie}
-Jedná se o nezbytný přípravný krok, jehož cílem je sjednotit u obou fotografií počet bodů a tím také počet prvků v maticích, které vzniknou v následujícím kroku výpočtu KoP.
+Jedná se o~nezbytný přípravný krok, jehož cílem je sjednotit u~obou fotografií počet bodů a~tím také počet prvků v~maticích, které vzniknou v~následujícím kroku výpočtu KoP.
 Jako referenční velikost byla stanovena
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -124,22 +123,22 @@ Jako referenční velikost byla stanovena
 	\item Šířka: 320 px,
 	\item Výška: 240 px,
 \end{itemize}
-které jsou nejvhodnějším kompromisem mezi relevancí výsledku a HW časem nutným k jeho zpracování.
+které jsou nejvhodnějším kompromisem mezi relevancí výsledku a~HW časem nutným k~jeho zpracování.
 
-Změna velikosti vzorové fotografie na $ [320 × ?] $ nebo $ [? × 240] $ se provádí v závislosti na delší straně. Kratší strana je dopočítána podle původního poměru stran. Výsledný rozměr není doplněn nulami na plnou referenční velikost $ [320 × 240] $. Vzorová fotografie tedy určuje velikost, na kterou musíme upravit referenční fotografii. Pokud má referenční fotografie jiný poměr stran, bude doplněna nulami, aby nevznikala prázdná místa.
+Změna velikosti vzorové fotografie na~$ [320 × ?] $ nebo $ [? × 240] $ se provádí v~závislosti na~delší straně. Kratší strana je dopočítána podle původního poměru stran. Výsledný rozměr není doplněn nulami na~plnou referenční velikost $ [320 × 240] $. Vzorová fotografie tedy určuje velikost, na~kterou musíme upravit referenční fotografii. Pokud má referenční fotografie jiný poměr stran, bude doplněna nulami, aby nevznikala prázdná místa.
 
-Takto připravené fotografie nejsou při dalším zpracování komutativní, pokud mají vzájemně jiný poměr stran. V důsledku to znamená, že se musí porovnat fotografie v obou směrech (jak vzorová vůči referenční, tak referenční vůči vzorové). Situaci ukazují příklady na Obr.~\ref{fig:static-scaling} a Obr.~\ref{fig:dynamic-scaling}.
+Takto připravené fotografie nejsou při~dalším zpracování komutativní, pokud mají vzájemně jiný poměr stran. V~důsledku to znamená, že se musí porovnat fotografie v~obou směrech (jak vzorová vůči referenční, tak referenční vůči vzorové). Situaci ukazují příklady na~Obr.~\ref{fig:static-scaling} a~Obr.~\ref{fig:dynamic-scaling}.
 
 \obr{Statický scaling obrázků (komutativní)}{fig:static-scaling}{1.0}{graphics/static-scaling.png}
 
 \obr{Dynamický scaling obrázků (diskomutativní)}{fig:dynamic-scaling}{1.0}{graphics/dynamic-scaling.png}
 
-Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedna ze dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
+Přesto, že je tento proces HW dražší, než jeho komutativní varianta, získáme díky tomu řádově lepší relevanci výsledků (zejména pokud je jedna ze~dvou fotografií velmi nekvalitní, případně má nižší nativní rozlišení, než je referenční).
 
 \n{2}{Převod na světlostní matici}
-Světlostní matice představuje fotografii ve formátu rastrové bitmapy (někdy též šedotónový obraz; v anglicky psaných textech k nalezení pod názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu~\cite{brightness-matrix}. Každý bod původní fotografie - pixel~\cite{pixel} (dále jen px) je z RGB~\cite{rgb} hodnot převeden na hodnotu intenzity jasové funkce.
+Světlostní matice představuje fotografii ve~formátu rastrové bitmapy (někdy též šedotónový obraz; v anglicky psaných textech k~nalezení pod~názvem brightness-matrix). Formálně je to dvourozměrná diskrétní veličina, reprezentovaná maticí druhého řádu~\cite{brightness-matrix}. Každý bod původní fotografie - pixel~\cite{pixel} (dále jen px) je z~RGB~\cite{rgb} hodnot převeden na~hodnotu intenzity jasové funkce.
 
-Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu $ <0,255> $.
+Původní px je reprezentován jako tříprvkové pole s~hodnotami na~intervalu $ <0,255> $.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
@@ -149,12 +148,12 @@ Původní px je reprezentován jako tří prvkové pole s hodnotami na intervalu
 	\item B => blue,
 \end{itemize}
 
-Výsledná hodnota intenzity jasové funkce px se spočítá jako střední hodnota z hodnot jednotlivých složek px (R, G a B). Jak napovídá interval možných hodnot, jeden px převedený na prvek světlostní matice zabírá v operační paměti 1 Byte (1 Byte = 8 bit => osmibitová barevná hloubka => 256 stupňů šedi). Na jedenu plnou referenční fotografii je tedy potřeba 75 kB.
+Výsledná hodnota intenzity jasové funkce px se spočítá jako střední hodnota z~hodnot jednotlivých složek px (R, G a B). Jak napovídá interval možných hodnot, jeden px převedený na~prvek světlostní matice zabírá v~operační paměti 1~Byte (1~Byte = 8~bit => osmibitová barevná hloubka => 256~stupňů šedi). Na~jedenu plnou referenční fotografii je tedy potřeba 75~kB.
 
 \n{2}{Převod do--z vlnového spektra}
-Převodem do vlnového spektra dosáhneme zajímavé výkonnostní optimalizace~\cite{FFT}. Kdybychom tento krok z celého procesu výpočtu KoP vynechali (stejně jako následně nezbytný převod zpět z vlnového spektra), museli bychom udělat křížovou korelaci v normálním spektru. Tzn. $ O(n^4) $ operací, kde $ n $ je velikost strany čtvercové matice.
+Převodem do~vlnového spektra dosáhneme zajímavé výkonnostní optimalizace~\cite{FFT}. Kdybychom tento krok z~celého procesu výpočtu KoP vynechali (stejně jako následně nezbytný převod zpět z~vlnového spektra), museli bychom udělat křížovou korelaci v~normálním spektru. Tzn. $ O(n^4) $ operací, kde $ n $ je velikost strany čtvercové matice.
 
-Pokud ale nejprve provedeme Diskrétní Fourierovu transformaci (DFT) pro převod do vlnového spektra, až následně křížovou korelaci a nakonec Zpětnou Fourierovu transformaci (IFT), ušetříme jeden řád hodnosti počtu operací. Budeme potřebovat $ O(n^3 * logn) $ operací. To je za předpokladu matice reprezentující fotografii 200 × 200 px rozdíl dvou řádů operací.
+Pokud ale nejprve provedeme Diskrétní Fourierovu transformaci (DFT) pro~převod do~vlnového spektra, až následně křížovou korelaci a~nakonec Zpětnou Fourierovu transformaci (IFT), se ušetří jeden řád hodnosti počtu operací. Bude potřeba $ O(n^3 * logn) $ operací. Řád hodnosti předpokládá ve~výpočtu čtvercovou fotografii (reálná fotografie je obdélníková => řád hodnosti je závislý na~dvou proměnných)
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
@@ -164,51 +163,51 @@ Pokud ale nejprve provedeme Diskrétní Fourierovu transformaci (DFT) pro převo
 \end{itemize}
 
 \n{2}{Křížová korelace}
-Korelace je nejdůležitější krok celého výpočtu KoP. Umožní pomocí jednoduchých matematických operací rozhodnout, zda jsou světlostní matice vzorové a referenční fotografie podobné. Míra podobnosti je vyjádřena hodnotami korelačních koeficientů sestavených do jedné matice (zatím ještě ve vlnovém spektru). Čím více se výsledné hodnoty blíží $ 1 $, tím více si jsou fotografie podobné v daném bodě.
+Korelace je nejdůležitější krok celého výpočtu KoP. Umožní pomocí jednoduchých matematických operací rozhodnout, zda jsou světlostní matice vzorové a~referenční fotografie podobné. Míra podobnosti je vyjádřena hodnotami korelačních koeficientů sestavených do~jedné matice (zatím ještě ve vlnovém spektru). Čím více se výsledné hodnoty blíží $ 1 $, tím více si jsou fotografie podobné v~daném bodě.
 
-Celý proces není citlivý na konstruktivní změny. Dokáže tedy podobnost vyhodnotit bez ohledu na změnu sytosti barev, kontrastu či jasu. Stejně tak výsledek není ovlivněn přidáním vodotisku nebo šumem ve fotografii. Přidání loga do fotografie již sice sníží KoP, ale pokud není logo přes polovinu fotografie, je stále bezpečně rozpoznána jako podobná či nikoliv.
+Celý proces není citlivý na~konstruktivní změny. Dokáže tedy podobnost vyhodnotit bez ohledu na~změnu sytosti barev, kontrastu či jasu. Stejně tak výsledek není ovlivněn přidáním vodotisku nebo šumem ve~fotografii. Přidání loga do~fotografie již sice sníží KoP, ale pokud není logo přes polovinu fotografie, je stále bezpečně rozpoznána jako podobná či nikoliv.
 
 Formálně je korelace zejména statistický pojem, který označuje vzájemný lineární vztah mezi znaky nebo veličinami. Míra korelace je daná korelačním koeficientem~\cite{correlation}. 
 Vzorec pro výpočet: $ \rho_{A,B} = \dfrac{(A - \mu_{A}) × (B - \mu_{B})}{\sigma_{A}\sigma_{B}} $
 
-Na první pohled se může zdát složitý, ale skrývá v sobě tři jednoduché ale důležité kroky.
+Na~první pohled se může zdát složitý, ale skrývá v~sobě tři jednoduché ale důležité kroky.
 \begin{enumerate}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item{K maticím $ A $ a $ B $ se spočítá rozptyl $ \sigma_{A}, \sigma_{B} $ a střední hodnota $ \mu_{A}, \mu_{B} $.}
-	\item{Odečtením střední hodnoty od matice $ A - \mu_{A} $, $ B - \mu_{B} $ je dosaženo \textbf{invariace nastavení jasu}.}
+	\item{K maticím $ A $ a $ B $ se spočítá rozptyl $ \sigma_{A}, \sigma_{B} $ a~střední hodnota $ \mu_{A}, \mu_{B} $.}
+	\item{Odečtením střední hodnoty od~matice $ A - \mu_{A} $, $ B - \mu_{B} $ je dosaženo \textbf{invariace nastavení jasu}.}
 	\item{Dělením rozptyly $ \sigma_{A} \sigma_{B} $ je zajištěna \textbf{invariace nastavení kontrastu}.}
 \end{enumerate}
 
-Za předpokladu, že objekty na porovnávaných fotografiích nejsou vůči sobě v prostoru posunuty, poskytuje korelační matice odpověď na otázku, zda jsou si dvě fotografie podobné. V praxi ale tento model příliš nenastává. Naopak je velmi časné, že je porovnáván např. výřez z fotografie oproti originálu, případně posunuté fotografie po horizontální či vertikální ose.
+Za~předpokladu, že objekty na~porovnávaných fotografiích nejsou vůči sobě v~prostoru posunuty, poskytuje korelační matice odpověď na~otázku, zda jsou si dvě fotografie podobné. V~praxi ale tento model příliš nenastává. Naopak je velmi časné, že~je porovnáván např. výřez z~fotografie oproti originálu, případně posunuté fotografie po~horizontální či vertikální ose.
 
-Tuto problematiku řeší křížová korelace (Cross correlation method)~\cite{cross-correlation}. Princip samotné korelace je stejný, pouze se opakuje s částečným posunem tak, aby pokryla všechny možné kombinace mezi dvěma fotografiemi. Příklad je názorně vidět na původních fotografiích, jak ukazuje (Obr.~\ref{fig:correlation}) a~(Obr.~\ref{fig:cross-correlation}).
+Tuto problematiku řeší křížová korelace (Cross correlation method)~\cite{cross-correlation}. Princip samotné korelace je stejný, pouze se opakuje s~částečným posunem tak, aby pokryla všechny možné kombinace mezi dvěma fotografiemi. Příklad je názorně vidět na~původních fotografiích, jak ukazuje (Obr.~\ref{fig:correlation}) a~(Obr.~\ref{fig:cross-correlation}).
 
-\obr{Příklad proložení dvou fotografií s použitím klasické korelace}{fig:correlation}{1.0}{graphics/correlation.png}
+\obr{Příklad proložení dvou fotografií s~použitím klasické korelace}{fig:correlation}{1.0}{graphics/correlation.png}
 
-\obr{Příklad proložení dvou fotografií s použítím křížové korelace}{fig:cross-correlation}{1.0}{graphics/cross-correlation.png}
+\obr{Příklad proložení dvou fotografií s~použítím křížové korelace}{fig:cross-correlation}{1.0}{graphics/cross-correlation.png}
 
 \n{2}{Výpočet výsledného koeficientu}
-Po převodu z vlnového spektra zpět vychází již matice, ze které jsou vyloučeny imaginární hodnoty a pracujeme tedy jen s reálnými čísly. Výsledný KoP pro dané fotografie je dán nejvyšším nalezeným korelačním koeficientem v matici.
+Po~převodu z~vlnového spektra zpět vychází již matice, ze~které jsou vyloučeny imaginární hodnoty a~pracujeme tedy jen s~reálnými čísly. Výsledný KoP pro~dané fotografie je dán nejvyšším nalezeným korelačním koeficientem v~matici.
 
 \n{1}{Koeficient zastupitelnosti dvou fotografií}
-Určení KoZ je experimentální proces založený na opakované aplikaci konvoluční matice s různým jádrem (konvoluční maskou). Bude jí věnována větší pozornost v projektové části. Zde budou představeny pouze techniky nutné k jejímu dosažení. Jelikož převod na světlostní matici a převod z--do vlnového spektra byly již představeny, nebudou dále znovu uvedeny.
+Určení KoZ je experimentální proces založený na~opakované aplikaci konvoluční matice s~různým jádrem (konvoluční maskou). Bude jí věnována větší pozornost v~projektové části. Zde budou představeny pouze techniky nutné k~jejímu dosažení. Jelikož převod na~světlostní matici a~převod z--do vlnového spektra byly již představeny, nebudou dále znovu uvedeny.
 
 \n{2}{Diskrétní 2D konvoluce}
-Konvoluce~\cite{convolition} je matematický operátor pro zpracování dvou funkcí. V algoritmech zpracovávající dvourozměrný diskrétní obraz (např. v počítačové grafice) má konvoluce následující tvar:
+Konvoluce~\cite{convolition} je matematický operátor pro~zpracování dvou funkcí. V~algoritmech zpracovávající dvourozměrný diskrétní obraz (např. v~počítačové grafice) má konvoluce následující tvar:
 $ (f*h)(x,y)=\sum\limits_{i=-k}^{k} \sum\limits_{i=-k}^{k} f(x-i,y-j) \bullet h(i,j)$
 
-Názorná ukázka konvoluce je vidět na přiloženém obrázku (Obr.~\ref{fig:discrete-2d-convolution}).
+Názorná ukázka konvoluce je vidět na~přiloženém obrázku (Obr.~\ref{fig:discrete-2d-convolution}).
 
 \obr{Příklad Diskrétní 2D konvoluce~\cite{convolition}}{fig:discrete-2d-convolution}{1.0}{graphics/discrete-2d-convolution.jpg}
 
-\n{2}{Konvoluce a volba jádra}
-Konvoluce ve světě počítačové grafiky je operace s obrázkem ve formátu matice pomocí jiné matice zvané „jádro“ (nebo též konvoluční maska). Jako první matice se používá obrázek určený k úpravě. Obrázek představuje dvojrozměrnou pravoúhlou souřadnicovou síť pixelů. Použité jádro závisí na požadovaném efektu.
+\n{2}{Konvoluce a~volba jádra}
+Konvoluce ve~světě počítačové grafiky je operace s~obrázkem ve~formátu matice pomocí jiné matice zvané „jádro“ (nebo též konvoluční maska). Jako první matice se používá obrázek určený k~úpravě. Obrázek představuje dvojrozměrnou pravoúhlou souřadnicovou síť pixelů. Použité jádro závisí na~požadovaném efektu.
 
-V našem případě je požadovaný filtr na detekci hran~\cite{edge-detection}. Základní jádra pro detekci hran mají součet roven nule (Tab.~\ref{tab:convolution-core-4} a Tab.~\ref{tab:convolution-core-8}). Nejsou vhodné na obrázky zatížené šumem. Ten je nezbytné před aplikací těchto filtrů eliminovat.
+V~našem případě je požadovaný filtr na~detekci hran~\cite{edge-detection}. Základní jádra pro~detekci hran mají součet roven nule (Tab.~\ref{tab:convolution-core-4} a~Tab.~\ref{tab:convolution-core-8}). Nejsou vhodné na~obrázky zatížené šumem. Ten je nezbytné před aplikací těchto filtrů eliminovat.
 
-\tab {Jádro pro detekci hran (horizontálně a vertikálně)} {tab:convolution-core-4} {1.0}
+\tab {Jádro pro~detekci hran (horizontálně a vertikálně)} {tab:convolution-core-4} {1.0}
 	{|r|r|r|}
 	{\hline
 	0 & 1 & 0 \\
@@ -217,7 +216,7 @@ V našem případě je požadovaný filtr na detekci hran~\cite{edge-detection}.
 	\hline
 	0 & 1 & 0 \\
 	\hline}
-\tab {Jádro pro detekci hran (horizontálně, vertikálně a šikmé hrany)} {tab:convolution-core-8} {1.0}
+\tab {Jádro pro~detekci hran (horizontálně, vertikálně a~šikmé hrany)} {tab:convolution-core-8} {1.0}
 {|r|r|r|}
 {\hline
 	1 & 1 & 1 \\
@@ -233,21 +232,21 @@ V našem případě je požadovaný filtr na detekci hran~\cite{edge-detection}.
 \cast{Analytická část}
 
 \n{1}{Brainstorming}
-Tato analytická metoda slouží ke sběru myšlenek, námětů a případné zevrubné konstruktivní kritice dané problematiky. V rámci této práce byla použita v akademickém a profesním kruhu za účelem identifikace základních ukazatelů pro další kroky analýzy.
+Tato analytická metoda slouží ke~sběru myšlenek, námětů a~případné zevrubné konstruktivní kritice dané problematiky. V~rámci této práce byla použita v~akademickém a~profesním kruhu za~účelem identifikace základních ukazatelů pro~další kroky analýzy.
 
 \n{2}{Akademický kruh}
-Diskutovány byly zejména technické možnosti týkající se otázek kde a jak lze vůbec porovnání fotografií provádět strojově. K další analýze byly vyb
+Diskutovány byly zejména technické možnosti týkající se otázek kde a jak lze vůbec porovnání fotografií provádět strojově. K~další analýze byly vyb
 
 \n{2}{Profesní kruh}
-V kruhu s provozovatelem byly kladeny nejvyšší nároky na flexibilitu a propustnost celého řešení.
+V~kruhu s~provozovatelem byly kladeny nejvyšší nároky na~flexibilitu a propustnost celého řešení.
 
 \n{1}{Diferenční analýza (GAP analýza)}
 
 \n{2}{Popis současného stavu}
-Je požadováno porovnání rastrových bitmap za účelem identifikace vzájemně podobných fotografií. Řešení je hledáno pro produkční provoz. Konzumentem cílového řešení je webový portál dovolena.cz, který má přibližně dva miliony fotografií. Průměrný počet přístupů k některé fotografii je přibližně 100 přístupů za sekundu. Obsahem fotografií jsou především hotely a jejich okolí. Webový portál slouží spíše jako datový konsolidátor. Nabídka portálu značně ovlivňuje cílové portfolio fotografií. Podle testovacích měření se za jeden týden obmění cca 10\% fotografií z celkového množství. Jako testovací vzorek byl vybrán jeden nejmenovaný hotel a jeho 35 fotografií. Zákazník webového portálu vidí všechny fotografie v nesetříděné galerii. Některé fotografie jsou unikátní, ale většina si je velmi podobná. U některých dokonce nejsou lidským okem patrné rozdíly.
+Je požadováno porovnání rastrových bitmap za~účelem identifikace vzájemně podobných fotografií. Řešení je hledáno pro~produkční provoz. Konzumentem cílového řešení je webový portál dovolena.cz, který má přibližně dva miliony fotografií. Průměrný počet přístupů k~některé fotografii je přibližně 100 přístupů za~sekundu. Obsahem fotografií jsou především hotely a~jejich okolí. Webový portál slouží spíše jako datový konsolidátor. Nabídka portálu značně ovlivňuje cílové portfolio fotografií. Podle testovacích měření se za~jeden týden obmění cca 10\% fotografií z~celkového množství. Jako testovací vzorek byl vybrán jeden nejmenovaný hotel a~jeho 35 fotografií. Zákazník webového portálu vidí všechny fotografie v~nesetříděné galerii. Některé fotografie jsou unikátní, ale většina si je velmi podobná. U~některých dokonce nejsou lidským okem patrné rozdíly.
 
 \n{2}{Popis cílového stavu}
-Konsolidované fotografie prezentované klientovi budou v maximální možné míře obsahovat unikátní fotografie. Vzájemně si podobné fotografie budou odfiltrovány a zůstane pouze jedna a to fotografie s nejvyšším KoZ. Klient nebude čekat na zpracování podobnosti obrázků. Pokud budou zpracované, klient uvidí jen unikáty. Pokud nebudou zpracované, klient uvidí vše v původním stavu. V takovém případě se poměrově zvýší priorita na výpočet podobnosti fotografií tohoto hotelu vůči ostatním ve frontě na výpočet. Cílové řešení musí být schopno operovat řádově s jednotkami milionů fotografií s týdenní fluktuací 15\%.
+Konsolidované fotografie prezentované klientovi budou v~maximální možné míře obsahovat unikátní fotografie. Vzájemně si podobné fotografie budou odfiltrovány a~zůstane pouze jedna a~to fotografie s~nejvyšším KoZ. Klient nebude čekat na~zpracování podobnosti obrázků. Pokud budou zpracované, klient uvidí jen unikáty. Pokud nebudou zpracované, klient uvidí vše v~původním stavu. V~takovém případě se poměrově zvýší priorita na~výpočet podobnosti fotografií tohoto hotelu vůči ostatním ve~frontě na~výpočet. Cílové řešení musí být schopno operovat řádově s~jednotkami milionů fotografií s~týdenní fluktuací 15\%.
 
 \n{3}{Nefunkční požadavky}
 \begin{itemize}
@@ -255,9 +254,9 @@ Konsolidované fotografie prezentované klientovi budou v maximální možné m�
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
 	\item {Bezúdržbový systém}
-	\item {Nevyžadující v průběhu času další financování}
+	\item {Nevyžadující v~průběhu času další financování}
 	\item {Minimální vstupní investice}
-	\item {Maximální kompatibilita s aktuálním HW}
+	\item {Maximální kompatibilita s~aktuálním HW}
 	\item {Programovací jazyk Java~\cite{java}}
 \end{itemize}
 
@@ -266,39 +265,39 @@ Konsolidované fotografie prezentované klientovi budou v maximální možné m�
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Nově vznikne nástroj pro určení KoP.}
-	\item {Nově vznikne nástroj pro určení KoZ.}
-	\item {Fotografie jednoho hotelu budou oindexovány a vnitřně škálovány do skupin pomocí koeficientů výše.}
-	\item {Dojde k navýšení celkového počtu fotografií.}
-	\item {Zvýší se fluktuace fotografií (na očekávaných 15\%).}
+	\item {Nově vznikne nástroj pro~určení KoP.}
+	\item {Nově vznikne nástroj pro~určení KoZ.}
+	\item {Fotografie jednoho hotelu budou oindexovány a~vnitřně škálovány do~skupin pomocí koeficientů výše.}
+	\item {Dojde k~navýšení celkového počtu fotografií.}
+	\item {Zvýší se fluktuace fotografií (na~očekávaných 15\%).}
 \end{itemize}
 
-\n{2}{Návrh variant k dosažení cíle}
-Pilířem celého řešení bude backendová strana cílového konzumenta. Limity a také jednotlivé možnosti pro realizaci jsou velmi omezeny nutností integrovat do současného řešení. Z těchto důvodů má serverová strana převážně podpůrný charakter v projektu jako celku. Její význam je zejména v propojení všech jednotlivých komponent. Dojde tedy k modifikaci existujícího produkčního server-side prostředí. Nově zde poběží služba, která bude
+\n{2}{Návrh variant k~dosažení cíle}
+Pilířem celého řešení bude backendová strana cílového konzumenta. Limity a~také jednotlivé možnosti pro~realizaci jsou velmi omezeny nutností integrovat do~současného řešení. Z~těchto důvodů má serverová strana převážně podpůrný charakter v~projektu jako celku. Její význam je zejména v~propojení všech jednotlivých komponent. Dojde tedy k~modifikaci existujícího produkčního server-side prostředí. Nově zde poběží služba, která bude
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {poskytovat zadání na určení KoP,}
-	\item {poskytovat metadata nezbytná pro distribuci výpočtu,}
+	\item {poskytovat zadání na~určení KoP,}
+	\item {poskytovat metadata nezbytná pro~distribuci výpočtu,}
 	\item {konzumovat výsledek distribuované operace,}
-	\item {kompletovat zpracovaná data do cache vhodné pro silný organický provoz.}
+	\item {kompletovat zpracovaná data do~cache vhodné pro~silný organický provoz.}
 \end{itemize}
-Naopak klientská strana je naprosto autonomní. Pro realizaci lze použít jak libovolnou platformu, tak libovolné technologie. Jediným technickým limitem je schopnost standardizovaným způsobem komunikovat se serverovou stranou pomocí SOAP api~\cite{soap}.
+Naopak klientská strana je naprosto autonomní. Pro~realizaci lze použít jak libovolnou platformu, tak libovolné technologie. Jediným technickým limitem je schopnost standardizovaným způsobem komunikovat se serverovou stranou pomocí SOAP api~\cite{soap}.
 
-\n{3}{Výpočet KoP a KoZ na CPU produkčního serveru}
-Základní myšlenka je využít nejdostupnější produkční HW a na zavedeném serveru spustit novou službu. Hlavní výhodou je dostupnost produkčního HW ve vlastním datacentru cílového konzumenta. Podstatnou nevýhodou je fakt, že pro určení výše uvedených koeficientů není CPU~\cite{cpu} ideální platforma.
+\n{3}{Výpočet KoP a~KoZ na~CPU produkčního serveru}
+Základní myšlenka je využít nejdostupnější produkční HW a na~zavedeném serveru spustit novou službu. Hlavní výhodou je dostupnost produkčního HW ve~vlastním datacentru cílového konzumenta. Podstatnou nevýhodou je fakt, že pro~určení výše uvedených koeficientů není CPU~\cite{cpu} ideální platforma.
 
-\n{3}{Výpočet KoP a KoZ na CPU produkčního serveru s paralelizací na GPU}
-Tento způsob předpokládá osazení produkčního serveru dedikovanou pracovní grafickou kartou a vybrané části procesu výpočtu KoP a KoZ optimalizovat pro zpracování na GPU~\cite{gpu}.
+\n{3}{Výpočet KoP a~KoZ na~CPU produkčního serveru s~paralelizací na~GPU}
+Tento způsob předpokládá osazení produkčního serveru dedikovanou pracovní grafickou kartou a~vybrané části procesu výpočtu KoP a~KoZ optimalizovat pro~zpracování na~GPU~\cite{gpu}.
 
-\n{3}{Výpočet koeficientů na PC farmě}
-Způsob předpokládá využití HW osobních PC, kterých je v každé větší společnosti dostatek. Výpočet koeficientů tedy není nutno provádět na jednom stroji, ale lze jej provádět na každém dostupném stroji.
+\n{3}{Výpočet koeficientů na~PC farmě}
+Způsob předpokládá využití HW osobních PC, kterých je v~každé větší společnosti dostatek. Výpočet koeficientů tedy není nutno provádět na~jednom stroji, ale lze jej provádět na~každém dostupném stroji.
 
 \n{2}{Zhodnocení variant}
-Jako nejvýhodnější varianta pro realizaci vychází PC farma. Jako záložní řešení lze využít produkční server s výpočtem na CPU. Pokud bude zvolen vhodný programovací jazyk (např. požadovaný programovací jazyk Java~\cite{java}), bude výsledné řešení přenositelné.
+Jako nejvýhodnější varianta pro~realizaci vychází PC farma. Jako záložní řešení lze využít produkční server s~výpočtem na~CPU. Pokud bude zvolen vhodný programovací jazyk (např. požadovaný programovací jazyk Java~\cite{java}), bude výsledné řešení přenositelné.
 
-Zhodnocení výkonových rozdílů vychází z benchmarkingu, který byl vyhodnocen jako pomocná analýza uvedená níže. Zhodnocení prezentuje tabulka (Tab.~\ref{tab:banchmark}) 
+Zhodnocení výkonových rozdílů vychází z~benchmarkingu, který byl vyhodnocen jako pomocná analýza uvedená níže. Zhodnocení prezentuje tabulka (Tab.~\ref{tab:banchmark}) 
 
 \tab {Tabulka výsledků jednotlivých variant krátkodobého testu} {tab:banchmark} {1.0}
 {|l|l|l|l|}
@@ -312,7 +311,7 @@ Zhodnocení výkonových rozdílů vychází z benchmarkingu, který byl vyhodno
 		PC farma (300 ks)	& 2,5 hodin			& 16 hodin				& 700\%					\\
 \hline}
 
-Zhodnocení investičních rozdílů ukazuje tabulka (Tab.~\ref{tab:investment}). Vychází z předpokladu, že $ x $ je investiční konstanta v Kč, vztažená na cenu jednoho produkčního serveru bez GPU. Pro zjednodušení je stanovena na 100.000 Kč (není příliš daleko od reality).
+Zhodnocení investičních rozdílů ukazuje tabulka (Tab.~\ref{tab:investment}). Vychází z~předpokladu, že $ x $ je investiční konstanta v~Kč, vztažená na~cenu jednoho produkčního serveru bez~GPU. Pro~zjednodušení je stanovena na~100.000~Kč (není příliš daleko od~reality).
 
 \tab {Tabulka výsledků jednotlivých variant krátkodobého testu} {tab:investment} {1.0}
 {|l|l|l|}
@@ -326,50 +325,50 @@ Zhodnocení investičních rozdílů ukazuje tabulka (Tab.~\ref{tab:investment})
 	PC farma (300 ks)	& $ 30x $				& $ 0 $							\\
 	\hline}
 
-\n{3}{Výpočet KoP a KoZ na CPU produkčního serveru}
+\n{3}{Výpočet KoP a~KoZ na~CPU produkčního serveru}
 \n{4}{Výsledky banchmarkingu}
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Za necelých 6 dní spočítá týdenní přírůstek.}
-	\item {Za zbylou dobu z týdenního cyklu dále vypočítá přibližně 3,7\% z celkového objemu sto milionu koeficientů.}
-	\item {Pro plné vypočítání všech koeficientů potřebuje dalších cca 27 týdnů.}
-	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 18\%.}
+	\item {Za~necelých 6 dní spočítá týdenní přírůstek.}
+	\item {Za~zbylou dobu z~týdenního cyklu dále vypočítá přibližně 3,7\% z~celkového objemu sto milionu koeficientů.}
+	\item {Pro~plné vypočítání všech koeficientů potřebuje dalších cca 27~týdnů.}
+	\item {Rezerva pro~další růst (navýšení celkového počtu fotografií) je cca 18~\%.}
 \end{itemize}
 
-\n{3}{Výpočet KoP a KoZ na CPU produkčního serveru s paralelizací na GPU}
-\textbf{Pro realizaci tohoto scénáře je nezbytná vysoká vstupní investice.} Běžně dostupný produkční server nedisponuje GPU. Pořizovací cena takového serveru je řádově vyšší. Dále je nutné připočíst cenu vlastní dedikované grafické karty, která cenově převyšuje cenu serveru. Její výběr je velmi omezen kompatibilitou s produkčními servery. Zástupce firmy Dell byl schopen nacenit na vlastní server pouze dvě karty s možností garancí non-stop provozu a výměnou do 24 hodin.
-
-\n{4}{Výsledky banchmarkingu}
-\begin{itemize}
-	\setlength{\parskip}{0pt}
-	\setlength{\itemsep}{0pt}
-	\setstretch{1.05}
-	\item {Za necelých 8 hodin spočítá týdenní přírůstek.}
-	\item {Za část ze zbylé doby týdenního cyklu dále vypočítá 100\% z celkového objemu sto milionu koeficientů.}
-	\item {Pro plné vypočítání všech koeficientů potřebuje celkem 2 dny.}
-	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 300\%.}
-\end{itemize}
-
-\n{3}{Výpočet koeficientů na PC farmě}
-Výsledek jednoho kancelářského PC je zanedbatelný a nemůže se rovnat předchozím variantám. Vezmeme-li v úvahu, že těchto strojů je k dispozici 300 kusů po dobu 16 hodin denně, posunou se výsledky na jinou úroveň.
+\n{3}{Výpočet KoP a~KoZ na~CPU produkčního serveru s~paralelizací na~GPU}
+\textbf{Pro~realizaci tohoto scénáře je nezbytná vysoká vstupní investice.} Běžně dostupný produkční server nedisponuje GPU. Pořizovací cena takového serveru je řádově vyšší. Dále je nutné připočíst cenu vlastní dedikované grafické karty, která cenově převyšuje cenu serveru. Její výběr je velmi omezen kompatibilitou s~produkčními servery. Zástupce firmy Dell byl schopen nacenit na vlastní server pouze dvě karty s~možností garancí non-stop provozu a~výměnou do~24~hodin.
 
 \n{4}{Výsledky banchmarkingu}
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Za 2,5 hodiny spočítá týdenní přírůstek (za předpokladu 300 aktivních PC).}
-	\item {Za část ze zbylé doby týdenního cyklu dále vypočítá 100\% z celkového objemu sto milionu koeficientů.}
-	\item {Pro plné vypočítání všech koeficientů potřebuje celkem 16 hodin, což je v tomto případě 1 den.}
-	\item {Rezerva pro další růst (navýšení celkového počtu fotografií) je cca 700\%.}
+	\item {Za~necelých 8 hodin spočítá týdenní přírůstek.}
+	\item {Za~část ze~zbylé doby týdenního cyklu dále vypočítá 100~\% z~celkového objemu sto milionu koeficientů.}
+	\item {Pro~plné vypočítání všech koeficientů potřebuje celkem 2~dny.}
+	\item {Rezerva pro~další růst (navýšení celkového počtu fotografií) je cca 300~\%.}
 \end{itemize}
 
-Tento krok předpokládá mimo jiné i revizi infrastruktury, především kvalitu a šířku pásma sítě, centrální správu PC apod., které v této fázi nejsou zahrnuty do hodnotících kritérií.
+\n{3}{Výpočet koeficientů na~PC farmě}
+Výsledek jednoho kancelářského PC je zanedbatelný a~nemůže se rovnat předchozím variantám. Vezmeme-li v~úvahu, že těchto strojů je k~dispozici 300 kusů po dobu 16~hodin denně, posunou se výsledky na~jinou úroveň.
+
+\n{4}{Výsledky banchmarkingu}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt}
+	\setstretch{1.05}
+	\item {Za~2,5 hodiny spočítá týdenní přírůstek (za~předpokladu 300 aktivních PC).}
+	\item {Za~část ze~zbylé doby týdenního cyklu dále vypočítá 100~\% z~celkového objemu sto milionu koeficientů.}
+	\item {Pro~plné vypočítání všech koeficientů potřebuje celkem 16~hodin, což je v~tomto případě 1~den.}
+	\item {Rezerva pro~další růst (navýšení celkového počtu fotografií) je cca 700~\%.}
+\end{itemize}
+
+Tento krok předpokládá mimo jiné i~revizi infrastruktury, především kvalitu a~šířku pásma sítě, centrální správu PC apod., které v~této fázi nejsou zahrnuty do~hodnotících kritérií.
 
 \n{1}{Benchmarking}
-Jednotlivé kandidáty pro realizaci klientské části (zavedené v diferenční analýze) podrobíme výkonnostním a srovnávacím testům.
+Jednotlivé kandidáty pro~realizaci klientské části (zavedené v~diferenční analýze) podrobíme výkonnostním a~srovnávacím testům.
 Základní předpoklady:
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -392,13 +391,13 @@ Základní předpoklady:
 \n{3}{Použitý HW}
 
 \n{4}{Simulace produkčního serveru}
-je založena na pracovní stanici Lenovo D20, která je svoji sestavou velmi blízko produkčnímu serveru. Vzhledem k tomu, že disponuje starší generací CPU, bylo do ní osazeno i odpovídají GPU, aby bylo možné výsledky aproximovat na reálný produkční HW.
+je založena na~pracovní stanici Lenovo D20, která je svoji sestavou velmi blízko produkčnímu serveru. Vzhledem k~tomu, že disponuje starší generací CPU, bylo do~ní osazeno i~odpovídají GPU, aby bylo možné výsledky aproximovat na~reálný produkční HW.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
 	\item {Lenovo ThinkStation D20}
-	\item {Operační systém Windows 10 pro 64 bit}
+	\item {Operační systém Windows 10 pro~64 bit}
     \item {CPU Intel(R) Xeon(R) X5670 @ 2.93 GHz (2×cpu, 6×core, 12×thread)}
     \item {RAM 32 GB DDR3 (1066)}
     \item {GPU NVIDIA GeForce GTX 460}
@@ -406,13 +405,13 @@ je založena na pracovní stanici Lenovo D20, která je svoji sestavou velmi bl�
 \end{itemize}
 
 \n{4}{Simulace klasického PC}
-pro je založena na PC Dell Optiplex 780. Obecně je to velmi rozšířený kancelářský PC. Taktéž cílový konzument disponuje více než 300 ks odpovídajících kancelářských PC. Tato simulace je omezena pouze na výpočty na CPU.
+pro~je založena na~PC Dell Optiplex 780. Obecně je to velmi rozšířený kancelářský PC. Taktéž cílový konzument disponuje více než~300~ks odpovídajících kancelářských PC. Tato simulace je omezena pouze na~výpočty na~CPU.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
 	\item {Dell Optiplex 780}
-	\item {Operační systém Windows 7 pro 32 bit}
+	\item {Operační systém Windows 7 pro~32 bit}
 	\item {CPU Intel Core 2 Duo E7500 2,93 GHz}
 	\item {RAM 4 GB DDR3}
 	\item {HDD SATA 250 GB}
@@ -421,16 +420,16 @@ pro je založena na PC Dell Optiplex 780. Obecně je to velmi rozšířený kanc
 \n{3}{Použitý SW}
 V~úvodní fázi projektu probíhal vývoj i~testování algoritmů v~Matlabu~\cite{matlab}. Ten vnitřně používá pro~zpracování DFT a~IFT knihovnu FFTW~\cite{fftw}. Tato knihovna má dostupnou nativní implementaci v~CMake~\cite{cmake}. Dále má pro~řadu programovacích jazyků (včetně programovacího jazyku Java~\cite{FFT-java}) připravený wrapper~\cite{wrapper}.
 
-\n{4}{Algoritmus v matlabu (výpočet KoP na CPU)}
-níže (Kod. \ref{banchmark-cpu.m}) byl použit jako základní srovnávací test pro výpočet KoP hrubou silou na~CPU. Výsledný KoP odpovídá v~alogritmu proměnné ccCMax.
+\n{4}{Algoritmus v~matlabu (výpočet KoP na~CPU)}
+níže (Kod. \ref{banchmark-cpu.m}) byl použit jako základní srovnávací test pro~výpočet KoP hrubou silou na~CPU. Výsledný KoP odpovídá v~alogritmu proměnné ccCMax.
 \script{banchmark-cpu.m}{Matlab}
 
-\n{4}{Algoritmus v matlabu (výpočet KoP s paralelizací na GPU)}
-níže (Kod. \ref{banchmark-gpu.m}) vychází z~původního zpracování (Kod. \ref{banchmark-cpu.m}). Vybrané části výpočtu KoP jsou zpracovány pomocí paralelizace na~GPU. Výsledný KoP opět odpovídá proměnné ccCMax. Pro paralelizaci byla využita platforma CUDA~\cite{cuda}.
+\n{4}{Algoritmus v~matlabu (výpočet KoP s~paralelizací na~GPU)}
+níže (Kod. \ref{banchmark-gpu.m}) vychází z~původního zpracování (Kod. \ref{banchmark-cpu.m}). Vybrané části výpočtu KoP jsou zpracovány pomocí paralelizace na~GPU. Výsledný KoP opět odpovídá proměnné ccCMax. Pro~paralelizaci byla využita platforma CUDA~\cite{cuda}.
 \script{banchmark-gpu.m}{Matlab}
 
 \n{4}{Algoritmus v matlabu (výpočet KoZ na CPU)}
-níže (Kod.~\ref{banchmark-koz-cpu.m}) je svou strukturou a celkovým provedením odlišný od~předchozích algoritmů (Kod.~\ref{banchmark-cpu.m} a~Kod.~\ref{banchmark-gpu.m}). Některé prvky (např. výpočet světlostní matice) zůstaly zachovány. Výpočet KoZ byl po~provedení testů ve~srovnávacích testech zanedbán. Především proto, že~se~nemusí počítat pro~kombinace fotografií, ale~právě jednou pro~každou fotografii a~to~při~jejím pořízení. Průměrná doba výpočtu KoZ je 620~ms.
+níže (Kod.~\ref{banchmark-koz-cpu.m}) je svou strukturou a~celkovým provedením odlišný od~předchozích algoritmů (Kod.~\ref{banchmark-cpu.m} a~Kod.~\ref{banchmark-gpu.m}). Některé prvky (např. výpočet světlostní matice) zůstaly zachovány. Výpočet KoZ byl po~provedení testů ve~srovnávacích testech zanedbán. Především proto, že~se~nemusí počítat pro~kombinace fotografií, ale~právě jednou pro~každou fotografii a~to~při~jejím pořízení. Průměrná doba výpočtu KoZ je 620~ms.
 \script{banchmark-koz-cpu.m}{Matlab}
 
 \n{2}{Výsledky testování}
@@ -439,13 +438,13 @@ Byly realizovány tři testovací scénáře.
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {Výpočet čistě na CPU s maximálním využitím produkčního HW.}
-	\item {Výpočet na CPU s využitím GPU pro paralelizaci vybraných procesů.}
-	\item {Výpočet čistě na CPU na PC farmě.}
+	\item {Výpočet čistě na~CPU s~maximálním využitím produkčního HW.}
+	\item {Výpočet na CPU~s využitím GPU pro~paralelizaci vybraných procesů.}
+	\item {Výpočet čistě na~CPU na~PC farmě.}
 \end{itemize}
 
-\n{3}{Výpočet koeficientů na CPU}
-Výpočet na CPU byl spuštěn v pěti vláknech. Po spuštění probíhal výpočet velmi slibně. Bohužel při delším testu se výpočet začal značně propadat. Později se ukázalo, že hlavním důvodem je odložené uvolňování RAM. Jinými slovy dokud byla další volná RAM, výpočet jel velmi rychle. S potřebou uvolnit RAM se výpočet řádově snížil.
+\n{3}{Výpočet koeficientů na~CPU}
+Výpočet na~CPU byl spuštěn v~pěti vláknech. Po~spuštění probíhal výpočet velmi slibně. Bohužel při~delším testu se výpočet začal značně propadat. Později se ukázalo, že hlavním důvodem je odložené uvolňování RAM. Jinými slovy dokud byla další volná RAM, výpočet jel velmi rychle. S~potřebou uvolnit RAM se výpočet řádově snížil.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
@@ -468,17 +467,17 @@ Výpočet na CPU byl spuštěn v pěti vláknech. Po spuštění probíhal výpo
 			\item {počet opakování testu: 10}
 			\item {průměrně za sekundu: 31 výpočtů obou koeficientů}
 		\end{itemize}
-	\item {Propad o 85\%}
+	\item {Propad o~85~\%}
 \end{itemize}
 
-Na obrázku níže (Obr.~\ref{fig:one-similarity-thread}) je výstup z profilování výpočtu na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a doby jednotlivých částí zprůměrovány.
+Na~obrázku níže (Obr.~\ref{fig:one-similarity-thread}) je výstup z profilování výpočtu na~CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V~rámci profilování bylo zpracováno deset tisíc iterací a~doby jednotlivých částí zprůměrovány.
 \obr{Vizualizace procesu výpočtu koeficientů na CPU}{fig:one-similarity-thread}{1.0}{graphics/one-similarity-thread.png}
 
-Celková zátěž alokovaného HW byla oproti očekávání výrazně nižší. Nepodařilo se efektivně využít CPU, které dosahovalo průměrné zátěže 30\%. Hlavní problém je realokace operační paměti. Jednotlivé procesy pak čekají na přidělení operační paměti. Úvodní myšlenka využít hrubou sílu produkčního HW se ukázala jako nevyhovující.
+Celková zátěž alokovaného HW byla oproti očekávání výrazně nižší. Nepodařilo se efektivně využít CPU, které dosahovalo průměrné zátěže 30~\%. Hlavní problém je realokace operační paměti. Jednotlivé procesy pak čekají na~přidělení operační paměti. Úvodní myšlenka využít hrubou sílu produkčního HW se ukázala jako nevyhovující.
 
-\n{3}{Výpočet koeficientů na CPU s paralelizací na GPU}
-Výpočet byl spuštěn v jednom vlákně na CPU. Vhodné operace pro GPU jsou delegovány pro paralelní zpracování.
-Nejprve byl na GPU paralelizován pouze úvodní scaling obrázků, což nemělo přijatelný dopad na výsledky. Následně byly paralelizovány na GPU také prováděné transformace obrázků. Právě tento krok měl zásadní vliv na zrychlení celé operace.
+\n{3}{Výpočet koeficientů na~CPU s~paralelizací na~GPU}
+Výpočet byl spuštěn v~jednom vlákně na~CPU. Vhodné operace pro~GPU jsou delegovány pro~paralelní zpracování.
+Nejprve byl na~GPU paralelizován pouze úvodní scaling obrázků, což nemělo přijatelný dopad na~výsledky. Následně byly paralelizovány na~GPU také prováděné transformace obrázků. Právě tento krok měl zásadní vliv na~zrychlení celé operace.
 Je opět patrný mírný propad krátkodobého testu oproti dlouhodobému.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -502,17 +501,17 @@ Je opět patrný mírný propad krátkodobého testu oproti dlouhodobému.
 			\item {počet opakování testu: 10}
 			\item {průměrně za sekundu: 559 výpočtů obou koeficientů}
 		\end{itemize}
-	\item {Propad o 10\%}
+	\item {Propad o 10~\%}
 \end{itemize}
 
-Na obrázku níže (Obr.~\ref{fig:one-similarity-thread-with-gpu-paralelization}) je výstup z~profilování výpočtu na CPU s~využitím GPU pro paralelizaci dlouhotrvajících operací na CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V rámci profilování bylo zpracováno deset tisíc iterací a~doby jednotlivých částí zprůměrovány.
+Na~obrázku níže (Obr.~\ref{fig:one-similarity-thread-with-gpu-paralelization}) je výstup z~profilování výpočtu na~CPU s~využitím GPU pro~paralelizaci dlouhotrvajících operací na~CPU. Obsahuje poměrově zvýrazněné dlouho trvající operace vůči zbytku procesu. V~rámci profilování bylo zpracováno deset tisíc iterací a~doby jednotlivých částí zprůměrovány.
 \obr {Vizualizace procesu výpočtu koeficientů na CPU s paralelizací na GPU}{fig:one-similarity-thread-with-gpu-paralelization}{1.0}{graphics/one-similarity-thread-with-gpu-paralelization.png}
 
-Zátěž na CPU dosahuje v průměru 5\%. Naopak GPU dosahuje zátěže cca 75\%. Otázkou zůstává, jak dlouho je schopná GPU pracovat pod tímto permanentním zatížením.
+Zátěž na~CPU dosahuje v~průměru 5~\%. Naopak GPU dosahuje zátěže cca 75~\%. Otázkou zůstává, jak dlouho je schopná GPU pracovat pod~tímto permanentním zatížením.
 
-\n{3}{Výpočet koeficientů na PC farmě}
-Výpočet byl spuštěn v jednom pracovním vlákně s omezenou možností alokace RAM na 1GB. Jedná se v podstatě o alternativu výpočtu obou koeficientů čistě na CPU. Tomu odpovídal i celkový průběh zpracování, který byl téměř stejný, pouze s nižší dotací vypočítaných dvojic koeficientů.
-Lze tedy přejít rovnou na výsledky, jelikož samotné zpracování nic nového nepřineslo.
+\n{3}{Výpočet koeficientů na~PC farmě}
+Výpočet byl spuštěn v~jednom pracovním vlákně s~omezenou možností alokace RAM na~1~GB. Jedná se v~podstatě o~alternativu výpočtu obou koeficientů čistě na~CPU. Tomu odpovídal i~celkový průběh zpracování, který byl téměř stejný, pouze s~nižší dotací vypočítaných dvojic koeficientů.
+Lze tedy přejít rovnou na~výsledky, jelikož samotné zpracování nic nového nepřineslo.
 
 \begin{itemize}
 	\setlength{\parskip}{0pt}
@@ -536,10 +535,10 @@ Lze tedy přejít rovnou na výsledky, jelikož samotné zpracování nic novéh
 		\item {počet opakování testu: 10}
 		\item {průměrně za sekundu: 6 výpočtů obou koeficientů}
 	\end{itemize}
-	\item {Propad o 40\%}
+	\item {Propad o 40~\%}
 \end{itemize}
 
-Zátěž na CPU je konstantní. Jedno jádro ze dvou jede permanentně na 100\%. Celková zátěž CPU tedy 50\%. Vzhledem k tomu, že stoj již netrpěl na realokaci paměti, je v případě PC úzkým hrdlem opravdu CPU. Ostatní sledované metriky (vytížení HDD, síťový provoz, pracovní teplota) se příliš nevychýlily z normálu.
+Zátěž na~CPU je konstantní. Jedno jádro ze~dvou jede permanentně na 100~\%. Celková zátěž CPU tedy 50~\%. Vzhledem k~tomu, že stoj již netrpěl na~realokaci paměti, je v~případě PC úzkým hrdlem opravdu CPU. Ostatní sledované metriky (vytížení HDD, síťový provoz, pracovní teplota) se příliš nevychýlily z~normálu.
 
 % ============================================================================ %
 \cast{Projektová část}
@@ -552,10 +551,10 @@ Zátěž na CPU je konstantní. Jedno jádro ze dvou jede permanentně na 100\%.
 
 \n{2}{HW Architektura}
 
-\n{3}{Pohled na aktuální HW mapu}
+\n{3}{Pohled na~aktuální HW mapu}
 \obr {L1 pohled aktuálního stavu}{fig:L1-now}{0.8}{graphics/yed/hw-architecture-now.eps}
 
-\n{3}{Pohled na plánovanou HW mapu}
+\n{3}{Pohled na~plánovanou HW mapu}
 \obr {L1 pohled cílového stavu}{fig:L1-tobe}{0.8}{graphics/yed/hw-architecture-tobe.eps}
 
 
@@ -584,22 +583,22 @@ Klasifikaci případů použití znázorňuje obrázek (Obr. \ref{fig:use-case})
 \n{2}{Modely}
 
 \n{3}{Model tříd}
-Identifikované datové modely jsou znázorněny pomocí modelu třídy na obrázku níže (Obr. \ref{fig:class-model})
+Identifikované datové modely jsou znázorněny pomocí modelu třídy na~obrázku níže (Obr. \ref{fig:class-model})
 \obr {Model tříd}{fig:class-model}{1.0}{graphics/ea/class-model.png}
 
 \n{3}{Model služeb}
-Identifikované backendové služby jsou znázorněny na obrázku níže (Obr. \ref{fig:bean-model})
+Identifikované backendové služby jsou znázorněny na~obrázku níže (Obr. \ref{fig:bean-model})
 \obr {Model služeb}{fig:bean-model}{1.0}{graphics/ea/bean-model.png}
 
 
 \n{2}{Sekvenční diagram distribuované služby}
-Na obrázku níže (Obr. \ref{fig:sq-similarity-worker}) je znázorněn sekvenční diagram přibližující odbavení výpočtu KoP.
+Na~obrázku níže (Obr. \ref{fig:sq-similarity-worker}) je znázorněn sekvenční diagram přibližující odbavení výpočtu KoP.
 \obr {Sekvenční diagram}{fig:sq-similarity-worker}{1.0}{graphics/ea/sq-similarity-worker.png}
 
 
 
 \n{1}{Serverová strana distribuované služby}
-Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{java-se} a~Springu~\cite{spring}. Pro komunikaci využívá SOAP~API. Data ukládá do relační databáze (PostrgreSQL~\cite{postresql}). Tato serverová strana bude modifikována. Nově zde bude
+Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{java-se} a~Springu~\cite{spring}. Pro komunikaci využívá SOAP~API. Data ukládá do~relační databáze (PostrgreSQL~\cite{postresql}). Tato serverová strana bude modifikována. Nově zde bude
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
@@ -612,15 +611,15 @@ Současná serverová strana je webová aplikace postavená na~JavaSE~7~\cite{ja
 
 
 \n{2}{Databelizace fotografií}
-Do~původního řešení byla zavedena kontrola existence totožné fotografie na~základě MD5. Hodnota MD5 je ukládána do~DB. Nad~tímto sloupcem je aplikován unikátní index. Dále se nově při importu fotografie ukládají její vybraná metadata. Ta později lze s~výhodou použít na~určení KoZ přímo v~SQL dotazu. Jedná se o:
+Do~původního řešení byla zavedena kontrola existence totožné fotografie na~základě MD5. Hodnota MD5 je ukládána do~DB. Nad~tímto sloupcem je aplikován unikátní index. Dále se nově při~importu fotografie ukládají její vybraná metadata. Ta později lze s~výhodou použít na~určení KoZ přímo v~SQL dotazu. Jedná se o:
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt}
 	\setstretch{1.05}
-	\item {výšku a šířku v px,}
+	\item {výšku a šířku v~px,}
 	\item {poměrný počet hran (přeostřenost)}
 \end{itemize}
-Výsledek po dokončení importu fotografií je patrný na obrázku níže (Obr.~\ref{fig:hotel-photo}).
+Výsledek po~dokončení importu fotografií je patrný na~obrázku níže (Obr.~\ref{fig:hotel-photo}).
 \obr{Náhled administrace uložených fotografií}{fig:hotel-photo}{1.0}{graphics/hotel-photo.png}
 
 \n{3}{Výpočet poměrného počtu hran}
@@ -628,7 +627,7 @@ Jedná se o~matematickou operaci založenou na~kovoluci, DFT a IFT. Základní t
 \script{SharpnessCore.java}{Java}
 
 \n{4}{Světlostní matice}
-vznikne převodem fotografie (Obr.~\ref{fig:sharpness-original}) do dvourozměrného pole (Kod.~\ref{BrightnessMatrix.java}).
+vznikne převodem fotografie (Obr.~\ref{fig:sharpness-original}) do~dvourozměrného pole (Kod.~\ref{BrightnessMatrix.java}).
 \script{BrightnessMatrix.java}{Java}
 
 \n{4}{Matice ostrosti}
@@ -705,7 +704,7 @@ prezentují obrázky níže. Z~původní fotografie (Obr.~\ref{fig:sharpness-ori
 \end{figure}
 
 \n{2}{Fronta nezpracovaných obrázků}
-Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotazu (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do DB v reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
+Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotazu (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do~DB v~reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
 \script{queue.sql}{sql}
 
 
@@ -723,7 +722,7 @@ Kompletní komunikační rozhraní ve~formátu WSDL~\cite{wsdl} je k~dispozici n
 \n{3}{Autentizace}
 Aby bylo možné konzumovat vystavené webové služby, je nejprve nutné provést autentizaci. K~těmto účelům je použita technika CRAM~\cite{challenge-response} (někdy také jako challenge--response).
 \n{4}{attach}
-je metoda (Obr.~\ref{fig:api-attach}), která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave). Jedná se nezabezpečenou metodu (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na straně serveru.
+je metoda (Obr.~\ref{fig:api-attach}), která slouží k~navázání vyhrazeného komunikačního kanálu (relace nebo také session~\cite{session}) mezi serverem a~strojem pro~odbavování distribuovaných požadavků (dále jen slave). Jedná se nezabezpečenou metodu (nevyžaduje autentizaci). Slouží pouze k~zaregistrování slave\_id (jedinečný identifikátor slave) na~straně serveru.
 
 \obr{Detail metody attach}{fig:api-attach}{1.0}{graphics/soap/attach.png}
 
@@ -737,7 +736,7 @@ je metoda, kterou slave žádá server o~vytvoření zabezpečeného komunikačn
 \obr{Detail metody challengeLogin}{fig:api-challengeLogin}{1.0}{graphics/soap/challenge-login.png}
 
 \n{3}{Distribuce požadavků na výpočet KoP}
-Autentizovaný slave může zažádat o~metadata k~výpočtu KoP. Pokud jsou ve~frontě na~výpočet KoP zařazeny nějaké požadavky, jsou vráceny. Jakmile je slave vyhodnotí, odesílá výsledek zpět na server.
+Autentizovaný slave může zažádat o~metadata k~výpočtu KoP. Pokud jsou ve~frontě na~výpočet KoP zařazeny nějaké požadavky, jsou vráceny. Jakmile je slave vyhodnotí, odesílá výsledek zpět na~server.
 
 \n{4}{getDataToCompare}
 je metoda určená pro~distribuci výpočtu (metadat k výpočtu) KoP (Obr.~\ref{fig:api-getDataToCompare}).
@@ -753,19 +752,19 @@ je metoda určená pro~odeslání výsledku distribuovaného výpočtu KoP zpět
 
 \n{1}{Klientská strana distribuované služby}
 
-Výsledná komponenta pro výpočet KoP je JAR~\cite{jar} knihovna optimalizovaná pro~běh na~kancelářském PC. Přesto, že její spuštění je plánováno v~čase, kdy~je stroj nevyužívaný uživatelem, je možné pohodlně využívat PC i~v~době, kdy je komponenta aktivní.
+Výsledná komponenta pro~výpočet KoP je JAR~\cite{jar} knihovna optimalizovaná pro~běh na~kancelářském PC. Přesto, že její spuštění je plánováno v~čase, kdy~je stroj nevyužívaný uživatelem, je možné pohodlně využívat PC i~v~době, kdy je komponenta aktivní.
 
 Není k~dispozici žádné GUI~\cite{gui}. Knihovna si po~startu vytvoří v~domovském adresáři uživatele pracovní adresář. V~něm se nachází veškerá data i~konfigurace, která jsou s~komponentou svázána. Je zde potřeba nastavit zejména adresa serveru cílové služby, uživatelské jméno a~heslo pro~komunikaci aj.
 
 Po~navázání spojení s~cílovým serverem běží v~nekonečné smyčce kontrola nezpracovaných požadavků na~výpočet KoP a~jejich případně odbavení. Pokud dojde k~výpadku odezvy cílového serveru, zkouší se knihovna opakovaně připojit v~pravidelných intervalech po~dobu 15~minut.
 
 \n{2}{Distribuovaný výpočet KoP}
-V~případě úspěšného stažení metadat požadavku na~výpočet KoP a~násleného fyzického stažení samotných fotografií, je zahájen výpočet KoP.
+V~případě úspěšného stažení metadat požadavku na~výpočet KoP a~následného fyzického stažení samotných fotografií, je zahájen výpočet KoP.
 
-\n{4}{Úprava velikosti fotografie} se provádí poměrným zvětšením~/~zmenšením na~referenční velikost (Kod.~\ref{scale.java}) podle delší strany vzorové fotografie (při~zachování poměru stran). Pokud referenční obrázek poměrem stran neodpovídá vzorovému, je doplněn nulami. Algoritmus použitý pro scaling~\cite{scaling} je na~bázi interpolace blízkého okolí (Nearest-neighbor interpolation~\cite{nearest-neighbor-interpolation}) a~to zejména díky rychlosti provedení.
+\n{4}{Úprava velikosti fotografie} se provádí poměrným zvětšením~/~zmenšením na~referenční velikost (Kod.~\ref{scale.java}) podle delší strany vzorové fotografie (při~zachování poměru stran). Pokud referenční obrázek poměrem stran neodpovídá vzorovému, je doplněn nulami. Algoritmus použitý pro~scaling~\cite{scaling} je na~bázi interpolace blízkého okolí (Nearest-neighbor interpolation~\cite{nearest-neighbor-interpolation}) a~to zejména díky rychlosti provedení.
 \script{scale.java}{Java}
 
-\n{4}{Světlostní matice} se tvoří stejně jako u~výpočtu KoZ. Jediný rozdíl je v~tom, že~nyní se převádí do~světlostní matice zmenšený obrázek (nikoliv originál v~plné velikosti). Může tedy dojít k~lehké modifikaci světlostní matice na~základě zvoleného algoritmu pro scaling~\cite{scaling} obrázku.
+\n{4}{Světlostní matice} se tvoří stejně jako u~výpočtu KoZ. Jediný rozdíl je v~tom, že~nyní se převádí do~světlostní matice zmenšený obrázek (nikoliv originál v~plné velikosti). Může tedy dojít k~lehké modifikaci světlostní matice na~základě zvoleného algoritmu pro~scaling~\cite{scaling} obrázku.
 
 \n{4}{Normalizace} světlostní matice převedené pomocí DFT do~vlnového spektra připraví matici vzorového i~referenčního obrázku na~křížovou korelaci (Kod.~\ref{NormalizedFTMatrix.java}). Podělí reálnou i~imaginární část absolutní hodnotou komplexního čísla.
 \script{NormalizedFTMatrix.java}{Java}
@@ -780,7 +779,7 @@ udává největší číselná hodnota ve~výsledné matici křížové korelace
 
 % ============================================================================ %
 \nn{Závěr}
-Zadání práce bylo splněno ve~všech bodech. Výsledný produkt byl spuštěn v~produkčním provozu. Možným námětem na~rozšíření je podpora CMYK~\cite{cmyk} formátu barev. Aplikované algoritmy jsou optimalizované na zpracování RGB formátu barev.
+Zadání práce bylo splněno ve~všech bodech. Výsledný produkt byl spuštěn v~produkčním provozu. Možným námětem na~rozšíření je podpora CMYK~\cite{cmyk} formátu barev. Aplikované algoritmy jsou optimalizované na~zpracování RGB formátu barev.
 
 Během realizace byl identifikován možný bod rozšíření algoritmu na~výpočet KoP. Jak se ukázalo, některé fotografie jsou vůči sobě pootočené v~prostoru. V~úvodu práce je této problematice věnován odstavec v~teoretické části. Lidské oko vyhodnotí tyto fotografie jako duplicitní. Použité algoritmy tuto problematiku neřeší.
 
@@ -788,7 +787,7 @@ Níže jsou výsledky testovacího vzorku (35 fotografií vybraného hotelu). Na
 
 \extab{Výsledky porovnání KoP 35 hotelových fotografií}{tab:kop-result}{1.0}{graphics/kop/result.png}
 
-Všechny fotografie (referenční vzorky) jsou dostupné na~přiloženém CD. Náhledy vzájemně podobných fotografií dle tabulky výše (první nalezená skupina, fotografie 1--8 viz Tab.~\ref{tab:kop-result}) jsou k dispozici níže (Obr.~\ref{fig:img01}, Obr.~\ref{fig:img02}, Obr.~\ref{fig:img03}, Obr.~\ref{fig:img04}, Obr.~\ref{fig:img05}, Obr.~\ref{fig:img06}, Obr.~\ref{fig:img07}, Obr.~\ref{fig:img08}).
+Všechny fotografie (referenční vzorky) jsou dostupné na~přiloženém CD. Náhledy vzájemně podobných fotografií dle tabulky výše (první nalezená skupina, fotografie 1--8 viz Tab.~\ref{tab:kop-result}) jsou k~dispozici níže (Obr.~\ref{fig:img01}, Obr.~\ref{fig:img02}, Obr.~\ref{fig:img03}, Obr.~\ref{fig:img04}, Obr.~\ref{fig:img05}, Obr.~\ref{fig:img06}, Obr.~\ref{fig:img07}, Obr.~\ref{fig:img08}).
 
 \begin{figure}[!htb]
 	\minipage{0.32\textwidth}
@@ -831,7 +830,7 @@ Všechny fotografie (referenční vzorky) jsou dostupné na~přiloženém CD. N�
 
 Pro~první nalezenou skupinu obsahově duplicitních fotografií byl porovnán koeficient zastupitelnosti KoZ (Tab.~\ref{tab:koz-result}) a~vybrána referenční fotografie (Obr.~\ref{fig:best-photo}) nadále zastupující tuto skupinu. Pro~srovnání je přiložena také fotografie s~nejhorším koeficientem zastupitelnosti ve~skupině (Obr.~\ref{fig:worst-photo}).
 
-\tab {Výsledky porovnání KoZ na 8 podobncýh fotografiích dle KoP} {tab:koz-result} {1.0}
+\tab {Výsledky porovnání KoZ na~8 podobncýh fotografiích dle KoP} {tab:koz-result} {1.0}
 {|r|r|r|r|}
 {\hline
 							&	Sharpens	&	OverSharpness	&	KoZ				\\	\hline
