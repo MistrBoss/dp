@@ -634,6 +634,8 @@ vznikne převodem fotografie (Obr.~\ref{fig:sharpness-original}) do dvourozměrn
 \n{4}{Matice ostrosti}
 je matice hran, která se získá převodem světlostní matice do~vlnového spektra pomocí DFT a~následnou konvolucí ve~vlnovém spektru (Kod.~\ref{FTHighKernelMatrix.java}). Grafická prezentace této operace je na~obrázku níže (Obr.~\ref{fig:sharpness-matrix}). K~docílení požadovaného stavu je nutné zvolit vhodný filtr (Tab.~\ref{tab:convolution-high}, (Kod.~\ref{FTHighKernelMatrix.java}). Samotné sestavení matice ostrosti ve~vlnovém spektru znázorňuje přiložený kód níže (Kod.~\ref{ConvolutionMatrix.java}).
 
+
+
 \script{FTHighKernelMatrix.java}{Java}
 
 \tab {Jádro typu horní propusť} {tab:convolution-high} {1.0}
@@ -651,6 +653,8 @@ je matice hran, která se získá převodem světlostní matice do~vlnového spe
 \n{4}{Matice přeostřenosti}
 je matice hran za~prahovou hodnotou ostrosti (přeostřených hran). Vzniká konvolucí (Kod.~\ref{ConvolutionMatrix.java}) matice ostrosti s~použití jádra typu dolní propusť (Tab.~\ref{tab:convolution-low}, Kod.~\ref{FTLowKernelMatrix.java}). Jádro bylo sestaveno experimentálně v~mnoha iteracích a~jeho funkčnost byla ověřena testováním na~lidech, stejně jako aplikovaná prahová hodnota míry ostrosti.
 
+
+
 \script{FTLowKernelMatrix.java}{Java}
 
 \tab {Jádro typu dolní propusť} {tab:convolution-low} {1.0}
@@ -663,16 +667,42 @@ je matice hran za~prahovou hodnotou ostrosti (přeostřených hran). Vzniká kon
 	1/8 & 1/8 & 1/8 \\
 	\hline}
 
+
+
+
+
 \n{4}{Poměrný počet hran}
 je podíl sumy hran a~sumy přeostřených hran. Suma hran je dána součtem jednotlivých prvků matice ostrosti po~převodu zpět z~vlnového spektra pomocí IFT (Kod.~\ref{sumSharpness.java}). Suma přeostřených hran vzniká podobně (Kod.~\ref{sumOverSharpness.java}). Jediný rozdíl je zohlednění prahového hodnoty ostrosti (respektive přeostřenosti).
+
+
 
 \script{sumSharpness.java}{Java}
 
 \script{sumOverSharpness.java}{Java}
 
-\n{4}{Příklad přeostřenosti fotografie}
-prezentují obrázky níže. Z~původní fotografie (Obr.~\ref{fig:sharpness-original}) je po~oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), ode~všech hran (Obr.~\ref{fig:sharpness-matrix}), stanoven jejich poměrný koeficient.
 
+
+\n{4}{Příklad přeostřenosti fotografie}
+prezentují obrázky níže. Z~původní fotografie (Obr.~\ref{fig:sharpness-original}) je po~oddělení přeostřených hran (Obr.~\ref{fig:oversharpness-matrix}), ode~všech hran 
+(Obr.~\ref{fig:sharpness-matrix}), stanoven jejich poměrný koeficient.
+
+\begin{figure}[!htb]
+	\minipage{1.0\textwidth}
+	\includegraphics[width=\linewidth]{attachements/sharpness-original.png}
+	\caption{Fotografie před úpravou}\label{fig:sharpness-original}
+	\endminipage\hfill
+	\minipage{1.0\textwidth}
+	\includegraphics[width=\linewidth]{attachements/oversharpness-matrix.png}
+	\caption{Vizualizace matice přeostřených hran}\label{fig:oversharpness-matrix}
+	\endminipage\hfill
+\end{figure}
+
+\begin{figure}[!htb]
+	\minipage{1.0\textwidth}%
+	\includegraphics[width=\linewidth]{attachements/sharpness-matrix.png}
+	\caption{Vizualizace matice hran}\label{fig:sharpness-matrix}
+	\endminipage\hfill
+\end{figure}
 
 \n{2}{Fronta nezpracovaných obrázků}
 Obrázky, které čekají na~výpočet KoP, lze vyčíst z~DB pomocí SQL dotazu (Kod.~\ref{queue.sql}). Priorita nezpracovaných obrázků je dána počtem zhlédnutí webové stránky hotelu. Dávka $ 10.000 $ požadavků na~výpočet KoP, která je jednorázově načtena z~DB, vystačí přibližně na~10~sekund (v~závislosti na~počtu aktivních slave). Počty shlédnutí jednotlivých hotelů se propisují do DB v reálném čase. Každá nově načtená dávka tudíž zohlední prioritu KoP.
